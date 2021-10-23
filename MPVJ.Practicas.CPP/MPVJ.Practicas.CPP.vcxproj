@@ -142,6 +142,7 @@
     <ClCompile Include="lib\bit_magic\bit_magic.cpp" />
     <ClCompile Include="lib\console\console.cpp" />
     <ClCompile Include="lib\entity\entity.cpp" />
+    <ClCompile Include="lib\file_magic\file_magic.cpp" />
     <ClCompile Include="lib\player\player.cpp" />
     <ClCompile Include="lib\point\point.cpp" />
     <ClCompile Include="main.cpp" />
@@ -150,8 +151,10 @@
     <ClInclude Include="lib\bit_magic\bit_magic.h" />
     <ClInclude Include="lib\console\console.h" />
     <ClInclude Include="lib\entity\entity.h" />
+    <ClInclude Include="lib\file_magic\file_magic.h" />
     <ClInclude Include="lib\player\player.h" />
     <ClInclude Include="lib\point\point.h" />
+    <ClInclude Include="practica_05.h" />
     <ClInclude Include="practica_04.h" />
     <ClInclude Include="practica_03.h" />
     <ClInclude Include="practica_02.h" />
