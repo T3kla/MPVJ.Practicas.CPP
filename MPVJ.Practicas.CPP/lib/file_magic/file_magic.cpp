@@ -24,7 +24,7 @@ void *open(const char *filename, const OpenMode &mode)
 unsigned int close(void **file)
 {
     auto ptr = (std::fstream *)*file;
-    ptr->close(); //
+    ptr->close();
     delete (ptr);
     *file = nullptr; // <- probablemente peligroso
     return 69;

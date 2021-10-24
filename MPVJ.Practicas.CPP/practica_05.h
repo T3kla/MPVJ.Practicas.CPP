@@ -4,12 +4,11 @@
 
 void run_practica_05()
 {
-
-    std::string file_name = "lmao.txt";
+    auto file_name = "lorem_01.txt";
     char buffer[512];
 
-    std::cout << "> Opening file as Read!" << std::endl;
-    void *file = fm::open(file_name.c_str(), fm::OpenMode::Read);
+    std::cout << "> Opening 'lorem_01.txt' as Read!" << std::endl;
+    void *file = fm::open(file_name, fm::OpenMode::Read);
     void **f_wrap = &file;
 
     unsigned int count = 0;
@@ -18,7 +17,7 @@ void run_practica_05()
 
     std::cout << "Reading 50 chars: " << std::endl;
     count = fm::read(file, buffer, 50);
-    std::cout << "    Actually read: " << count << std::endl << "    " << buffer << std::endl;
+    std::cout << "    Actual read: " << count << std::endl << "    " << buffer << std::endl;
 
     // Simpre sale 1 menos en el counted porque rellena
     // el último caracter con '\0' y el strlen no lo cuenta.
@@ -36,18 +35,18 @@ void run_practica_05()
 
     std::cout << "Reading 100 chars: " << std::endl;
     count = fm::read(file, buffer, 100);
-    std::cout << "    Actually read: " << count << std::endl << "    " << buffer << std::endl;
+    std::cout << "    Actual read: " << count << std::endl << "    " << buffer << std::endl;
 
     std::cout << std::endl;
 
-    std::cout << "> Opening file as Read!" << std::endl;
-    file = fm::open(file_name.c_str(), fm::OpenMode::Read);
+    std::cout << "> Opening 'lorem_01.txt' as Read!" << std::endl;
+    file = fm::open(file_name, fm::OpenMode::Read);
 
     std::cout << std::endl;
 
     std::cout << "Reading 256 chars: " << std::endl;
     count = fm::read(file, buffer, 256);
-    std::cout << "    Actually read: " << count << std::endl << "    " << buffer << std::endl;
+    std::cout << "    Actual read: " << count << std::endl << "    " << buffer << std::endl;
 
     std::cout << std::endl;
 
@@ -56,8 +55,8 @@ void run_practica_05()
 
     std::cout << std::endl;
 
-    std::cout << "> Opening file as Write!" << std::endl;
-    file = fm::open(file_name.c_str(), fm::OpenMode::Write);
+    std::cout << "> Opening 'lorem_01.txt' as Write!" << std::endl;
+    file = fm::open(file_name, fm::OpenMode::Write);
 
     std::cout << std::endl;
 

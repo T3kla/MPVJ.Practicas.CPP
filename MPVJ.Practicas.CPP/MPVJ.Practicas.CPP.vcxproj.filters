@@ -74,5 +74,8 @@
     <ClInclude Include="lib\file_magic\file_magic.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="practica_06.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

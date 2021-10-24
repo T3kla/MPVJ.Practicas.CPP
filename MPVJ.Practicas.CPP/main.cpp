@@ -8,8 +8,9 @@
 int main()
 {
     // run_practica_01(); // OK
-    // run_practica_02(); // Link errors in run_practica_02() about bm::to_bytes
+    // run_practica_02(); // OK
     // run_practica_03(); // OK
     // run_practica_04(); // MUY OK
-    run_practica_05(); // WIP
+    // run_practica_05(); // OK
+    // run_practica_06(); // OK
 }

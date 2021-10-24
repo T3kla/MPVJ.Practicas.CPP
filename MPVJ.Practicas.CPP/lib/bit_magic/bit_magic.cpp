@@ -24,20 +24,6 @@ void clear(int &target, const span &span)
     target &= ~(get_unshifted(target, span));
 }
 
-template <typename T> std::vector<unsigned char> to_bytes(const T &value)
-{
-    int size = sizeof(value);
-    std::vector<unsigned char> vec(size, 0);
-
-    void *p_val = const_cast<T *>(&value);
-    unsigned char *p_char = static_cast<unsigned char *>(p_val);
-
-    for (size_t i = 0; i < size; i++)
-        vec[i] = *p_char++;
-
-    return vec;
-}
-
 void print_asChar(const std::vector<unsigned char> &value)
 {
     std::cout << "Printing " << value.size() << " bytes as: char" << std::endl;

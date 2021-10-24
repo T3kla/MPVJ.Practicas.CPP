@@ -160,6 +160,7 @@
     <ClInclude Include="practica_02.h" />
     <ClInclude Include="lib\str_inverter\string_inverter.h" />
     <ClInclude Include="practica_01.h" />
+    <ClInclude Include="practica_06.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
