@@ -13,26 +13,23 @@ unsigned int word_count_appearaces(const char *buffer, const char *word)
     long diff = strlen(buffer) - word_size;
 
     if (diff < 1)
-        return -1;
-
-    char *a = const_cast<char *>(buffer);
-    char *b = const_cast<char *>(buffer) + word_size - 1;
+        return 0;
 
     unsigned int count = 0;
+    char *it = const_cast<char *>(buffer);
 
     for (size_t i = 0; i < diff; i++)
     {
-        if (*a == *word && *b == *(word + word_size - 1))
+        if (*it == *word && *(it + word_size - 1) == *(word + word_size - 1))
             for (unsigned int j = 1; j < word_size - 1; j++)
             {
-                if (*(a + j) != *(word + j))
+                if (*(it + j) != *(word + j))
                     break;
                 else if (j == word_size - 2)
                     count++;
             }
 
-        a++;
-        b++;
+        it++;
     }
 
     return count;

@@ -3,6 +3,7 @@
 #include "practica_03.h"
 #include "practica_04.h"
 #include "practica_05.h"
+#include "practica_06.h"
 #include <iostream>
 
 int main()
