@@ -43,7 +43,7 @@ unsigned int read(const void *file, char *buffer, unsigned int n)
     if (ptr->is_open())
     {
         std::streamsize st(n);
-        ptr->get(buffer, st, '\0');
+        ptr->get(buffer, n, '\0');
         return (unsigned int)strlen(buffer);
     }
 

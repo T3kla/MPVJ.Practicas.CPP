@@ -36,6 +36,9 @@
     <ClCompile Include="lib\file_magic\file_magic.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="lib\txt_file\txt_file.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="lib\bit_magic\bit_magic.h">
@@ -75,6 +78,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="practica_06.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="practica_08.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\txt_file\txt_file.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

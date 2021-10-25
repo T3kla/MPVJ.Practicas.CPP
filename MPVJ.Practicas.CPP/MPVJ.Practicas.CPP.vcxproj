@@ -145,6 +145,7 @@
     <ClCompile Include="lib\file_magic\file_magic.cpp" />
     <ClCompile Include="lib\player\player.cpp" />
     <ClCompile Include="lib\point\point.cpp" />
+    <ClCompile Include="lib\txt_file\txt_file.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -154,6 +155,8 @@
     <ClInclude Include="lib\file_magic\file_magic.h" />
     <ClInclude Include="lib\player\player.h" />
     <ClInclude Include="lib\point\point.h" />
+    <ClInclude Include="lib\txt_file\txt_file.h" />
+    <ClInclude Include="practica_08.h" />
     <ClInclude Include="practica_05.h" />
     <ClInclude Include="practica_04.h" />
     <ClInclude Include="practica_03.h" />
