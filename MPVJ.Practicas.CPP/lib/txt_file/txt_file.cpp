@@ -94,7 +94,7 @@ unsigned long long tf::txt_file::read(const unsigned long long &_index, const un
         return 0;
     }
 
-    m_buffer.seekg(0, _index);
+    m_buffer.seekg(0, (std::ios_base::seekdir)_index);
     m_buffer.get(buffer_, _length + 1, '\0');
     m_buffer.seekg(0, std::ios::beg);
 

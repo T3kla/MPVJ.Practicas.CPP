@@ -77,7 +77,7 @@ point_i::point_i(const int &x, const int &y) : x(x), y(y)
 }
 float point_i::magnitude() const
 {
-    return sqrt(x * x + y * y);
+    return sqrtf((float)(x * x) + (float)(y * y));
 }
 point point_i::normalized() const
 {
@@ -97,7 +97,7 @@ point_i point_i::operator*(const int &b) const
 }
 point point_i::operator/(const int &b) const
 {
-    return point(round(this->x / b), round(this->y / b));
+    return point(roundf((float)(this->x / b)), roundf((float)(this->y / b)));
 }
 point point_i::operator*(const float &b) const
 {
@@ -121,7 +121,7 @@ point3d_i::point3d_i(const int &x, const int &y, const int &z) : x(x), y(y), z(z
 }
 float point3d_i::magnitude() const
 {
-    return sqrt(x * x + y * y + z * z);
+    return sqrtf((float)(x * x) + (float)(y * y) + (float)(z * z));
 }
 point3d point3d_i::normalized() const
 {
@@ -141,15 +141,15 @@ point3d_i point3d_i::operator*(const int &b) const
 }
 point3d point3d_i::operator/(const int &b) const
 {
-    return point3d(round(this->x / b), round(this->y / b), round(this->z / b));
+    return point3d(roundf((float)(this->x / b)), roundf((float)(this->y / b)), roundf((float)(this->z / b)));
 }
 point3d point3d_i::operator*(const float &b) const
 {
-    return point3d(round(this->x * b), round(this->y * b), round(this->z * b));
+    return point3d(roundf(this->x * b), roundf(this->y * b), roundf(this->z * b));
 }
 point3d point3d_i::operator/(const float &b) const
 {
-    return point3d(round(this->x / b), round(this->y / b), round(this->z / b));
+    return point3d(roundf(this->x / b), roundf(this->y / b), roundf(this->z / b));
 }
 bool point3d_i::operator==(const point3d_i &b) const
 {

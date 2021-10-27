@@ -5,7 +5,7 @@ namespace clsw
 
 void gotoxy(int x, int y)
 {
-    COORD pos = {x, y};
+    COORD pos = {(short)x, (short)y};
     HANDLE output = GetStdHandle(STD_OUTPUT_HANDLE);
     SetConsoleCursorPosition(output, pos);
 }
