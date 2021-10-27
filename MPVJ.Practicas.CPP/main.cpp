@@ -5,6 +5,7 @@
 #include "practica_05.h"
 #include "practica_06.h"
 #include "practica_08.h"
+#include "practica_09.h"
 #include <iostream>
 
 int main()
@@ -12,9 +13,10 @@ int main()
     // run_practica_01(); // OK
     // run_practica_02(); // OK
     // run_practica_03(); // OK
-    // run_practica_04(); // MUY OK
+    // run_practica_04(); // OK
     // run_practica_05(); // OK
     // run_practica_06(); // OK
     // run_practica_07(); // NAMESPACES
-    run_practica_08(); // WIP
+    // run_practica_08(); // OK
+    run_practica_09(); // WIP
 }

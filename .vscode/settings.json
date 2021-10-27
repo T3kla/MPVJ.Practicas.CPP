@@ -1,0 +1,25 @@
+{
+    "files.associations": {
+        "*.uss": "css",
+        "*.uxml": "xml",
+        "*.clang-format": "yaml",
+        ".ruleset": "xml",
+        ".config": "xml",
+        "iosfwd": "cpp",
+        "istream": "cpp",
+        "iostream": "cpp",
+        "ostream": "cpp",
+        "fstream": "cpp",
+        "memory": "cpp",
+        "sstream": "cpp",
+        "streambuf": "cpp",
+        "system_error": "cpp",
+        "xstring": "cpp",
+        "bitset": "cpp",
+        "utility": "cpp",
+        "algorithm": "cpp",
+        "iterator": "cpp",
+        "xmemory": "cpp",
+        "xutility": "cpp"
+    }
+}

@@ -20,11 +20,11 @@ void run_practica_05()
     std::cout << "    Actual read: " << count << std::endl << "    " << buffer << std::endl;
 
     // Simpre sale 1 menos en el counted porque rellena
-    // el último caracter con '\0' y el strlen no lo cuenta.
+    // el ï¿½ltimo caracter con '\0' y el strlen no lo cuenta.
     //
-    // Que tiene sentido, porque si no estaría escribiendo 1
-    // caracter de más y si le digo buffer de 50 y me escribe
-    // 51 pues petaría supongo.
+    // Que tiene sentido, porque si no estarï¿½a escribiendo 1
+    // caracter de mï¿½s y si le digo buffer de 50 y me escribe
+    // 51 pues petarï¿½a supongo.
 
     std::cout << std::endl;
 
@@ -61,7 +61,7 @@ void run_practica_05()
     std::cout << std::endl;
 
     std::cout << "Writting 256 chars: " << std::endl;
-    fm::write(file, buffer, 256);
+    fm::write(file, buffer);
     std::cout << "    " << buffer << std::endl;
 
     std::cout << std::endl;

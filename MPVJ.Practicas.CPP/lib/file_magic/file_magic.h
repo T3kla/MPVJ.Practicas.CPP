@@ -14,8 +14,9 @@ enum class OpenMode
 };
 
 void *open(const char *filename, const OpenMode &mode);
-unsigned int close(void **file);
+void close(void **file);
+
 unsigned int read(const void *file, char *buffer, unsigned int n);
-unsigned int write(const void *file, const char *buffer, unsigned int n);
+const char *write(const void *file, const char *buffer);
 
 } // namespace fm

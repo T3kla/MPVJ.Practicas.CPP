@@ -15,23 +15,29 @@ class txt_file
     {
         None,
         Read,
-        Write
+        Write,
+        Clear
     };
 
     std::string m_fileName;
-    std::stringstream m_buffer;
-    std::fstream m_stream;
 
-    bool open(const OpenMode &mode);
-    void refresh();
-    void close();
-    unsigned long long length();
+    std::fstream m_stream;
+    std::stringstream m_buffer;
+
+    bool stream_open(const OpenMode &mode);
+    void stream_close();
+
+    void stream_to_buffer();
+    void buffer_to_stream();
+
+    unsigned long long stream_length();
+    unsigned long long buffer_length();
 
   public:
     txt_file(const char *filename);
 
+    std::string str();
     unsigned long long read(const unsigned long long &_index, const unsigned long long &_length, char *_buffer);
-
     unsigned long long write(const unsigned long long &_index, const char *_buffer);
 
     // void clear();

@@ -40,8 +40,8 @@ void run_practica_08()
 
     std::cout << std::endl;
 
-    std::cout << "Reading 10 chars from 'lorem_03.txt': " << std::endl;
+    std::cout << "Writting 10 chars from 'lorem_03.txt': " << std::endl;
     count = file_03.write(5, "lmao");
-    std::cout << "    Actual read: " << count << std::endl;
-    std::cout << "    " << buffer << std::endl;
+    std::cout << "    Actual written: " << count << std::endl;
+    std::cout << "    " << file_03.str() << std::endl;
 }

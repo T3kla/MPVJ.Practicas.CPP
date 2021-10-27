@@ -21,13 +21,12 @@ void *open(const char *filename, const OpenMode &mode)
     return nullptr;
 }
 
-unsigned int close(void **file)
+void close(void **file)
 {
     auto ptr = (std::fstream *)*file;
     ptr->close();
     delete (ptr);
     *file = nullptr; // <- probablemente peligroso
-    return 69;
 }
 
 unsigned int read(const void *file, char *buffer, unsigned int n)
@@ -51,12 +50,12 @@ unsigned int read(const void *file, char *buffer, unsigned int n)
     return (unsigned int)0;
 }
 
-unsigned int write(const void *file, const char *buffer, unsigned int n)
+const char *write(const void *file, const char *buffer)
 {
     if (!file)
     {
         std::cout << "    Unable to open file" << std::endl;
-        return (unsigned int)0;
+        return nullptr;
     }
 
     auto ptr = (std::fstream *)file;
@@ -64,11 +63,11 @@ unsigned int write(const void *file, const char *buffer, unsigned int n)
     if (ptr->is_open())
     {
         *ptr << buffer;
-        return (unsigned int)strlen(buffer);
+        return buffer;
     }
 
     std::cout << "    Unable to open file" << std::endl;
-    return (unsigned int)0;
+    return nullptr;
 }
 
 } // namespace fm
