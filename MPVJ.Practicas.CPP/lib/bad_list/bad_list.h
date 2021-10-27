@@ -115,6 +115,8 @@ template <typename T> struct bad_list
             ptr = ptr->next;
             delete (temp);
         } while (ptr != nullptr);
+
+        m_size = 0;
     }
 };
 
