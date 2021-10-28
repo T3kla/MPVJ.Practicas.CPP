@@ -164,7 +164,8 @@
     <ClInclude Include="practica_09.h" />
     <Content Include="practica_09.h" />
     <ClInclude Include="lib\bad_list\bad_list.h" />
-    <ClCompile Include="lib\bad_list\bad_list.cpp" />
+    <ClInclude Include="practica_10.h" />
+    <ClInclude Include="practica_11.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets" />

@@ -19,13 +19,6 @@ void run_practica_05()
     count = fm::read(file, buffer, 50);
     std::cout << "    Actual read: " << count << std::endl << "    " << buffer << std::endl;
 
-    // Simpre sale 1 menos en el counted porque rellena
-    // el �ltimo caracter con '\0' y el strlen no lo cuenta.
-    //
-    // Que tiene sentido, porque si no estar�a escribiendo 1
-    // caracter de m�s y si le digo buffer de 50 y me escribe
-    // 51 pues petar�a supongo.
-
     std::cout << std::endl;
 
     std::cout << "> Closing file!" << std::endl;

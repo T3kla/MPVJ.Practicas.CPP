@@ -4,46 +4,46 @@
 
 void run_practica_09()
 {
-    bl::bad_list<char> list;
+    bl::bad_list<const char *> list_char;
 
-    auto lol1 = "asd";
-    auto lol2 = "lol";
-    auto lol3 = "lmao";
+    auto char_1 = "asd";
+    auto char_2 = "lol";
+    auto char_3 = "lma";
 
-    list.push(lol1);
-    list.push(lol2);
-    list.push(lol3);
+    list_char.push(char_1);
+    list_char.push(char_2);
+    list_char.push(char_3);
 
-    std::cout << "list_c<char>.size() " << list.size() << std::endl;
-    std::cout << list.pop() << std::endl;
-    std::cout << "list_c<char>.size() " << list.size() << std::endl;
-    std::cout << list.pop() << std::endl;
-    std::cout << "list_c<char>.size() " << list.size() << std::endl;
-    std::cout << list.pop() << std::endl;
+    std::cout << "list_char<char>.size() " << list_char.size() << std::endl;
+    std::cout << list_char.pop() << std::endl;
+    std::cout << "list_char<char>.size() " << list_char.size() << std::endl;
+    std::cout << list_char.pop() << std::endl;
+    std::cout << "list_char<char>.size() " << list_char.size() << std::endl;
+    std::cout << list_char.pop() << std::endl;
 
-    bl::bad_list<int> list2;
-    auto lol1int = 1;
-    auto lol2int = 2;
-    auto lol3int = 3;
+    bl::bad_list<int> list_int;
+    auto int_1 = 1;
+    auto int_2 = 2;
+    auto int_3 = 3;
 
-    list2.push(&lol1int);
-    list2.push(&lol2int);
-    list2.push(&lol3int);
+    list_int.push(int_1);
+    list_int.push(int_2);
+    list_int.push(int_3);
 
-    std::cout << "list_i<char>.size() " << list2.size() << std::endl;
-    std::cout << *list2.pop() << std::endl;
-    std::cout << "list_i<char>.size() " << list2.size() << std::endl;
-    std::cout << *list2.pop() << std::endl;
-    std::cout << "list_i<char>.size() " << list2.size() << std::endl;
-    std::cout << *list2.pop() << std::endl;
+    std::cout << "list_int<char>.size() " << list_int.size() << std::endl;
+    std::cout << list_int.pop() << std::endl;
+    std::cout << "list_int<char>.size() " << list_int.size() << std::endl;
+    std::cout << list_int.pop() << std::endl;
+    std::cout << "list_int<char>.size() " << list_int.size() << std::endl;
+    std::cout << list_int.pop() << std::endl;
 
-    list2.push(&lol1int);
-    list2.push(&lol2int);
-    list2.push(&lol3int);
+    list_int.push(int_1);
+    list_int.push(int_2);
+    list_int.push(int_3);
 
-    std::cout << "list_i<char>.size() " << list2.size() << std::endl;
+    std::cout << "list_int<char>.size() " << list_int.size() << std::endl;
 
-    list2.reset();
+    list_int.reset();
 
-    std::cout << "list_i<char>.size() " << list2.size() << std::endl;
+    std::cout << "list_int<char>.size() " << list_int.size() << std::endl;
 }

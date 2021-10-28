@@ -26,7 +26,7 @@ void flip_string_noLazy_noCopy(std::string &value)
 {
     auto p_top = value.begin();
     auto p_bot = value.end() - 1;
-    auto size = static_cast<int>(floor(value.size() / 2.f));
+    auto size = (int)(floor(value.size() / 2.f));
 
     for (size_t i = 0; i < size; i++)
     {

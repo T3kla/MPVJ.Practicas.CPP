@@ -6,12 +6,12 @@ namespace bl
 template <typename T> struct node
 {
   public:
-    const T *value;
+    const T value;
 
     node<T> *prev;
     node<T> *next;
 
-    node(const T *value, node<T> *prev = nullptr, node<T> *next = nullptr) : value(value), prev(prev), next(next)
+    node(const T value, node<T> *prev = nullptr, node<T> *next = nullptr) : value(value), prev(prev), next(next)
     {
     }
 };
@@ -30,12 +30,36 @@ template <typename T> struct bad_list
     {
     }
 
-    int size()
+    ~bad_list()
+    {
+        reset();
+    }
+
+    bad_list(const bad_list &value)
+    {
+        for (unsigned int i = 0; i < value.m_size; i++)
+            this->push(value[i]->value);
+    }
+
+    node<T> const *operator[](unsigned int index) const
+    {
+        auto ptr = m_first;
+
+        for (int i = 0; i < m_size; i++)
+        {
+            if (i == index)
+                return ptr;
+
+            ptr = ptr->next;
+        }
+    }
+
+    unsigned int size() const
     {
         return m_size;
     }
 
-    int push(const T *psz)
+    int push(const T psz)
     {
         auto ptr = new node<T>(psz);
 
@@ -54,40 +78,31 @@ template <typename T> struct bad_list
         return ++m_size;
     }
 
-    const T *first()
+    const T first() const
     {
-        return m_first;
+        return m_first->value;
     }
 
-    const T *next()
+    const T next()
     {
-        if (m_it == 0)
-        {
-            m_it++;
-            return m_first;
-        }
-
         auto ptr = m_first;
 
-        for (int i = 0; i < m_it; i++)
+        for (unsigned int i = 0; i < m_size; i++)
         {
+            if (m_it >= m_size)
+                m_it = 0;
+
             if (i == m_it)
             {
                 m_it++;
-                return ptr;
-            }
-
-            if (ptr->next == nullptr)
-            {
-                m_it = 1;
-                return m_first;
+                return ptr->value;
             }
 
             ptr = ptr->next;
         }
     }
 
-    const T *pop()
+    const T pop()
     {
         auto oldFirst = m_first;
         auto oldFirstVal = oldFirst->value;
@@ -106,17 +121,18 @@ template <typename T> struct bad_list
     {
         auto ptr = m_first;
 
-        if (m_first == nullptr)
-            return;
-
-        do
+        while (ptr != nullptr)
         {
             auto temp = ptr;
             ptr = ptr->next;
             delete (temp);
-        } while (ptr != nullptr);
+        }
+
+        m_first = nullptr;
+        m_last = nullptr;
 
         m_size = 0;
+        m_it = 0;
     }
 };
 

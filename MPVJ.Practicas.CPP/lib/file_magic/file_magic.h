@@ -1,9 +1,6 @@
 #pragma once
 
 #include "..\bad_list\bad_list.h"
-#include <fstream>
-#include <iostream>
-#include <string>
 
 namespace fm
 {
@@ -14,14 +11,13 @@ enum class OpenMode
     Write
 };
 
-void *open(const char *filename, const OpenMode &mode);
-void close(void **file);
+auto open(const char *filename, const OpenMode &mode) -> void *;
+auto close(void **file) -> void;
 
-unsigned int read(const void *file, char *buffer, unsigned int n);
-const char *write(const void *file, const char *buffer);
+auto read(const void *file, char *buffer, const unsigned int &n) -> unsigned int;
+auto write(const void *file, const char *buffer) -> const char *;
 
 // practica_10
-// función que lea strings en plan "14,56,2,35" y devuelva bad_list
-// bl::bad_list<char*> lmao()
+auto read_nums(const void *file) -> bl::bad_list<int>;
 
 } // namespace fm

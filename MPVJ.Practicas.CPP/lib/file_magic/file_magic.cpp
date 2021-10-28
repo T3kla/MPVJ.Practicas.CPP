@@ -1,9 +1,12 @@
 #include "file_magic.h"
+#include <fstream>
+#include <iostream>
+#include <string>
 
 namespace fm
 {
 
-void *open(const char *filename, const OpenMode &mode)
+auto open(const char *filename, const OpenMode &mode) -> void *
 {
     auto ptr = new std::fstream;
 
@@ -21,7 +24,7 @@ void *open(const char *filename, const OpenMode &mode)
     return nullptr;
 }
 
-void close(void **file)
+auto close(void **file) -> void
 {
     auto ptr = (std::fstream *)*file;
     ptr->close();
@@ -29,7 +32,7 @@ void close(void **file)
     *file = nullptr; // <- probablemente peligroso
 }
 
-unsigned int read(const void *file, char *buffer, unsigned int n)
+auto read(const void *file, char *buffer, const unsigned int &n) -> unsigned int
 {
     if (!file)
     {
@@ -42,7 +45,7 @@ unsigned int read(const void *file, char *buffer, unsigned int n)
     if (ptr->is_open())
     {
         std::streamsize st(n);
-        ptr->get(buffer, n, '\0');
+        ptr->get(buffer, st, '\0');
         return (unsigned int)strlen(buffer);
     }
 
@@ -50,7 +53,7 @@ unsigned int read(const void *file, char *buffer, unsigned int n)
     return (unsigned int)0;
 }
 
-const char *write(const void *file, const char *buffer)
+auto write(const void *file, const char *buffer) -> const char *
 {
     if (!file)
     {
@@ -68,6 +71,50 @@ const char *write(const void *file, const char *buffer)
 
     std::cout << "    Unable to open file" << std::endl;
     return nullptr;
+}
+
+auto read_nums(const void *file) -> bl::bad_list<int>
+{
+    bl::bad_list<int> bl;
+
+    if (!file)
+    {
+        std::cout << "    Unable to open file" << std::endl;
+        return bl;
+    }
+
+    auto ptr = (std::fstream *)file;
+
+    if (!ptr->is_open())
+    {
+        std::cout << "    Unable to open file" << std::endl;
+        return bl;
+    }
+
+    const unsigned int toRead = 512;
+    char buffer[toRead];
+    std::streamsize st(toRead);
+    ptr->get(buffer, st, '\0');
+
+    auto length = strlen(buffer);
+    std::string str = "";
+
+    for (size_t i = 0; i < length; i++)
+    {
+        if (buffer[i] != ',')
+        {
+            str += buffer[i];
+            continue;
+        }
+
+        bl.push(std::stoi(str));
+        str = "";
+    }
+
+    if (str != "")
+        bl.push(std::stoi(str));
+
+    return bl;
 }
 
 } // namespace fm

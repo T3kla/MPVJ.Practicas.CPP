@@ -35,7 +35,7 @@ void biggest_byte_from_table()
 #pragma warning(disable : 4838)
     int table[] = {1, 3, 2, 5, 3, 0xFFFFFFFF, 2};
 
-    auto vec = bm::to_bytes(table); // FIXME: link error
+    auto vec = bm::to_bytes(table);
     unsigned char *p_current = &vec[0];
     unsigned char *p_biggest = &vec[0];
 
@@ -57,7 +57,7 @@ void run_practica_02()
 
     // Dado un entero, poner por separado los bytes usando casting y punteros
 
-    auto v = bm::to_bytes(-559038737); // FIXME: link error
+    auto v = bm::to_bytes(-559038737);
 
     bm::print_asChar(v);
     std::cout << std::endl;
