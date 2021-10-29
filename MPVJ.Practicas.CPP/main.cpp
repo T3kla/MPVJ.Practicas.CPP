@@ -24,5 +24,5 @@ int main()
     // run_practica_09(); // OK
     // run_practica_10(); // OK
     // run_practica_11(); // OK
-    // run_practica_12(); // OK
+    run_practica_12(); // OK
 }

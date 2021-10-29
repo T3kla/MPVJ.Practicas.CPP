@@ -39,7 +39,7 @@
     <ClCompile Include="lib\txt_file\txt_file.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="lib\bad_string\bad_string.cpp">
+    <ClCompile Include="lib\bad_string\string.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -104,7 +104,7 @@
     <ClInclude Include="practica_12.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="lib\bad_string\bad_string.h">
+    <ClInclude Include="lib\bad_string\string.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
