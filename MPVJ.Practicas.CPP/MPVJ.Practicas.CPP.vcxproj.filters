@@ -39,7 +39,7 @@
     <ClCompile Include="lib\txt_file\txt_file.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="lib\bad_list\bad_list.cpp">
+    <ClCompile Include="lib\bad_string\bad_string.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -93,6 +93,18 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="practica_09.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="practica_10.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="practica_11.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="practica_12.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\bad_string\bad_string.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

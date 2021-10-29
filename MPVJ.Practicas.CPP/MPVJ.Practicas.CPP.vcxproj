@@ -136,6 +136,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="lib\bad_string\bad_string.cpp" />
     <ClCompile Include="lib\bit_magic\bit_magic.cpp" />
     <ClCompile Include="lib\console\console.cpp" />
     <ClCompile Include="lib\entity\entity.cpp" />
@@ -146,6 +147,7 @@
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="lib\bad_string\bad_string.h" />
     <ClInclude Include="lib\bit_magic\bit_magic.h" />
     <ClInclude Include="lib\console\console.h" />
     <ClInclude Include="lib\entity\entity.h" />
@@ -162,6 +164,7 @@
     <ClInclude Include="practica_01.h" />
     <ClInclude Include="practica_06.h" />
     <ClInclude Include="practica_09.h" />
+    <ClInclude Include="practica_12.h" />
     <Content Include="practica_09.h" />
     <ClInclude Include="lib\bad_list\bad_list.h" />
     <ClInclude Include="practica_10.h" />

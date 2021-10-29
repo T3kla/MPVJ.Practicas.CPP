@@ -8,6 +8,7 @@
 #include "practica_09.h"
 #include "practica_10.h"
 #include "practica_11.h"
+#include "practica_12.h"
 #include <iostream>
 
 int main()
@@ -22,5 +23,6 @@ int main()
     // run_practica_08(); // OK
     // run_practica_09(); // OK
     // run_practica_10(); // OK
-    run_practica_11(); // WIP
+    // run_practica_11(); // OK
+    // run_practica_12(); // OK
 }
