@@ -3,7 +3,7 @@
 namespace bl
 {
 
-template <typename T> struct bad_list
+template <typename T> struct list
 {
   private:
     template <typename T> struct node
@@ -25,17 +25,7 @@ template <typename T> struct bad_list
 
     size_t m_size = 0;
 
-    void reset_nodes()
-    {
-        auto ptr = m_first;
-
-        while (ptr != nullptr)
-        {
-            auto temp = ptr;
-            ptr = ptr->next;
-            delete (temp);
-        }
-    }
+    void reset_nodes();
 
     void reset_data()
     {
@@ -46,16 +36,16 @@ template <typename T> struct bad_list
     }
 
   public:
-    bad_list()
+    list()
     {
     }
 
-    ~bad_list()
+    ~list()
     {
         reset_nodes();
     }
 
-    bad_list(const bad_list &value)
+    list(const list &value)
     {
         auto ptr = value.m_first;
 
@@ -66,7 +56,7 @@ template <typename T> struct bad_list
         }
     }
 
-    bad_list(bad_list &&value) noexcept
+    list(list &&value) noexcept
     {
         m_size = value.m_size;
         m_first = value.m_first;
@@ -132,17 +122,14 @@ template <typename T> struct bad_list
 
     const T pop()
     {
-        auto oldFirst = m_first;
-        auto oldFirstVal = oldFirst->value;
+        auto first_old = m_first;
+        auto first_old_value = first_old->value;
 
-        m_first = m_first->next;
-
-        delete (oldFirst);
-        oldFirst = nullptr;
-
+        m_first = first_old->next;
+        delete (first_old);
         m_size--;
 
-        return oldFirstVal;
+        return first_old_value;
     }
 
     void reset()
@@ -151,11 +138,11 @@ template <typename T> struct bad_list
         reset_data();
     }
 
-    template <typename T> friend void invert_noCopy(bad_list<T> &value);
-    template <typename T> friend bad_list<T> invert_copy(bad_list<T> &value);
+    template <typename T> friend void invert_noCopy(list<T> &value);
+    template <typename T> friend list<T> invert_copy(list<T> &value);
 };
 
-template <typename T> void invert_noCopy(bad_list<T> &value)
+template <typename T> void invert_noCopy(list<T> &value)
 {
     auto size = value.size();
     auto ptr = value.m_last;
@@ -175,9 +162,9 @@ template <typename T> void invert_noCopy(bad_list<T> &value)
     value.m_last = f;
 }
 
-template <typename T> bad_list<T> invert_copy(bad_list<T> &value)
+template <typename T> list<T> invert_copy(list<T> &value)
 {
-    bad_list<T> bl;
+    list<T> bl;
 
     auto size = value.size();
     auto ptr = value.m_last;

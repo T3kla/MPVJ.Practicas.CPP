@@ -21,7 +21,7 @@ void string::resize(const size_t &_size)
 
 size_t string::calc_capacity(const size_t &_value)
 {
-    return (size_t)(round((double)_value / (double)CHUNK + 0.5) * (double)CHUNK);
+    return (size_t)(round((double)_value / (double)ALLOC_INCREMENT + 0.5) * (double)ALLOC_INCREMENT);
 }
 
 string::string()

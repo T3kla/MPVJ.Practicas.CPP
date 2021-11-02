@@ -8,7 +8,7 @@ namespace bs
 struct string
 {
   private:
-    const size_t CHUNK = 64;
+    static const size_t ALLOC_INCREMENT = 64;
     size_t m_capacity = 64;
     size_t m_size = 0;
     char *m_data = nullptr;
