@@ -33,19 +33,19 @@ string::string()
 
 string::string(const char *_value)
 {
-    auto new_size = strlen(_value);
-    m_size = new_size + 1;
-    m_data = new char[calc_capacity(new_size)];
-    std::memcpy(m_data, _value, new_size);
-    m_data[new_size] = '\0';
+    m_size = strlen(_value) + 1;
+    auto new_capacity = calc_capacity(m_size);
+    m_data = new char[new_capacity];
+    std::memcpy(m_data, _value, m_size);
+    m_data[m_size] = '\0';
 }
 
 string::string(string &_value)
 {
-    auto new_size = _value.m_size;
-    m_size = new_size;
+    m_capacity = _value.m_capacity;
+    m_size = _value.m_size;
     m_data = new char[_value.m_capacity];
-    std::memcpy(m_data, _value.m_data, new_size);
+    std::memcpy(m_data, _value.m_data, m_size);
 }
 
 string::string(string &&_value) noexcept
@@ -56,12 +56,25 @@ string::string(string &&_value) noexcept
     _value.m_data = nullptr;
 }
 
+string::string(const string &&_value) noexcept
+{
+    m_capacity = _value.m_capacity;
+    m_size = _value.m_size;
+    m_data = new char[m_capacity];
+    std::memcpy(m_data, _value.m_data, m_size);
+}
+
 string::~string()
 {
     delete (m_data);
 }
 
-const string string::operator+(const string &_rhs)
+const bool string::operator==(const string &_rhs) const
+{
+    return *m_data == *_rhs.m_data;
+}
+
+const string string::operator+(const string &_rhs) const
 {
     string new_str;
     new_str.m_size = m_size - 1 + _rhs.m_size;
@@ -70,6 +83,19 @@ const string string::operator+(const string &_rhs)
     std::memcpy(new_str.m_data + m_size - 1, _rhs.m_data, _rhs.m_size);
     return new_str;
 }
+
+const string string::operator+(const string &_rhs)
+{
+    auto m_size_old = m_size;
+    m_size = m_size + _rhs.m_size - 1;
+    resize(m_size);
+    std::memcpy(m_data + m_size_old - 1, _rhs.m_data, _rhs.m_size);
+    return *this;
+}
+
+// const string string::operator+(char _rhs) const
+// {
+// }
 
 std::ostream &operator<<(std::ostream &_os, const string &_value)
 {
