@@ -1,9 +1,9 @@
 #pragma once
 
-namespace bl
+namespace tkl
 {
 
-template <typename T> struct bad_list
+template <typename T> struct llist
 {
   private:
     template <typename T> struct node
@@ -46,16 +46,16 @@ template <typename T> struct bad_list
     }
 
   public:
-    bad_list()
+    llist()
     {
     }
 
-    ~bad_list()
+    ~llist()
     {
         reset_nodes();
     }
 
-    bad_list(const bad_list &value)
+    llist(const llist &value)
     {
         auto ptr = value.m_first;
 
@@ -66,7 +66,7 @@ template <typename T> struct bad_list
         }
     }
 
-    bad_list(bad_list &&value) noexcept
+    llist(llist &&value) noexcept
     {
         m_size = value.m_size;
         m_first = value.m_first;
@@ -86,6 +86,8 @@ template <typename T> struct bad_list
 
             ptr = ptr->next;
         }
+
+        return nullptr;
     }
 
     size_t size() const
@@ -151,16 +153,16 @@ template <typename T> struct bad_list
         reset_data();
     }
 
-    template <typename T> friend void invert_noCopy(bad_list<T> &value);
-    template <typename T> friend bad_list<T> invert_copy(bad_list<T> &value);
+    template <typename T> friend void invert_noCopy(llist<T> &value);
+    template <typename T> friend llist<T> invert_copy(llist<T> &value);
 };
 
-template <typename T> void invert_noCopy(bad_list<T> &value)
+template <typename T> void invert_noCopy(llist<T> &value)
 {
-    auto size = value.size();
+    size_t size = value.size();
     auto ptr = value.m_last;
 
-    for (auto i = size - 1; i < size; i--)
+    for (size_t i = size - 1; i < size; i--)
     {
         auto v = ptr;
         ptr = ptr->prev;
@@ -175,9 +177,9 @@ template <typename T> void invert_noCopy(bad_list<T> &value)
     value.m_last = f;
 }
 
-template <typename T> bad_list<T> invert_copy(bad_list<T> &value)
+template <typename T> llist<T> invert_copy(llist<T> &value)
 {
-    bad_list<T> bl;
+    llist<T> bl;
 
     auto size = value.size();
     auto ptr = value.m_last;
@@ -192,4 +194,4 @@ template <typename T> bad_list<T> invert_copy(bad_list<T> &value)
     return bl;
 }
 
-} // namespace bl
+} // namespace tkl

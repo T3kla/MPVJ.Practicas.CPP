@@ -1,6 +1,6 @@
 #pragma once
 
-#include "..\bad_list\bad_list.h"
+#include "..\llist\llist.h"
 
 namespace fm
 {
@@ -11,13 +11,13 @@ enum class OpenMode
     Write
 };
 
-auto open(const char *filename, const OpenMode &mode) -> void *;
-auto close(void **file) -> void;
+void *open(const char *filename, const OpenMode &mode);
+void close(void **file);
 
-auto read(const void *file, char *buffer, const unsigned int &n) -> unsigned int;
-auto write(const void *file, const char *buffer) -> const char *;
+unsigned int read(const void *file, char *buffer, const unsigned int &n);
+const char *write(const void *file, const char *buffer);
 
 // practica_10
-auto read_nums(const void *file) -> bl::bad_list<int>;
+tkl::llist<int> read_nums(const void *file);
 
 } // namespace fm

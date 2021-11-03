@@ -93,7 +93,7 @@ void run_practica_04()
     {
         const char *lri = "La rica interfaz";
         int y = p04::margin_y - 2;
-        int x = (int)floor(static_cast<unsigned long long>(p04::margin_x + (float)(p04::size_x / 2) - strlen(lri)));
+        int x = (int)floorf(p04::margin_x + p04::size_x / 2.0f - 16);
 
         for (int i = 0; i < y; i++)
             std::cout << std::endl;

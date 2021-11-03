@@ -11,28 +11,89 @@
 #include "practica_12.h"
 #include "practica_13.h"
 #include "practica_14.h"
+#include "practica_15.h"
+#include "practica_16.h"
 #include <iostream>
 
 int main()
 {
-    // run_practica_01(); // OK
-    // run_practica_02(); // OK
-    // run_practica_03(); // OK
-    // run_practica_04(); // OK
-    // run_practica_05(); // OK
-    // run_practica_06(); // OK
-    // run_practica_07(); // NAMESPACES
-    // run_practica_08(); // OK
-    // run_practica_09(); // OK
-    // run_practica_10(); // OK
-    // run_practica_11(); // OK
-    // run_practica_12(); // OK
-    // run_practica_13(); // OK
-    run_practica_14(); // WIP
-    // run_practica_15(); // WIP
-    // run_practica_16(); // WIP
-    // run_practica_17(); // WIP
-    // run_practica_18(); // WIP
-    // run_practica_19(); // WIP
-    // run_practica_20(); // WIP
+    // Bit magic
+    // Status: Need check
+    // run_practica_01();
+
+    // Pointer operations
+    // Status: Need check
+    // run_practica_02();
+
+    // Functions with strings
+    // Status: Need check
+    // run_practica_03();
+
+    // Entities moving through screen
+    // Status: Need check
+    // run_practica_04();
+
+    // Text files in *void
+    // Status: Need check
+    // run_practica_05();
+
+    // Functions with strings in places
+    // Status: Second question missing
+    // run_practica_06();
+
+    // Namespaces
+    // Status: Already had all in namespaces lol
+    // run_practica_07();
+
+    // Classes
+    // Status: Need check
+    // run_practica_08();
+
+    // Linked list
+    // Status: Need check
+    run_practica_09();
+
+    // Add stuff to practica_07
+    // Status: Need check
+    // run_practica_10();
+
+    // Constructors
+    // Status: Need check
+    // run_practica_11();
+
+    // Operators
+    // Status: Need check
+    // run_practica_12();
+
+    // Inheritance
+    // Status: Need check
+    // run_practica_13();
+
+    // Virtual functions
+    // Status: Need check
+    // run_practica_14();
+
+    // Polymorphic design
+    // Status: Need check
+    // run_practica_15();
+
+    // Interfaces
+    // Status: WIP
+    // run_practica_16();
+
+    // Macros
+    // Status: WIP
+    // run_practica_17();
+
+    // Macros Memory Leaks
+    // Status: WIP
+    // run_practica_18();
+
+    // Templates
+    // Status: OK
+    // run_practica_19();
+
+    // Templates
+    // Status: WIP
+    // run_practica_20();
 }

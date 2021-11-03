@@ -22,7 +22,7 @@ void run_practica_11()
 
     std::cout << "> Inverting 'invert_noCopy'" << std::endl;
 
-    bl::invert_noCopy(badlist2);
+    tkl::invert_noCopy(badlist2);
 
     std::cout << "> Printing" << std::endl;
 
@@ -32,7 +32,7 @@ void run_practica_11()
 
     std::cout << "> Inverting 'invert_copy'" << std::endl;
 
-    auto badlist3 = bl::invert_copy(badlist2);
+    auto badlist3 = tkl::invert_copy(badlist2);
 
     std::cout << "> Printing" << std::endl;
 

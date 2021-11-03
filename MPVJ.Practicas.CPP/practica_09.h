@@ -1,10 +1,10 @@
 #pragma once
 
-#include "lib/bad_list/bad_list.h"
+#include "lib/llist/llist.h"
 
 void run_practica_09()
 {
-    bl::bad_list<const char *> list_char;
+    tkl::llist<const char *> list_char;
 
     auto char_1 = "asd";
     auto char_2 = "lol";
@@ -21,7 +21,7 @@ void run_practica_09()
     std::cout << "list_char<char>.size() " << list_char.size() << std::endl;
     std::cout << list_char.pop() << std::endl;
 
-    bl::bad_list<int> list_int;
+    tkl::llist<int> list_int;
     auto int_1 = 1;
     auto int_2 = 2;
     auto int_3 = 3;

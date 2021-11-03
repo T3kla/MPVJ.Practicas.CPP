@@ -169,10 +169,13 @@
     <ClInclude Include="practica_09.h" />
     <ClInclude Include="practica_12.h" />
     <ClInclude Include="practica_14.h" />
+    <ClInclude Include="practica_15.h" />
+    <ClInclude Include="practica_16.h" />
     <Content Include="practica_09.h" />
-    <ClInclude Include="lib\bad_list\bad_list.h" />
+    <ClInclude Include="lib\llist\llist.h" />
     <ClInclude Include="practica_10.h" />
     <ClInclude Include="practica_11.h" />
+    <ClCompile Include="lib\llist\llist.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets" />

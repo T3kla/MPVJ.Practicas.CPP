@@ -7,11 +7,11 @@ struct codec
 {
 };
 
-struct codec_png : protected codec
+struct codec_png : public codec
 {
 };
 
-struct codec_jpg : protected codec
+struct codec_jpg : public codec
 {
 };
 
@@ -29,11 +29,13 @@ class image
     unsigned int m_length = 0;
     unsigned int m_width = 0;
     unsigned int m_colorDepth = 0;
-    codec *m_codec;
+    codec *m_codec = nullptr;
 
   public:
-    format m_format; // uso esto porque no quiero hacer un metodo virtual en image,
-                     // dado que la mayoria de formatos de imagen no tienen alphachannel
+    // Uso esto porque no quiero hacer un metodo virtual 'remove_alphaChannel' en
+    // image, dado que la mayoria de formatos de imagen no tienen alphachannel.
+    // Sin embargo, todas las imagenes tienen formato y voy a querer saberlo.
+    format m_format = format::none;
     unsigned int virtual draw(unsigned char *_buffer);
 };
 

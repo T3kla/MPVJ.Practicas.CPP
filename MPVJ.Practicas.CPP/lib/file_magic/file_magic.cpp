@@ -73,9 +73,9 @@ auto write(const void *file, const char *buffer) -> const char *
     return nullptr;
 }
 
-auto read_nums(const void *file) -> bl::bad_list<int>
+auto read_nums(const void *file) -> tkl::llist<int>
 {
-    bl::bad_list<int> bl;
+    tkl::llist<int> bl;
 
     if (!file)
     {
