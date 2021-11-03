@@ -51,7 +51,7 @@ int main()
 
     // Linked list
     // Status: Need check
-    run_practica_09();
+    // run_practica_09();
 
     // Add stuff to practica_07
     // Status: Need check
@@ -63,7 +63,7 @@ int main()
 
     // Operators
     // Status: Need check
-    // run_practica_12();
+    run_practica_12();
 
     // Inheritance
     // Status: Need check

@@ -4,7 +4,6 @@
 
 void run_practica_12()
 {
-
     bs::string strA = "123";
     bs::string strB = "456";
 

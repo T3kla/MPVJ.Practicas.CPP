@@ -61,7 +61,7 @@ string::~string()
     delete (m_data);
 }
 
-string string::operator+(const string &_rhs)
+const string string::operator+(const string &_rhs)
 {
     string new_str;
     new_str.m_size = m_size - 1 + _rhs.m_size;
