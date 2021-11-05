@@ -42,15 +42,15 @@ int main()
     // run_practica_06();
 
     // Namespaces
-    // Status: Already had all in namespaces lol
+    // Status: Ya estaba usando namespaces en todos lados
     // run_practica_07();
 
     // Classes
-    // Status: Need check
+    // Status: OK
     // run_practica_08();
 
     // Linked list
-    // Status: Need check
+    // Status: OK
     // run_practica_09();
 
     // Add stuff to practica_07
