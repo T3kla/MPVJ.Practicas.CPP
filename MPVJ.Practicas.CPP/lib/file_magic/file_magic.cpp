@@ -19,7 +19,7 @@ auto open(const char *filename, const OpenMode &mode) -> void *
     if (ptr->is_open())
         return ptr;
 
-    std::cout << "    Unable to open file" << std::endl;
+    std::cout << "    >> UNABLE TO OPEN FILE <<" << std::endl;
     delete ptr;
     return nullptr;
 }
@@ -36,7 +36,7 @@ auto read(const void *file, char *buffer, const unsigned int &n) -> unsigned int
 {
     if (!file)
     {
-        std::cout << "    Unable to open file" << std::endl;
+        std::cout << "    >> UNABLE TO OPEN FILE <<" << std::endl;
         return (unsigned int)0;
     }
 
@@ -49,7 +49,7 @@ auto read(const void *file, char *buffer, const unsigned int &n) -> unsigned int
         return (unsigned int)strlen(buffer);
     }
 
-    std::cout << "    Unable to open file" << std::endl;
+    std::cout << "    >> UNABLE TO OPEN FILE <<" << std::endl;
     return (unsigned int)0;
 }
 
@@ -57,7 +57,7 @@ auto write(const void *file, const char *buffer) -> const char *
 {
     if (!file)
     {
-        std::cout << "    Unable to open file" << std::endl;
+        std::cout << "    >> UNABLE TO OPEN FILE <<" << std::endl;
         return nullptr;
     }
 
@@ -69,7 +69,7 @@ auto write(const void *file, const char *buffer) -> const char *
         return buffer;
     }
 
-    std::cout << "    Unable to open file" << std::endl;
+    std::cout << "    >> UNABLE TO OPEN FILE <<" << std::endl;
     return nullptr;
 }
 
@@ -79,7 +79,7 @@ auto read_nums(const void *file) -> tkl::llist<int>
 
     if (!file)
     {
-        std::cout << "    Unable to open file" << std::endl;
+        std::cout << "    >> UNABLE TO OPEN FILE <<" << std::endl;
         return bl;
     }
 
@@ -87,7 +87,7 @@ auto read_nums(const void *file) -> tkl::llist<int>
 
     if (!ptr->is_open())
     {
-        std::cout << "    Unable to open file" << std::endl;
+        std::cout << "    >> UNABLE TO OPEN FILE <<" << std::endl;
         return bl;
     }
 

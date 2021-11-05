@@ -18,27 +18,27 @@
 int main()
 {
     // Bit magic
-    // Status: Need check
+    // Status: OK
     // run_practica_01();
 
     // Pointer operations
-    // Status: Need check
+    // Status: OK
     // run_practica_02();
 
     // Functions with strings
-    // Status: Need check
+    // Status: OK
     // run_practica_03();
 
     // Entities moving through screen
-    // Status: Need check
+    // Status: OK
     // run_practica_04();
 
     // Text files in *void
-    // Status: Need check
+    // Status: OK
     // run_practica_05();
 
     // Functions with strings in places
-    // Status: Second question missing
+    // Status: OK
     // run_practica_06();
 
     // Namespaces
@@ -63,7 +63,7 @@ int main()
 
     // Operators
     // Status: Need check
-    run_practica_12();
+    // run_practica_12();
 
     // Inheritance
     // Status: Need check
