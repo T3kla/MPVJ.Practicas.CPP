@@ -42,7 +42,7 @@ int main()
     // run_practica_06();
 
     // Namespaces
-    // Status: Ya estaba usando namespaces en todos lados
+    // Status: Ya estaba usando namespaces lol
     // run_practica_07();
 
     // Classes
@@ -54,7 +54,7 @@ int main()
     // run_practica_09();
 
     // Add stuff to practica_07
-    // Status: Need check
+    // Status: OK
     // run_practica_10();
 
     // Constructors
@@ -63,7 +63,7 @@ int main()
 
     // Operators
     // Status: Need check
-    // run_practica_12();
+    run_practica_12();
 
     // Inheritance
     // Status: Need check

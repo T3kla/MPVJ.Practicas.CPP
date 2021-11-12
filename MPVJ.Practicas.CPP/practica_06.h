@@ -39,8 +39,8 @@ unsigned int word_sum_nums(const char *_buffer)
 {
     auto length = strlen(_buffer);
     char num[64];
-    auto itr = 0;
-    auto sum = 0ll;
+    auto itr = 0u;
+    auto sum = 0u;
 
     auto num2sum = [&]() {
         num[itr] = '\0';

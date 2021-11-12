@@ -6,11 +6,11 @@ void run_practica_12()
 {
     std::cout << "Checking Constructor string();" << std::endl;
 
-    bs::string strA;
+    auto strA = bs::string('b');
 
     std::cout << "Checking Constructor string(const char* _value);" << std::endl;
 
-    bs::string strB = "123";
+    auto strB = bs::string("123");
 
     std::cout << "Checking Constructor string(string & _value);" << std::endl;
 

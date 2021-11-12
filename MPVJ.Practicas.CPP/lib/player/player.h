@@ -18,7 +18,6 @@ struct player
 
 struct data
 {
-
   private:
     int m_data = 0;
 

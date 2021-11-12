@@ -26,32 +26,32 @@ void clear(int &target, const span &span)
 
 void print_asChar(const std::vector<unsigned char> &value)
 {
-    std::cout << "Printing " << value.size() << " bytes as: char" << std::endl;
+    std::cout << "    Printing " << value.size() << " bytes as: char" << std::endl;
 
     for (size_t i = 0; i < value.size(); i++)
     {
-        std::cout << "    " << i << ": " << value[i] << std::endl;
+        std::cout << "        " << i << ": " << value[i] << std::endl;
     }
 }
 
 void print_asBin(const std::vector<unsigned char> &value)
 {
-    std::cout << "Printing " << value.size() << " bytes as: binary" << std::endl;
+    std::cout << "    Printing " << value.size() << " bytes as: binary" << std::endl;
 
     for (size_t i = 0; i < value.size(); i++)
     {
         std::bitset<8> b(value[i]);
-        std::cout << "    " << i << ": " << b << std::endl;
+        std::cout << "        " << i << ": " << b << std::endl;
     }
 }
 
 void print_asHex(const std::vector<unsigned char> &value)
 {
-    std::cout << "Printing " << value.size() << " bytes as: hexadecimal" << std::endl;
+    std::cout << "    Printing " << value.size() << " bytes as: hexadecimal" << std::endl;
 
     for (size_t i = 0; i < value.size(); i++)
     {
-        std::cout << "    " << std::to_string(i) << ": " << std::hex << static_cast<int>(value[i]) << std::endl;
+        std::cout << "        " << std::to_string(i) << ": " << std::hex << static_cast<int>(value[i]) << std::endl;
     }
 }
 

@@ -20,6 +20,7 @@ template <typename T> T at(const std::vector<T> arr, const int &index)
 
 void run_practica_03()
 {
+
     std::vector<std::string> arr;
     arr.push_back("Orange");
     arr.push_back("Yellow");
@@ -28,9 +29,7 @@ void run_practica_03()
 
     std::string a = "default";
 
-    // Dado un indice de tabla devolver string de la tabla
-
-    std::cout << "Return string:" << std::endl;
+    std::cout << "> Return string at index" << std::endl << std::endl;
 
     a = p03::at(arr, -1);
     std::cout << "    index[-1]: " << a << std::endl;
@@ -50,9 +49,8 @@ void run_practica_03()
     a = p03::at(arr, 4);
     std::cout << "    index[ 4]: " << a << std::endl;
 
-    // Dado un indice de tabla devolver string de la tabla, pero invertido
-
-    std::cout << "Return inverted string:" << std::endl;
+    std::cout << std::endl;
+    std::cout << "> Return string inverted at index" << std::endl << std::endl;
 
     a = p03::at(arr, -1);
     si::flip_string_noLazy_noCopy(a);

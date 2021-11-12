@@ -27,7 +27,7 @@ void biggest_from_table()
         p_current++;
     }
 
-    std::cout << "Biggest int from table is:  " << *p_biggest << std::endl;
+    std::cout << "    Biggest int from table is:  " << *p_biggest << std::endl;
 }
 
 void biggest_byte_from_table()
@@ -47,17 +47,16 @@ void biggest_byte_from_table()
         p_current++;
     }
 
-    std::cout << "Biggest byte from table is: " << static_cast<int>(*p_biggest) << std::endl;
+    std::cout << "    Biggest byte from table is: " << static_cast<int>(*p_biggest) << std::endl;
 }
 
 } // namespace p02
 
 void run_practica_02()
 {
-
-    // Dado un entero, poner por separado los bytes usando casting y punteros
-
     auto v = bm::to_bytes(-559038737);
+
+    std::cout << "> Int to bytes" << std::endl << std::endl;
 
     bm::print_asChar(v);
     std::cout << std::endl;
@@ -66,41 +65,43 @@ void run_practica_02()
     bm::print_asHex(v);
     std::cout << std::endl;
 
-    // Dada la tabla de enteros obtener el mayor usando casting y punteros
+    std::cout << "> Biggest int from table" << std::endl << std::endl;
 
     p02::biggest_from_table();
+    std::cout << std::endl;
 
-    // Dada la tabla de enteros obtener el mayor byte usando casting y punteros
+    std::cout << "> Biggest byte from table" << std::endl << std::endl;
 
     p02::biggest_byte_from_table();
+    std::cout << std::endl;
 
-    // Dada una string, darle la vuelta
+    std::cout << "> Flip string" << std::endl << std::endl;
 
-    std::cout << std::endl << "flip_string_lazy_noCopy:" << std::endl;
+    std::cout << "    flip_string_lazy_noCopy:" << std::endl;
 
     std::string even = "long even string";
     std::string odd = "long odd string";
 
     si::flip_string_lazy_noCopy(even);
-    std::cout << "    even: " << even << std::endl;
+    std::cout << "        even: " << even << std::endl;
     si::flip_string_lazy_noCopy(odd);
-    std::cout << "    odd:  " << odd << std::endl;
+    std::cout << "        odd:  " << odd << std::endl;
 
-    std::cout << std::endl << "flip_string_noLazy_copy:" << std::endl;
+    std::cout << std::endl << "    flip_string_noLazy_copy:" << std::endl;
 
     even = "long even string";
     odd = "long odd string";
 
-    std::cout << "    even: " << si::flip_string_noLazy_copy(even) << std::endl;
-    std::cout << "    odd:  " << si::flip_string_noLazy_copy(odd) << std::endl;
+    std::cout << "        even: " << si::flip_string_noLazy_copy(even) << std::endl;
+    std::cout << "        odd:  " << si::flip_string_noLazy_copy(odd) << std::endl;
 
-    std::cout << std::endl << "flip_string_noLazy_noCopy:" << std::endl;
+    std::cout << std::endl << "    flip_string_noLazy_noCopy:" << std::endl;
 
     even = "long even string";
     odd = "long odd string";
 
     si::flip_string_noLazy_noCopy(even);
-    std::cout << "    even: " << even << std::endl;
+    std::cout << "        even: " << even << std::endl;
     si::flip_string_noLazy_noCopy(odd);
-    std::cout << "    odd:  " << odd << std::endl;
+    std::cout << "        odd:  " << odd << std::endl;
 }

@@ -159,10 +159,10 @@ template <typename T> struct llist
 
 template <typename T> void invert_noCopy(llist<T> &value)
 {
-    size_t size = value.size();
+    auto size = value.size();
     auto ptr = value.m_last;
 
-    for (size_t i = size - 1; i < size; i--)
+    for (auto i = size - 1; i < size; i--)
     {
         auto v = ptr;
         ptr = ptr->prev;

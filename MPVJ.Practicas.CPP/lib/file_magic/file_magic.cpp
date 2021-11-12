@@ -29,7 +29,7 @@ auto close(void **file) -> void
     auto ptr = (std::fstream *)*file;
     ptr->close();
     delete (ptr);
-    *file = nullptr; // <- probablemente peligroso
+    *file = nullptr; // <- scary
 }
 
 auto read(const void *file, char *buffer, const unsigned int &n) -> unsigned int

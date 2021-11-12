@@ -3,10 +3,21 @@
 namespace tkl
 {
 
+// No se por que pero no se puede pasar a cpp
+
+// template <typename T> llist<T>::llist()
+// {
+// }
+
+// template <typename T> llist<T>::~llist()
+// {
+//     reset_nodes();
+// }
+
 // template <typename T> void llist<T>::reset_nodes()
-//{
+// {
 //     auto ptr = m_first;
-//
+
 //     while (ptr != nullptr)
 //     {
 //         auto temp = ptr;

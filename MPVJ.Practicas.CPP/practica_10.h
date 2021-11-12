@@ -15,7 +15,7 @@ void run_practica_10()
 
     std::cout << "    " << badlist.first() << std::endl;
 
-    std::cout << "Retrieved by next:" << std::endl;
+    std::cout << "Retrieved by next 30 times because I can:" << std::endl;
 
     for (unsigned int i = 0; i < 30; i++)
         std::cout << "    " << badlist.next() << std::endl;
