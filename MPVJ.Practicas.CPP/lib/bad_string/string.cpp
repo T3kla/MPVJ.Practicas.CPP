@@ -1,6 +1,5 @@
 #include "string.h"
 #include <iostream>
-#include <string>
 
 namespace bs
 {
@@ -17,7 +16,7 @@ void string::resize(const size_t &_size)
 
     auto old = m_data;
     m_data = new char[new_cap];
-    std::memcpy(m_data, old, old_size + 1);
+    ::memcpy(m_data, old, old_size + 1);
     delete (old);
 
     m_capacity = new_cap;
@@ -28,14 +27,49 @@ size_t string::calc_capacity(const size_t &_value)
     return (_value + 1) + ALLOC_INCREMENT - ((_value + 1) % ALLOC_INCREMENT);
 }
 
+void string::extract_number(const char *_src, char *_dst_, const size_t &_len, const bool &_allow_dot) const
+{
+    char *it_buff = _dst_;
+    char *it_data = m_data;
+    auto saw_point = !_allow_dot;
+    auto saw_minus = false;
+
+    auto cont = [&]() { return (*it_data != '\0') && (it_buff != _dst_ + _len - 1); };
+
+    *_dst_ = '+';
+    it_buff++;
+
+    while (cont())
+    {
+        if (!saw_minus && *it_data == '-' && it_buff == _dst_ + 1)
+        {
+            saw_minus = true;
+            *_dst_ = '-';
+        }
+
+        if (!saw_point && *it_data == '.')
+        {
+            saw_point = true;
+            *it_buff++ = *it_data;
+        }
+
+        if (*it_data >= '0' && *it_data <= '9')
+            *it_buff++ = *it_data;
+
+        it_data++;
+    }
+
+    *it_buff = '\0';
+}
+
 #pragma region Constructors
 
 // Default constructor
 string::string()
 {
-    m_capacity = 64;
+    m_capacity = ALLOC_INCREMENT;
     m_size = 0;
-    m_data = new char[64];
+    m_data = new char[ALLOC_INCREMENT];
 }
 
 // Alloc hint constructor
@@ -52,28 +86,8 @@ string::~string()
     delete (m_data);
 }
 
-// Constructor for constant char pointer of constant value
-string::string(const char const *_value)
-{
-    m_size = strlen(_value);
-    m_capacity = calc_capacity(m_size);
-    m_data = new char[m_capacity];
-    std::memcpy(m_data, _value, m_size);
-    m_data[m_size] = '\0';
-}
-
 // Constructor for constant char pointer of mutable value
 string::string(const char *_value)
-{
-    m_size = strlen(_value);
-    m_capacity = calc_capacity(m_size);
-    m_data = new char[m_capacity];
-    std::memcpy(m_data, _value, m_size);
-    m_data[m_size] = '\0';
-}
-
-// Constructor for char pointer of constant value
-string::string(char const *_value)
 {
     m_size = strlen(_value);
     m_capacity = calc_capacity(m_size);
@@ -104,7 +118,7 @@ string::string(const string &_value)
 
 // Constructor for constant string reference of mutable value
 //                 ^^^^^^^^ -> not an error, references are always constant
-string::string(const string &_value)
+string::string(string &_value)
 {
     m_size = _value.m_size;
     m_capacity = _value.m_capacity;
@@ -199,6 +213,7 @@ string &string::operator=(const string &_rhs)
 {
     resize(_rhs.m_size);
     std::memcpy(m_data, _rhs.m_data, _rhs.m_size + 1);
+    return *this;
 }
 
 string &string::operator=(const char *_rhs)
@@ -207,6 +222,7 @@ string &string::operator=(const char *_rhs)
     resize(rhslen);
     std::memcpy(m_data, _rhs, rhslen);
     m_data[m_size] = '\0';
+    return *this;
 }
 
 string &string::operator=(char _rhs)
@@ -214,6 +230,7 @@ string &string::operator=(char _rhs)
     resize(1);
     m_data[0] = _rhs;
     m_data[1] = '\0';
+    return *this;
 }
 
 string &string::operator+=(const string &_rhs)
@@ -221,6 +238,7 @@ string &string::operator+=(const string &_rhs)
     auto old_size = m_size;
     resize(m_size + _rhs.m_size);
     std::memcpy(m_data + old_size, _rhs.m_data, _rhs.m_size + 1);
+    return *this;
 }
 
 string &string::operator+=(const char *_rhs)
@@ -230,6 +248,7 @@ string &string::operator+=(const char *_rhs)
     resize(m_size + rhslen);
     std::memcpy(m_data + old_size, _rhs, rhslen);
     m_data[m_size] = '\0';
+    return *this;
 }
 
 string &string::operator+=(char _rhs)
@@ -237,6 +256,7 @@ string &string::operator+=(char _rhs)
     resize(m_size + 1);
     m_data[m_size - 1] = _rhs;
     m_data[m_size] = '\0';
+    return *this;
 }
 
 char &string::operator[](size_t _idx)
@@ -262,12 +282,29 @@ size_t string::length() const
 
 int string::to_int() const
 {
-    return std::stoi(m_data);
+    char buffer[256];
+    extract_number(m_data, buffer, 256, false);
+    auto size = strlen(buffer);
+    auto result = 0;
+
+    for (size_t i = size - 1; i < size && i > 0; i--)
+    {
+        auto num = buffer[i] - '0';
+        auto pos = pow(10, size - i - 1);
+        result += num * pos;
+    }
+
+    if (*buffer == '-')
+        result *= -1;
+
+    return result;
 }
 
 float string::to_float() const
 {
-    return std::stof(m_data);
+    char buffer[256];
+    extract_number(m_data, buffer, 256, true);
+    return ::atof(buffer);
 }
 
 const char *string::c_str() const
@@ -282,24 +319,42 @@ string string::substr(const size_t &_idx, const size_t &_len, const bool &_rever
     if (_reverse && _idx - _len < 0)
         throw "Out of range index";
     auto new_str = string(_len);
-    std::memcpy(new_str.m_data, m_data + _idx + (_reverse ? -_len : 1), _len);
+    std::memcpy(new_str.m_data, m_data + _idx + (_reverse ? _len * -1 : 1), _len);
     return new_str;
 }
 
-size_t string::find(const string &_str, const size_t &_idx) const
+int string::find(const string &_find, const size_t &_idx) const
 {
-    if (_idx < 0 || _idx >= m_size)
+    const auto find_len = _find.length();
+
+    if (_idx < 0 || _idx + find_len >= m_size)
         throw "Out of range index";
 
-    const auto beg = m_data + _idx;
-    const auto end = m_data + m_size;
-    const auto len = _str.length();
-    auto it = m_data + _idx;
+    const auto data_end = m_data + m_size;
 
-    while (it + len - 1 <= end)
+    const auto find_first = _find.m_data;
+    const auto find_last = _find.m_data + find_len - 1;
+
+    auto it_l = m_data + _idx;
+    auto it_r = m_data + _idx + find_len - 1;
+
+    while (it_r != data_end)
     {
-        /* code */
+        if (*it_l == *find_first && *it_r == *find_last)
+            for (auto i = 1; i < find_len - 1; i++)
+            {
+                auto in_find = find_first + i;
+                auto in_data = it_l + i;
+                if (*in_find != *in_data)
+                    break;
+                if (i == find_len - 2)
+                    return it_l - m_data;
+            }
+        it_l++;
+        it_r++;
     }
+
+    return -1;
 }
 
 void string::replace(const string &_find, const string &_rep) const
