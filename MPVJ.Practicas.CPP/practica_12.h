@@ -14,4 +14,7 @@ void run_practica_12()
 
     std::cout << strA.find("a23.", 0) << std::endl;
     std::cout << strB.find("a23.", 0) << std::endl;
+
+    strA.replace(bs::string("a"), bs::string("lmao"));
+    
 }

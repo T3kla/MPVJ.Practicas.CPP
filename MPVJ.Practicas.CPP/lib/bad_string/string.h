@@ -65,8 +65,8 @@ struct string
     // string Mid(int _ofs, int _n); // |
     string substr(const size_t &_idx, const size_t &_len, const bool &_reverse) const;
 
-    int find(const string &_find, const size_t &_idx) const;
-    void replace(const string &_find, const string &_rep) const;
+    int find(const string &_find, const size_t &_idx = 0) const;
+    void replace(const string &_find, const string &_rep);
 
     // string ToUpper() const;
     // string ToLower() const;

@@ -340,7 +340,7 @@ int string::find(const string &_find, const size_t &_idx) const
 
     while (it_r != data_end)
     {
-        if (*it_l == *find_first && *it_r == *find_last)
+        if (*it_l == *find_first && *it_r == *find_last) // TODO: shortcut when _find is 2 or less characters
             for (auto i = 1; i < find_len - 1; i++)
             {
                 auto in_find = find_first + i;
@@ -357,8 +357,21 @@ int string::find(const string &_find, const size_t &_idx) const
     return -1;
 }
 
-void string::replace(const string &_find, const string &_rep) const
+void string::replace(const string &_find, const string &_rep)
 {
+    auto idx = find(_find, 0);
+    auto len_find = _find.m_size;
+    auto len_rep = _rep.m_size;
+    auto len_dif = len_rep - len_find;
+
+    while (idx != -1)
+    {
+        auto old_size = m_size;
+        resize(m_size + len_dif);
+        ::memcpy(m_data + idx + len_find, m_data + idx + len_rep, (old_size + 1) - (idx + len_rep));
+        ::memcpy(m_data + idx, _rep.m_data, len_rep);
+        idx = find(_find);
+    }
 }
 
 // std::ostream &operator<<(std::ostream &_os, const string &_value)
