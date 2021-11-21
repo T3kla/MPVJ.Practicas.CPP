@@ -45,4 +45,7 @@ void run_practica_12()
 
     std::cout << strD.strip_ext() << std::endl;
     std::cout << strD.strip_dir() << std::endl;
+
+    std::cout << strD.extract_ext() << std::endl;
+    std::cout << strD.extract_dir() << std::endl;
 }

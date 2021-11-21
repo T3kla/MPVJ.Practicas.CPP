@@ -21,11 +21,6 @@ void string::resize(const size_t &_size)
     m_capacity = new_cap;
 }
 
-size_t string::calc_capacity(const size_t &_value)
-{
-    return (_value + 1) + ALLOC_INCREMENT - ((_value + 1) % ALLOC_INCREMENT);
-}
-
 void string::extract_number(const char *_src, char *_dst_, const size_t &_len, const bool &_allow_dot) const
 {
     char *it_buff = _dst_;
@@ -62,14 +57,19 @@ void string::extract_number(const char *_src, char *_dst_, const size_t &_len, c
     *it_buff = '\0';
 }
 
-void string::zero()
+inline size_t string::calc_capacity(const size_t &_value)
+{
+    return (_value + 1) + ALLOC_INCREMENT - ((_value + 1) % ALLOC_INCREMENT);
+}
+
+inline void string::zero()
 {
     for (auto i = 0ull; i < length(); i++)
         m_data[i] = ' ';
     guard();
 }
 
-void string::guard()
+inline void string::guard()
 {
     m_data[m_size] = '\0';
 }
@@ -552,10 +552,18 @@ string string::strip_dir() const
 
 string string::extract_ext() const
 {
+    auto idx = find_last(".");
+    if (idx != -1)
+        return substr(0, length() - idx - 1, true);
+    return *this;
 }
 
 string string::extract_dir() const
 {
+    auto idx = find_last("/");
+    if (idx != -1)
+        return substr(0, idx);
+    return *this;
 }
 
 } // namespace bs

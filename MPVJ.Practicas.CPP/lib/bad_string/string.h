@@ -14,10 +14,10 @@ struct string
     char *m_data = nullptr;
 
     void resize(const size_t &_size);
-    inline size_t calc_capacity(const size_t &_value);
     void extract_number(const char *_src, char *_dst_, const size_t &_len, const bool &_allow_dot) const;
-    void zero();
-    void guard();
+    inline size_t calc_capacity(const size_t &_value);
+    inline void zero();
+    inline void guard();
 
   public:
     string();                               // |
