@@ -16,9 +16,8 @@ void string::resize(const size_t &_size)
 
     auto old = m_data;
     m_data = new char[new_cap];
-    ::memcpy(m_data, old, old_size + 1);
+    ::memcpy(m_data, old, old_size);
     delete (old);
-
     m_capacity = new_cap;
 }
 
@@ -30,36 +29,49 @@ size_t string::calc_capacity(const size_t &_value)
 void string::extract_number(const char *_src, char *_dst_, const size_t &_len, const bool &_allow_dot) const
 {
     char *it_buff = _dst_;
-    char *it_data = m_data;
+    auto *it = begin();
+    auto *end = this->end();
     auto saw_point = !_allow_dot;
     auto saw_minus = false;
 
-    auto cont = [&]() { return (*it_data != '\0') && (it_buff != _dst_ + _len - 1); };
+    auto cont = [&]() { return (it != end) && (it_buff != _dst_ + _len - 1); };
 
     *_dst_ = '+';
     it_buff++;
 
     while (cont())
     {
-        if (!saw_minus && *it_data == '-' && it_buff == _dst_ + 1)
+        if (!saw_minus && *it == '-' && it_buff == _dst_ + 1)
         {
             saw_minus = true;
             *_dst_ = '-';
         }
 
-        if (!saw_point && *it_data == '.')
+        if (!saw_point && *it == '.')
         {
             saw_point = true;
-            *it_buff++ = *it_data;
+            *it_buff++ = *it;
         }
 
-        if (*it_data >= '0' && *it_data <= '9')
-            *it_buff++ = *it_data;
+        if (*it >= '0' && *it <= '9')
+            *it_buff++ = *it;
 
-        it_data++;
+        it++;
     }
 
     *it_buff = '\0';
+}
+
+void string::zero()
+{
+    for (auto i = 0ull; i < length(); i++)
+        m_data[i] = ' ';
+    guard();
+}
+
+void string::guard()
+{
+    m_data[m_size] = '\0';
 }
 
 #pragma region Constructors
@@ -70,6 +82,8 @@ string::string()
     m_capacity = ALLOC_INCREMENT;
     m_size = 0;
     m_data = new char[ALLOC_INCREMENT];
+    zero();
+    guard();
 }
 
 // Alloc hint constructor
@@ -78,12 +92,15 @@ string::string(const size_t &_value)
     m_capacity = calc_capacity(_value);
     m_size = _value;
     m_data = new char[m_capacity];
+    zero();
+    guard();
 }
 
 // Default destructor
 string::~string()
 {
-    delete (m_data);
+    if (m_data != nullptr)
+        delete (m_data);
 }
 
 // Constructor for constant char pointer of mutable value
@@ -93,7 +110,7 @@ string::string(const char *_value)
     m_capacity = calc_capacity(m_size);
     m_data = new char[m_capacity];
     std::memcpy(m_data, _value, m_size);
-    m_data[m_size] = '\0';
+    guard();
 }
 
 // Constructor for char pointer of mutable value
@@ -103,7 +120,7 @@ string::string(char *_value)
     m_capacity = calc_capacity(m_size);
     m_data = new char[m_capacity];
     std::memcpy(m_data, _value, m_size);
-    m_data[m_size] = '\0';
+    guard();
 }
 
 // Constructor for constant string reference of constant value
@@ -113,7 +130,8 @@ string::string(const string &_value)
     m_size = _value.m_size;
     m_capacity = _value.m_capacity;
     m_data = new char[_value.m_capacity];
-    std::memcpy(m_data, _value.m_data, m_size + 1);
+    std::memcpy(m_data, _value.m_data, m_size);
+    guard();
 }
 
 // Constructor for constant string reference of mutable value
@@ -123,7 +141,8 @@ string::string(string &_value)
     m_size = _value.m_size;
     m_capacity = _value.m_capacity;
     m_data = new char[_value.m_capacity];
-    std::memcpy(m_data, _value.m_data, m_size + 1);
+    std::memcpy(m_data, _value.m_data, m_size);
+    guard();
 }
 
 // Constructor for constant string rvalue of mutable value
@@ -134,7 +153,8 @@ string::string(const string &&_value) noexcept
     m_size = _value.m_size;
     m_capacity = _value.m_capacity;
     m_data = new char[m_capacity];
-    std::memcpy(m_data, _value.m_data, m_size + 1);
+    std::memcpy(m_data, _value.m_data, m_size);
+    guard();
 }
 
 // Constructor for constant string rvalue of mutable value
@@ -164,49 +184,49 @@ bool string::operator!=(const string &_rhs) const
 
 bool string::operator>(const string &_rhs) const
 {
-    return m_size > _rhs.m_size;
+    return length() > _rhs.length();
 }
 
 bool string::operator<(const string &_rhs) const
 {
-    return m_size < _rhs.m_size;
+    return length() < _rhs.length();
 }
 
 bool string::operator>=(const string &_rhs) const
 {
-    return m_size >= _rhs.m_size;
+    return length() >= _rhs.length();
 }
 
 bool string::operator<=(const string &_rhs) const
 {
-    return m_size <= _rhs.m_size;
+    return length() <= _rhs.length();
 }
 
 string string::operator+(const string &_rhs) const
 {
-    auto new_str = string(m_size + _rhs.m_size);
-    std::memcpy(new_str.m_data, m_data, m_size);
-    std::memcpy(new_str.m_data + m_size, _rhs.m_data, _rhs.m_size + 1);
-    return new_str;
+    auto result = string(m_size + _rhs.m_size);
+    std::memcpy(result.m_data, m_data, m_size);
+    std::memcpy(result.m_data + m_size, _rhs.m_data, _rhs.m_size + 1);
+    return result;
 }
 
 string string::operator+(const char *_rhs) const
 {
     auto rhslen = strlen(_rhs);
-    auto new_str = string(m_size + rhslen);
-    std::memcpy(new_str.m_data, m_data, m_size);
-    std::memcpy(new_str.m_data + m_size, _rhs, rhslen);
-    new_str.m_data[m_size] = '\0';
-    return new_str;
+    auto result = string(m_size + rhslen);
+    std::memcpy(result.m_data, m_data, m_size);
+    std::memcpy(result.m_data + m_size, _rhs, rhslen);
+    result.guard();
+    return result;
 }
 
 string string::operator+(char _rhs) const
 {
-    auto new_str = string(m_size + 1);
-    std::memcpy(new_str.m_data, m_data, m_size);
-    new_str.m_data[m_size - 1] = _rhs;
-    new_str.m_data[m_size] = '\0';
-    return new_str;
+    auto result = string(m_size + 1);
+    std::memcpy(result.m_data, m_data, m_size);
+    result.m_data[m_size - 1] = _rhs;
+    result.guard();
+    return result;
 }
 
 string &string::operator=(const string &_rhs)
@@ -221,7 +241,7 @@ string &string::operator=(const char *_rhs)
     auto rhslen = strlen(_rhs);
     resize(rhslen);
     std::memcpy(m_data, _rhs, rhslen);
-    m_data[m_size] = '\0';
+    guard();
     return *this;
 }
 
@@ -229,7 +249,7 @@ string &string::operator=(char _rhs)
 {
     resize(1);
     m_data[0] = _rhs;
-    m_data[1] = '\0';
+    guard();
     return *this;
 }
 
@@ -247,7 +267,7 @@ string &string::operator+=(const char *_rhs)
     auto rhslen = strlen(_rhs);
     resize(m_size + rhslen);
     std::memcpy(m_data + old_size, _rhs, rhslen);
-    m_data[m_size] = '\0';
+    guard();
     return *this;
 }
 
@@ -255,7 +275,7 @@ string &string::operator+=(char _rhs)
 {
     resize(m_size + 1);
     m_data[m_size - 1] = _rhs;
-    m_data[m_size] = '\0';
+    guard();
     return *this;
 }
 
@@ -275,6 +295,16 @@ const char &string::operator[](size_t _idx) const
 
 #pragma endregion
 
+char *string::begin() const
+{
+    return m_data;
+}
+
+char *string::end() const
+{
+    return m_data + m_size;
+}
+
 size_t string::length() const
 {
     return m_size;
@@ -282,8 +312,8 @@ size_t string::length() const
 
 int string::to_int() const
 {
-    char buffer[256];
-    extract_number(m_data, buffer, 256, false);
+    char buffer[64];
+    extract_number(m_data, buffer, 64, false);
     auto size = strlen(buffer);
     auto result = 0;
 
@@ -302,8 +332,8 @@ int string::to_int() const
 
 float string::to_float() const
 {
-    char buffer[256];
-    extract_number(m_data, buffer, 256, true);
+    char buffer[64];
+    extract_number(m_data, buffer, 64, true);
     return ::atof(buffer);
 }
 
@@ -312,15 +342,16 @@ const char *string::c_str() const
     return m_data;
 }
 
-string string::substr(const size_t &_idx, const size_t &_len, const bool &_reverse = false) const
+string string::substr(const size_t &_idx, const size_t &_len, const bool &_reverse) const
 {
-    if (_idx < 0 || _idx + _len >= m_size)
+    if (_idx < 0 || _idx + _len > m_size)
         throw "Out of range index";
-    if (_reverse && _idx - _len < 0)
+    if (_reverse && m_size - _idx - _len < 0)
         throw "Out of range index";
-    auto new_str = string(_len);
-    std::memcpy(new_str.m_data, m_data + _idx + (_reverse ? _len * -1 : 1), _len);
-    return new_str;
+    auto result = string(_len);
+    std::memcpy(result.m_data, m_data + (_reverse ? m_size - _idx - _len : _idx), _len);
+    result.guard();
+    return result;
 }
 
 int string::find(const string &_find, const size_t &_idx) const
@@ -330,28 +361,66 @@ int string::find(const string &_find, const size_t &_idx) const
     if (_idx < 0 || _idx + find_len >= m_size)
         throw "Out of range index";
 
-    const auto data_end = m_data + m_size;
+    const auto &find_l = _find.begin();
+    const auto &find_r = _find.end() - 1;
 
-    const auto find_first = _find.m_data;
-    const auto find_last = _find.m_data + find_len - 1;
+    auto it_l = begin() + _idx;
+    auto it_r = begin() + _idx + find_len - 1;
 
-    auto it_l = m_data + _idx;
-    auto it_r = m_data + _idx + find_len - 1;
-
-    while (it_r != data_end)
+    while (it_r != end())
     {
-        if (*it_l == *find_first && *it_r == *find_last) // TODO: shortcut when _find is 2 or less characters
+        if (*it_l == *find_l && *it_r == *find_r)
+        {
+            if (find_len <= 2)
+                return it_l - m_data;
             for (auto i = 1; i < find_len - 1; i++)
             {
-                auto in_find = find_first + i;
+                auto in_find = find_l + i;
                 auto in_data = it_l + i;
                 if (*in_find != *in_data)
                     break;
                 if (i == find_len - 2)
                     return it_l - m_data;
             }
+        }
         it_l++;
         it_r++;
+    }
+
+    return -1;
+}
+
+int string::find_last(const string &_find, const size_t &_idx) const
+{
+    const auto find_len = _find.length();
+
+    if (_idx < 0 || _idx + find_len >= m_size)
+        throw "Out of range index";
+
+    const auto &find_l = _find.begin();
+    const auto &find_r = _find.end() - 1;
+
+    auto it_l = end() - find_len;
+    auto it_r = end() - 1;
+
+    while (it_l != begin() + _idx)
+    {
+        if (*it_l == *find_l && *it_r == *find_r)
+        {
+            if (find_len <= 2)
+                return it_l - m_data;
+            for (auto i = 1; i < find_len - 1; i++)
+            {
+                auto in_find = find_l + i;
+                auto in_data = it_l + i;
+                if (*in_find != *in_data)
+                    break;
+                if (i == find_len - 2)
+                    return it_l - m_data;
+            }
+        }
+        it_l--;
+        it_r--;
     }
 
     return -1;
@@ -360,23 +429,133 @@ int string::find(const string &_find, const size_t &_idx) const
 void string::replace(const string &_find, const string &_rep)
 {
     auto idx = find(_find, 0);
-    auto len_find = _find.m_size;
-    auto len_rep = _rep.m_size;
+    auto len_find = _find.length();
+    auto len_rep = _rep.length();
     auto len_dif = len_rep - len_find;
+    auto ofs = idx + len_find;
 
     while (idx != -1)
     {
         auto old_size = m_size;
         resize(m_size + len_dif);
-        ::memcpy(m_data + idx + len_find, m_data + idx + len_rep, (old_size + 1) - (idx + len_rep));
+        ::memcpy(m_data + idx + len_rep, m_data + idx + len_find, (old_size + 1) - (idx + len_find));
         ::memcpy(m_data + idx, _rep.m_data, len_rep);
-        idx = find(_find);
+        ofs = idx + len_rep;
+        idx = find(_find, ofs);
     }
+
+    guard();
 }
 
-// std::ostream &operator<<(std::ostream &_os, const string &_value)
-// {
-//     return _os << _value.m_data;
-// }
+string string::to_upper() const
+{
+    auto result = string(*this);
+    auto *beg = result.begin();
+    auto *end = result.end();
+
+    for (beg; beg != end; beg++)
+        if (*beg >= 'a' && *beg <= 'z')
+            (*beg) += 'A' - 'a';
+
+    return result;
+}
+
+string string::to_lower() const
+{
+    auto result = string(*this);
+    auto *beg = result.begin();
+    auto *end = result.end();
+
+    for (beg; beg != end; beg++)
+        if (*beg >= 'A' && *beg <= 'Z')
+            (*beg) += 'a' - 'A';
+
+    return result;
+}
+
+string string::trim_left() const
+{
+    auto whites = 0;
+    auto *beg = this->begin();
+    auto *end = this->end();
+
+    while (iswspace(*beg) != 0 && beg++ < end)
+        whites++;
+
+    return substr(whites, m_size - whites);
+}
+
+string string::trim_right() const
+{
+    auto whites = 0;
+    auto *beg = this->begin();
+    auto *end = this->end() - 1;
+
+    while (iswspace(*end) != 0 && end-- >= beg)
+        whites++;
+
+    return substr(0, m_size - whites);
+}
+
+string string::trim() const
+{
+    return trim_left().trim_right();
+}
+
+string string::pad_left(const size_t &_len, const char &_c) const
+{
+    if (length() >= _len)
+        return substr(0, _len, true);
+
+    auto result = string(_len);
+    auto diff = _len - m_size;
+    ::memcpy(result.m_data + diff, m_data, m_size);
+
+    for (size_t i = 0; i < diff; i++)
+        result.m_data[i] = _c;
+
+    result.guard();
+    return result;
+}
+
+string string::pad_right(const size_t &_len, const char &_c) const
+{
+    if (length() >= _len)
+        return substr(0, _len);
+
+    auto result = string(_len);
+    auto diff = _len - m_size;
+    ::memcpy(result.m_data, m_data, m_size);
+
+    for (size_t i = 0; i < diff; i++)
+        result.m_data[m_size + i] = _c;
+
+    result.guard();
+    return result;
+}
+
+string string::strip_ext() const
+{
+    auto idx = find_last(".");
+    if (idx != -1)
+        return substr(0, idx);
+    return *this;
+}
+
+string string::strip_dir() const
+{
+    auto idx = find_last("/");
+    if (idx != -1)
+        return substr(0, length() - idx - 1, true);
+    return *this;
+}
+
+string string::extract_ext() const
+{
+}
+
+string string::extract_dir() const
+{
+}
 
 } // namespace bs

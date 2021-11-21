@@ -15,8 +15,9 @@ struct string
 
     void resize(const size_t &_size);
     inline size_t calc_capacity(const size_t &_value);
-    // size_t round_up(const size_t &to_round, const size_t &multiple);
     void extract_number(const char *_src, char *_dst_, const size_t &_len, const bool &_allow_dot) const;
+    void zero();
+    void guard();
 
   public:
     string();                               // |
@@ -31,6 +32,9 @@ struct string
                                             //
     string(const string &&_value) noexcept; // |
     string(string &&_value) noexcept;       // |
+
+    char *begin() const;
+    char *end() const;
 
     bool operator==(const string &_rhs) const;
     bool operator!=(const string &_rhs) const;
@@ -63,24 +67,28 @@ struct string
     // string Left(int _n) const;    // | Substituted with substr()
     // string Right(int _n) const;   // |
     // string Mid(int _ofs, int _n); // |
-    string substr(const size_t &_idx, const size_t &_len, const bool &_reverse) const;
+    string substr(const size_t &_idx, const size_t &_len, const bool &_reverse = false) const;
 
     int find(const string &_find, const size_t &_idx = 0) const;
+    int find_last(const string &_find, const size_t &_idx = 0) const;
     void replace(const string &_find, const string &_rep);
 
-    // string ToUpper() const;
-    // string ToLower() const;
-    // string LTrim() const;
-    // string RTrim() const;
-    // string Trim() const;
+    string to_upper() const;
+    string to_lower() const;
 
-    // string LPad(int _len, char _c) const;
-    // string RPad(int _len, char _c) const;
+    string trim_left() const;
+    string trim_right() const;
+    string trim() const;
 
-    // string StripExt() const;
-    // string StripDir() const;
-    // string ExtractExt() const;
-    // string ExtractDir() const;
+    string pad_left(const size_t &_len, const char &_c) const;
+    string pad_right(const size_t &_len, const char &_c) const;
+
+    string strip_ext() const;
+    string strip_dir() const;
+
+    string extract_ext() const;
+    string extract_dir() const;
+
     // string RealPath() const;
 
     // static string FromInt(int _val);
@@ -90,7 +98,10 @@ struct string
     // static string Read(const string &_filename);
     // void Write(const string &_filename, bool _append = true) const;
 
-    friend std::ostream &operator<<(std::ostream &_os, const string &_value);
+    friend std::ostream &operator<<(std::ostream &os, const string &b)
+    {
+        return os << b.m_data;
+    }
 };
 
 } // namespace bs
