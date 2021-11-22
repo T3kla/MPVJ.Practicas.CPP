@@ -1,4 +1,6 @@
 #include "string.h"
+#include <filesystem>
+#include <fstream>
 #include <iostream>
 
 namespace bs
@@ -312,6 +314,7 @@ size_t string::length() const
 
 int string::to_int() const
 {
+    // Se que hay maneras mas faciles, pero tenia ganas de hacerlo asi
     char buffer[64];
     extract_number(m_data, buffer, 64, false);
     auto size = strlen(buffer);
@@ -321,7 +324,7 @@ int string::to_int() const
     {
         auto num = buffer[i] - '0';
         auto pos = pow(10, size - i - 1);
-        result += num * pos;
+        result += num * (int)pos;
     }
 
     if (*buffer == '-')
@@ -334,12 +337,33 @@ float string::to_float() const
 {
     char buffer[64];
     extract_number(m_data, buffer, 64, true);
-    return ::atof(buffer);
+    return (float)::atof(buffer);
 }
 
 const char *string::c_str() const
 {
     return m_data;
+}
+
+string string::to_string(const float &_value)
+{
+    char buffer[64];
+    snprintf(buffer, 64, "%f", _value);
+    return string(buffer);
+}
+
+string string::to_string(const int &_value)
+{
+    char buffer[64];
+    _itoa_s(_value, buffer, 10);
+    return string(buffer);
+}
+
+string string::to_string_as_hex(const int &_value)
+{
+    char buffer[64];
+    _itoa_s(_value, buffer, 16);
+    return string(buffer);
 }
 
 string string::substr(const size_t &_idx, const size_t &_len, const bool &_reverse) const
@@ -354,25 +378,31 @@ string string::substr(const size_t &_idx, const size_t &_len, const bool &_rever
     return result;
 }
 
-int string::find(const string &_find, const size_t &_idx) const
+// bool find(const string &_find, size_t &_idx_, const size_t &_ofs) const;
+// bool find_last(const string &_find, size_t &_idx_, const size_t &_ofs) const;
+
+bool string::find(const string &_find, size_t &_idx_, const size_t &_ofs) const
 {
     const auto find_len = _find.length();
 
-    if (_idx < 0 || _idx + find_len >= m_size)
+    if (_ofs < 0 || _ofs + find_len >= m_size)
         throw "Out of range index";
 
     const auto &find_l = _find.begin();
     const auto &find_r = _find.end() - 1;
 
-    auto it_l = begin() + _idx;
-    auto it_r = begin() + _idx + find_len - 1;
+    auto it_l = begin() + _ofs;
+    auto it_r = begin() + _ofs + find_len - 1;
 
     while (it_r != end())
     {
         if (*it_l == *find_l && *it_r == *find_r)
         {
             if (find_len <= 2)
-                return it_l - m_data;
+            {
+                _idx_ = it_l - m_data;
+                return true;
+            }
             for (auto i = 1; i < find_len - 1; i++)
             {
                 auto in_find = find_l + i;
@@ -380,21 +410,24 @@ int string::find(const string &_find, const size_t &_idx) const
                 if (*in_find != *in_data)
                     break;
                 if (i == find_len - 2)
-                    return it_l - m_data;
+                {
+                    _idx_ = it_l - m_data;
+                    return true;
+                }
             }
         }
         it_l++;
         it_r++;
     }
 
-    return -1;
+    return false;
 }
 
-int string::find_last(const string &_find, const size_t &_idx) const
+bool string::find_last(const string &_find, size_t &_idx_, const size_t &_ofs) const
 {
     const auto find_len = _find.length();
 
-    if (_idx < 0 || _idx + find_len >= m_size)
+    if (_ofs < 0 || _ofs + find_len >= m_size)
         throw "Out of range index";
 
     const auto &find_l = _find.begin();
@@ -403,12 +436,15 @@ int string::find_last(const string &_find, const size_t &_idx) const
     auto it_l = end() - find_len;
     auto it_r = end() - 1;
 
-    while (it_l != begin() + _idx)
+    while (it_l != begin() + _ofs)
     {
         if (*it_l == *find_l && *it_r == *find_r)
         {
             if (find_len <= 2)
-                return it_l - m_data;
+            {
+                _idx_ = it_l - m_data;
+                return true;
+            }
             for (auto i = 1; i < find_len - 1; i++)
             {
                 auto in_find = find_l + i;
@@ -416,32 +452,34 @@ int string::find_last(const string &_find, const size_t &_idx) const
                 if (*in_find != *in_data)
                     break;
                 if (i == find_len - 2)
-                    return it_l - m_data;
+                {
+                    _idx_ = it_l - m_data;
+                    return true;
+                }
             }
         }
         it_l--;
         it_r--;
     }
 
-    return -1;
+    return false;
 }
 
 void string::replace(const string &_find, const string &_rep)
 {
-    auto idx = find(_find, 0);
+    auto idx = 0ull;
+    auto ofs = 0ull;
     auto len_find = _find.length();
     auto len_rep = _rep.length();
     auto len_dif = len_rep - len_find;
-    auto ofs = idx + len_find;
 
-    while (idx != -1)
+    while (find(_find, idx, ofs))
     {
         auto old_size = m_size;
         resize(m_size + len_dif);
         ::memcpy(m_data + idx + len_rep, m_data + idx + len_find, (old_size + 1) - (idx + len_find));
         ::memcpy(m_data + idx, _rep.m_data, len_rep);
         ofs = idx + len_rep;
-        idx = find(_find, ofs);
     }
 
     guard();
@@ -536,34 +574,69 @@ string string::pad_right(const size_t &_len, const char &_c) const
 
 string string::strip_ext() const
 {
-    auto idx = find_last(".");
-    if (idx != -1)
+    auto idx = 0ull;
+    if (find_last(".", idx))
         return substr(0, idx);
     return *this;
 }
 
 string string::strip_dir() const
 {
-    auto idx = find_last("/");
-    if (idx != -1)
+    auto idx = 0ull;
+    if (find_last("/", idx))
         return substr(0, length() - idx - 1, true);
     return *this;
 }
 
 string string::extract_ext() const
 {
-    auto idx = find_last(".");
-    if (idx != -1)
+    auto idx = 0ull;
+    if (find_last(".", idx))
         return substr(0, length() - idx - 1, true);
     return *this;
 }
 
 string string::extract_dir() const
 {
-    auto idx = find_last("/");
-    if (idx != -1)
+    auto idx = 0ull;
+    if (find_last("/", idx))
         return substr(0, idx);
     return *this;
+}
+
+string string::real_path() const
+{
+    // No sé si esto es lo que pides pero vaya, que filesystem
+    // tiene como mil maneras de hacer esto según parece.
+    auto cur = std::filesystem::current_path().u8string();
+    cur.append("\\");
+    cur.append(c_str());
+    return string(cur.c_str());
+}
+
+string string::read(const string &_filename)
+{
+    std::fstream stream;
+    auto fn = std::string(_filename.c_str());
+    stream.open(fn, std::ios::in);
+
+    stream.seekg(0, std::ios::end);
+    size_t file_len = stream.tellg();
+    stream.seekg(0, std::ios::beg);
+
+    auto result = string(file_len);
+    stream.read(result.m_data, file_len);
+    stream.close();
+    return result;
+}
+
+void string::write(const string &_filename, bool _append) const
+{
+    std::fstream stream;
+    auto fn = std::string(_filename.c_str());
+    stream.open(fn, std::ios::out | (_append ? std::ios::app : std::ios::trunc));
+    stream.write(c_str(), length());
+    stream.close();
 }
 
 } // namespace bs

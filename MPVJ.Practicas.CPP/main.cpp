@@ -62,7 +62,7 @@ int main()
     // run_practica_11();
 
     // Operators
-    // Status: Need check
+    // Status: OK
     run_practica_12();
 
     // Inheritance

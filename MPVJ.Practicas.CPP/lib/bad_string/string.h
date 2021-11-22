@@ -20,18 +20,18 @@ struct string
     inline void guard();
 
   public:
-    string();                               // |
-    string(const size_t &_value);           // |
-    ~string();                              // |
-                                            //
-    string(const char *_value);             // |
-    string(char *_value);                   // |
-                                            //
-    string(const string &_value);           // |
-    string(string &_value);                 // |
-                                            //
-    string(const string &&_value) noexcept; // |
-    string(string &&_value) noexcept;       // |
+    string();
+    string(const size_t &_value);
+    ~string();
+
+    string(const char *_value);
+    string(char *_value);
+
+    string(const string &_value);
+    string(string &_value);
+
+    string(const string &&_value) noexcept;
+    string(string &&_value) noexcept;
 
     char *begin() const;
     char *end() const;
@@ -64,13 +64,17 @@ struct string
     float to_float() const;
     const char *c_str() const;
 
+    static string to_string(const float &_value);
+    static string to_string(const int &_value);
+    static string to_string_as_hex(const int &_value);
+
     // string Left(int _n) const;    // | Substituted with substr()
     // string Right(int _n) const;   // |
     // string Mid(int _ofs, int _n); // |
     string substr(const size_t &_idx, const size_t &_len, const bool &_reverse = false) const;
 
-    int find(const string &_find, const size_t &_idx = 0) const;
-    int find_last(const string &_find, const size_t &_idx = 0) const;
+    bool find(const string &_find, size_t &_idx_, const size_t &_ofs = 0) const;
+    bool find_last(const string &_find, size_t &_idx_, const size_t &_ofs = 0) const;
     void replace(const string &_find, const string &_rep);
 
     string to_upper() const;
@@ -89,19 +93,20 @@ struct string
     string extract_ext() const;
     string extract_dir() const;
 
-    // string RealPath() const;
+    string real_path() const;
 
-    // static string FromInt(int _val);
-    // static string HexFromInt(int _val);
-    // static string FromFloat(float _val);
-
-    // static string Read(const string &_filename);
-    // void Write(const string &_filename, bool _append = true) const;
+    static string read(const string &_filename);
+    void write(const string &_filename, bool _append = true) const;
 
     friend std::ostream &operator<<(std::ostream &os, const string &b)
     {
         return os << b.m_data;
     }
 };
+
+// string &operator+(string _lhs, const string &_rhs)
+//{
+//     return _lhs += _rhs;
+// }
 
 } // namespace bs
