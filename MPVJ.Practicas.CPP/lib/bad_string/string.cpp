@@ -78,7 +78,6 @@ inline void string::guard()
 
 #pragma region Constructors
 
-// Default constructor
 string::string()
 {
     m_capacity = ALLOC_INCREMENT;
@@ -88,7 +87,6 @@ string::string()
     guard();
 }
 
-// Alloc hint constructor
 string::string(const size_t &_value)
 {
     m_capacity = calc_capacity(_value);
@@ -98,14 +96,12 @@ string::string(const size_t &_value)
     guard();
 }
 
-// Default destructor
 string::~string()
 {
     if (m_data != nullptr)
         delete (m_data);
 }
 
-// Constructor for constant char pointer of mutable value
 string::string(const char *_value)
 {
     m_size = strlen(_value);
@@ -115,7 +111,6 @@ string::string(const char *_value)
     guard();
 }
 
-// Constructor for char pointer of mutable value
 string::string(char *_value)
 {
     m_size = strlen(_value);
@@ -125,8 +120,6 @@ string::string(char *_value)
     guard();
 }
 
-// Constructor for constant string reference of constant value
-//                 ^^^^^^^^ -> not an error, references are always constant
 string::string(const string &_value)
 {
     m_size = _value.m_size;
@@ -136,8 +129,6 @@ string::string(const string &_value)
     guard();
 }
 
-// Constructor for constant string reference of mutable value
-//                 ^^^^^^^^ -> not an error, references are always constant
 string::string(string &_value)
 {
     m_size = _value.m_size;
@@ -147,9 +138,6 @@ string::string(string &_value)
     guard();
 }
 
-// Constructor for constant string rvalue of mutable value
-//                 ^^^^^^^^ -> not an error, references are always constant
-// Can't be pointer yoinked
 string::string(const string &&_value) noexcept
 {
     m_size = _value.m_size;
@@ -159,9 +147,6 @@ string::string(const string &&_value) noexcept
     guard();
 }
 
-// Constructor for constant string rvalue of mutable value
-//                 ^^^^^^^^ -> not an error, references are always constant
-// Can be pointer yoinked
 string::string(string &&_value) noexcept
 {
     m_size = _value.m_size;
@@ -229,6 +214,15 @@ string string::operator+(char _rhs) const
     result.m_data[m_size - 1] = _rhs;
     result.guard();
     return result;
+}
+
+string &string::operator=(string &&_rhs) noexcept
+{
+    m_size = _rhs.m_size;
+    m_capacity = _rhs.m_capacity;
+    m_data = _rhs.m_data;
+    _rhs.m_data = nullptr;
+    return *this;
 }
 
 string &string::operator=(const string &_rhs)
@@ -637,6 +631,11 @@ void string::write(const string &_filename, bool _append) const
     stream.open(fn, std::ios::out | (_append ? std::ios::app : std::ios::trunc));
     stream.write(c_str(), length());
     stream.close();
+}
+
+const string operator+(const char *_lhs, const string &_rhs)
+{
+    return string(_lhs) + _rhs;
 }
 
 } // namespace bs

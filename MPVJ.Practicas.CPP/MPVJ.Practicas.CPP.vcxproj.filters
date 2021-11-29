@@ -45,9 +45,6 @@
     <ClCompile Include="lib\image\image.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="lib\llist\llist.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="lib\bit_magic\bit_magic.h">
@@ -126,6 +123,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="practica_16.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\llist\ilist.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

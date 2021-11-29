@@ -24,9 +24,9 @@ void run_practica_13()
 
     std::cout << "Draw each" << std::endl;
 
-    std::cout << images[0]->draw(nullptr) << std::endl;
-    std::cout << images[1]->draw(nullptr) << std::endl;
-    std::cout << images[2]->draw(nullptr) << std::endl;
+    images[0]->draw(nullptr);
+    images[1]->draw(nullptr);
+    images[2]->draw(nullptr);
 
     std::cout << "Remove alpha channel" << std::endl;
 

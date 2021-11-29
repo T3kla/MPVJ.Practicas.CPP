@@ -47,6 +47,7 @@ struct string
     string operator+(const char *_rhs) const;
     string operator+(char _rhs) const;
 
+    string &operator=(string &&_rhs) noexcept;
     string &operator=(const string &_rhs);
     string &operator=(const char *_rhs);
     string &operator=(char _rhs);
@@ -104,9 +105,5 @@ struct string
     }
 };
 
-// string &operator+(string _lhs, const string &_rhs)
-//{
-//     return _lhs += _rhs;
-// }
-
+const string operator+(const char *_lhs, const string &_rhs);
 } // namespace bs

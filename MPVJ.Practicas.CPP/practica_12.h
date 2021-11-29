@@ -58,5 +58,5 @@ void run_practica_12()
     temp.write("lorem_04.txt", false);
     std::cout << bs::string::read("lorem_04.txt") << std::endl;
 
-    // std::cout << "Hola " + strD + " caracola" << std::endl;
+    std::cout << "Hola " + strD + " caracola" << std::endl;
 }

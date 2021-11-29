@@ -149,6 +149,7 @@
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="lib\llist\ilist.h" />
     <ClInclude Include="lib\image\image.h" />
     <ClInclude Include="practica_13.h" />
     <ClInclude Include="lib\bad_string\string.h" />
@@ -176,7 +177,6 @@
     <ClInclude Include="lib\llist\llist.h" />
     <ClInclude Include="practica_10.h" />
     <ClInclude Include="practica_11.h" />
-    <ClCompile Include="lib\llist\llist.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets" />

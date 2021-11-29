@@ -10,11 +10,11 @@ class stream
   protected:
     stream()
     {
-        std::cout << "stram constructor" << std::endl;
+        std::cout << "stream constructor" << std::endl;
     }
     ~stream()
     {
-        std::cout << "stram destructor" << std::endl;
+        std::cout << "stream destructor" << std::endl;
     }
     virtual void open() = 0;
     virtual void close() = 0;
@@ -90,8 +90,6 @@ class stream_tcp : private stream
 void run_practica_15()
 {
     unsigned char buffer[64];
-
-    // p15::stream stream; <- peta porque contiene virtuales, por tanto es abstract
 
     p15::stream_tcp stream_tcp;
 
