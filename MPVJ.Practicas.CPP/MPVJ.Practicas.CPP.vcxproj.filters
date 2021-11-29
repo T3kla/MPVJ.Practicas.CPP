@@ -128,5 +128,8 @@
     <ClInclude Include="lib\llist\ilist.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="practica_17.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

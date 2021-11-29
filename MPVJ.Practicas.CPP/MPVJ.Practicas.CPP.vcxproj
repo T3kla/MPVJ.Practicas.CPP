@@ -173,6 +173,7 @@
     <ClInclude Include="practica_14.h" />
     <ClInclude Include="practica_15.h" />
     <ClInclude Include="practica_16.h" />
+    <ClInclude Include="practica_17.h" />
     <Content Include="practica_09.h" />
     <ClInclude Include="lib\llist\llist.h" />
     <ClInclude Include="practica_10.h" />

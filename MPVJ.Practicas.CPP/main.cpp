@@ -13,6 +13,7 @@
 #include "practica_14.h"
 #include "practica_15.h"
 #include "practica_16.h"
+#include "practica_17.h"
 #include <iostream>
 
 int main()
@@ -68,7 +69,7 @@ int main()
 
     // Macros
     // Status: WIP
-    // run_practica_17();
+    run_practica_17();
 
     // Macros Memory Leaks
     // Status: WIP
