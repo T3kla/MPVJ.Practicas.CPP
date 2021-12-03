@@ -149,6 +149,8 @@
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="lib\enum_macro\enum_macro_dyn.h" />
+    <ClInclude Include="lib\enum_macro\enum_macro_sta.h" />
     <ClInclude Include="lib\llist\ilist.h" />
     <ClInclude Include="lib\image\image.h" />
     <ClInclude Include="practica_13.h" />

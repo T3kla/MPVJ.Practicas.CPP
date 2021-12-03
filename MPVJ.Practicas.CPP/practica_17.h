@@ -1,143 +1,77 @@
 #pragma once
 
+#include "lib/enum_macro/enum_macro_dyn.h"
+#include "lib/enum_macro/enum_macro_sta.h"
 #include <iostream>
-
-#define DECLARE_ENUM_VALUE_ACTION(_ENUM) _ENUM,
-
-#define ENUM_TO_STRING_ACTION(_ENUM)                                                                                   \
-    if (_eState == Enum::_ENUM)                                                                                        \
-    {                                                                                                                  \
-        return #_ENUM;                                                                                                 \
-    }
-
-#define STRING_TO_ENUM_ACTION(_STRING)                                                                                 \
-    if (strcmp(_sEnum, #_STRING) == 0)                                                                                 \
-    {                                                                                                                  \
-        return Enum::_STRING;                                                                                          \
-    }
-
-#define DECLARE_ENUM(_NAME, _LIST)                                                                                     \
-    struct _NAME                                                                                                       \
-    {                                                                                                                  \
-        enum Enum                                                                                                      \
-        {                                                                                                              \
-            Invalid = -1,                                                                                              \
-            _LIST(DECLARE_ENUM_VALUE_ACTION) Count                                                                     \
-        };                                                                                                             \
-        static const char *ToString(Enum _eState)                                                                      \
-        {                                                                                                              \
-            _LIST(ENUM_TO_STRING_ACTION)                                                                               \
-            assert(false);                                                                                             \
-            return "Invalid";                                                                                          \
-        }                                                                                                              \
-        static Enum ToEnum(const char *_sEnum)                                                                         \
-        {                                                                                                              \
-            _LIST(STRING_TO_ENUM_ACTION)                                                                               \
-            assert(false);                                                                                             \
-            return Enum::Invalid;                                                                                      \
-        }                                                                                                              \
-    }
-
-#define STATE_ENUM_DEFINITION_LIST(_CALL)                                                                              \
-    _CALL(Idle)                                                                                                        \
-    _CALL(Chase)                                                                                                       \
-    _CALL(Attacking)                                                                                                   \
-    _CALL(Cover)
-
-DECLARE_ENUM(SState, STATE_ENUM_DEFINITION_LIST);
-
-#define NEW_ENUM(structname, ename, p1, p2, p3, p4)                                                                    \
-    struct structname                                                                                                  \
-    {                                                                                                                  \
-        enum class ename                                                                                               \
-        {                                                                                                              \
-            p1,                                                                                                        \
-            p2,                                                                                                        \
-            p3,                                                                                                        \
-            p4                                                                                                         \
-        };                                                                                                             \
-                                                                                                                       \
-        const char *as_str(ename _enum)                                                                                \
-        {                                                                                                              \
-            AS_STR_IF(ename, p1);                                                                                      \
-            AS_STR_IF(ename, p2);                                                                                      \
-            AS_STR_IF(ename, p3);                                                                                      \
-            AS_STR_IF(ename, p4);                                                                                      \
-            return "error";                                                                                            \
-        };                                                                                                             \
-                                                                                                                       \
-        ename as_enum(const char *_str)                                                                                \
-        {                                                                                                              \
-            AS_ENUM_IF(ename, p1);                                                                                     \
-            AS_ENUM_IF(ename, p2);                                                                                     \
-            AS_ENUM_IF(ename, p3);                                                                                     \
-            AS_ENUM_IF(ename, p4);                                                                                     \
-            return ename::p1;                                                                                          \
-        }                                                                                                              \
-    }
-
-#define AS_STR_IF(ename, case)                                                                                         \
-    if (_enum == ename::case)                                                                                          \
-    return #case
-
-#define AS_ENUM_IF(ename, case)                                                                                        \
-    if (_str == "case")                                                                                                \
-    return ename::case
+#include <string>
+#include <vector>
 
 namespace p17
 {
 
-struct without_macro
+struct enum_noob
 {
-    enum class e_some
+    enum class e_enum_noob
     {
         none,
         one,
         two,
         three
     };
-    const char *as_str(e_some _enum)
+    static const char *as_cstr(e_enum_noob _enum)
     {
-        if (_enum == e_some::one)
-            return "one";
-        if (_enum == e_some::two)
-            return "two";
-        if (_enum == e_some::three)
-            return "three";
-        if (_enum == e_some::none)
-            return "none";
+        if (_enum == e_enum_noob::one)
+            return "1";
+        if (_enum == e_enum_noob::two)
+            return "2";
+        if (_enum == e_enum_noob::three)
+            return "3";
+        if (_enum == e_enum_noob::none)
+            return "0";
+        return "0";
     };
-    e_some as_enum(const char *_str)
+    static e_enum_noob as_enum(const char *_str)
     {
-        if (_str == "one")
-            return e_some::one;
-        if (_str == "two")
-            return e_some::two;
-        if (_str == "three")
-            return e_some::three;
-        if (_str == "none")
-            return e_some::none;
+        if (_str == "1")
+            return e_enum_noob::one;
+        if (_str == "2")
+            return e_enum_noob::two;
+        if (_str == "3")
+            return e_enum_noob::three;
+        if (_str == "0")
+            return e_enum_noob::none;
+        return e_enum_noob::none;
     }
 };
 
-NEW_ENUM(with_macro, e_some, none, four, five, six);
+ENUM_CLASS_DYN(enum_dyn, a, b, c, d);
+ENUM_CLASS_STA(enum_sta, q, w, e, r);
 
 } // namespace p17
 
 void run_practica_17()
 {
-    auto with = p17::with_macro();
-    auto without = p17::without_macro();
+    auto noob = p17::enum_noob();
+    auto sta = p17::enum_sta();
+    auto dyn = p17::enum_dyn();
 
-    std::cout << with.as_str(p17::with_macro::e_some::five) << std::endl;
-    std::cout << without.as_str(p17::without_macro::e_some::one) << std::endl;
+    std::cout << std::endl;
 
-    std::cout << COUNT() << std::endl;
-    std::cout << COUNT("A") << std::endl;
-    std::cout << COUNT("A", "A") << std::endl;
-    std::cout << COUNT("A", "A", "A") << std::endl;
-    std::cout << COUNT("A", "A", "A", "A") << std::endl;
-    std::cout << COUNT("A", "A", "A", "A", "A") << std::endl;
-    std::cout << COUNT("A", "A", "A", "A", "A", "A") << std::endl;
-    std::cout << COUNT("A", "A", "A", "A", "A", "A", "A") << std::endl;
+    std::cout << p17::enum_noob::as_cstr(p17::enum_noob::e_enum_noob::one) << std::endl;
+    std::cout << p17::enum_sta::as_cstr(p17::enum_sta::e_name::q) << std::endl;
+    std::cout << dyn.as_cstr(p17::enum_dyn::e::a) << std::endl;
+
+    std::cout << std::endl;
+
+    std::cout << p17::enum_noob::as_cstr(p17::enum_noob::e_enum_noob::two) << std::endl;
+    std::cout << p17::enum_sta::as_cstr(p17::enum_sta::e_name::w) << std::endl;
+    std::cout << dyn.as_cstr(p17::enum_dyn::e::b) << std::endl;
+
+    std::cout << std::endl;
+
+    std::cout << p17::enum_noob::as_cstr(p17::enum_noob::e_enum_noob::three) << std::endl;
+    std::cout << p17::enum_sta::as_cstr(p17::enum_sta::e_name::e) << std::endl;
+    std::cout << dyn.as_cstr(p17::enum_dyn::e::c) << std::endl;
+
+    std::cout << std::endl;
 }

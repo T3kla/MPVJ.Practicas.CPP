@@ -131,5 +131,11 @@
     <ClInclude Include="practica_17.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="lib\enum_macro\enum_macro_dyn.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\enum_macro\enum_macro_sta.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
