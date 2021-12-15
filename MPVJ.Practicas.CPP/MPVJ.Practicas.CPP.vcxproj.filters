@@ -18,19 +18,16 @@
     <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="lib\bit_magic\bit_magic.cpp">
+    <ClCompile Include="bit.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="lib\player\player.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="lib\console\console.cpp">
+    <ClCompile Include="console.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="lib\point\point.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="lib\entity\entity.cpp">
+    <ClCompile Include="entity.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="lib\file_magic\file_magic.cpp">
@@ -39,15 +36,21 @@
     <ClCompile Include="lib\txt_file\txt_file.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="lib\bad_string\string.cpp">
+    <ClCompile Include="str.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="lib\image\image.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="pi.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="vec.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="lib\bit_magic\bit_magic.h">
+    <ClInclude Include="bit.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="practica_01.h">
@@ -68,13 +71,10 @@
     <ClInclude Include="practica_04.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="lib\console\console.h">
+    <ClInclude Include="console.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="lib\point\point.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="lib\entity\entity.h">
+    <ClInclude Include="entity.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="practica_05.h">
@@ -104,7 +104,7 @@
     <ClInclude Include="practica_12.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="lib\bad_string\string.h">
+    <ClInclude Include="str.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="practica_13.h">
@@ -135,6 +135,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="lib\enum_macro\enum_macro_sta.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="pi.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="vec.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
