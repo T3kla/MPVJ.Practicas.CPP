@@ -1,4 +1,4 @@
 #include "entity.h"
 
-Entity::Entity(const point_i &position, delegate *behaviour)
-    : position(position), behaviour(behaviour) {}
+Entity::Entity(const Vec2i &pos, delegate *fun)
+    : position(pos), behaviour(fun) {}

@@ -2,6 +2,9 @@
 
 #include <iostream>
 
+struct Vec2;
+struct Vec2i;
+
 struct Vec2 {
   float x = 0.f;
   float y = 0.f;
@@ -11,27 +14,27 @@ struct Vec2 {
   Vec2(const Vec2 &_rhs);
   Vec2(Vec2 &&_rhs) noexcept;
 
-  float Magnitude() const;
-  float MagnitudeSq() const;
-  Vec2 Normalized() const;
-  float AngleDeg() const;
-  float AngleRad() const;
+  Vec2(Vec2i _rhs);
+  Vec2(const Vec2i &_rhs);
 
   Vec2 operator+(const Vec2 &_rhs) const;
   Vec2 operator-(const Vec2 &_rhs) const;
   Vec2 operator*(const float &_rhs) const;
   float operator*(const Vec2 &_rhs) const;
   Vec2 operator/(const float &_rhs) const;
-
   Vec2 &operator=(const Vec2 &_rhs);
-
   Vec2 &operator+=(const Vec2 &_rhs);
   Vec2 &operator-=(const Vec2 &_rhs);
   Vec2 &operator*=(const float &_rhs);
   Vec2 &operator/=(const float &_rhs);
-
   bool operator==(const Vec2 &_rhs) const;
   bool operator!=(const Vec2 &_rhs) const;
+
+  float Magnitude() const;
+  float MagnitudeSq() const;
+  Vec2 Normalized() const;
+  float AngleDeg() const;
+  float AngleRad() const;
 
   static float Determinant(const Vec2 &a, const Vec2 &b);
   static float Dot(const Vec2 &a, const Vec2 &b);
@@ -82,16 +85,16 @@ struct Vec2i {
   Vec2i(const Vec2i &_rhs);
   Vec2i(Vec2i &&_rhs) noexcept;
 
+  Vec2i(Vec2 _rhs);
+  Vec2i(const Vec2 &_rhs);
+
   Vec2i operator+(const Vec2i &_rhs) const;
   Vec2i operator-(const Vec2i &_rhs) const;
   Vec2i operator*(const int &_rhs) const;
-
   Vec2i &operator=(const Vec2i &_rhs);
-
   Vec2i &operator+=(const Vec2i &_rhs);
   Vec2i &operator-=(const Vec2i &_rhs);
   Vec2i &operator*=(const float &_rhs);
-
   bool operator==(const Vec2i &_rhs) const;
   bool operator!=(const Vec2i &_rhs) const;
 

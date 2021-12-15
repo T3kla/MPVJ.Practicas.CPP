@@ -1,4 +1,7 @@
 #include "bit.h"
+#include <bitset>
+#include <iostream>
+#include <string>
 #include <vector>
 
 namespace tkl::bit {
