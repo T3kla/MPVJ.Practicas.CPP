@@ -2,7 +2,7 @@
 
 #include <iostream>
 
-namespace tkl {
+namespace tkl::str {
 
 struct Str {
 private:
@@ -105,4 +105,4 @@ public:
 };
 
 const Str operator+(const char *_lhs, const Str &_rhs);
-} // namespace tkl
+} // namespace tkl::str

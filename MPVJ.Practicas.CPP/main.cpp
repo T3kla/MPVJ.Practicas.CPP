@@ -21,64 +21,60 @@ int main() {
   run_practica_01();
 
   // Pointer operations
-  run_practica_02();
+  // run_practica_02();
 
   // Functions with strings
-  run_practica_03();
+  // run_practica_03();
 
   // Entities moving through screen
-  run_practica_04();
+  // run_practica_04();
 
   // Text files in *void
-  run_practica_05();
+  // run_practica_05();
 
   // Functions with strings in places
-  run_practica_06();
+  // run_practica_06();
 
-  // Namespaces
-  // Ya estaba usando namespaces
-  run_practica_07();
+  // Namespaces: Ya estaba usando namespaces así que la he obviado
+  // run_practica_07();
 
   // Classes
-  run_practica_08();
+  // run_practica_08();
 
   // Linked list
-  run_practica_09();
+  // run_practica_09();
 
   // Add stuff to practica_07
-  run_practica_10();
+  // run_practica_10();
 
   // Constructors
-  run_practica_11();
+  // run_practica_11();
 
   // Operators
-  run_practica_12();
+  // run_practica_12();
 
   // Inheritance
-  run_practica_13();
+  // run_practica_13();
 
   // Virtual functions
-  run_practica_14();
+  // run_practica_14();
 
   // Polymorphic design
-  run_practica_15();
+  // run_practica_15();
 
   // Interfaces
-  run_practica_16();
+  // run_practica_16();
 
   // Macros
   // Status: WIP
-  run_practica_17();
+  // run_practica_17();
 
   // Macros Memory Leaks
-  // Status: WIP
   // run_practica_18();
 
-  // Templates
-  // Status: Ya la hice templatizada en practica_09
+  // Templates: Ya la hice templatizada en practica_09
   // run_practica_19();
 
   // Templates
-  // Status: WIP
   // run_practica_20();
 }

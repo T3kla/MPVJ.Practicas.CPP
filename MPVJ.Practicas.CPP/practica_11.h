@@ -4,39 +4,38 @@
 #include <iostream>
 #include <stdexcept>
 
-void run_practica_11()
-{
-    auto file_name = "lorem_04.txt";
+void run_practica_11() {
+  auto file_name = "lorem_04.txt";
 
-    std::cout << "> Opening 'lorem_04.txt' as Read!" << std::endl;
-    void *file = fm::open(file_name, fm::OpenMode::Read);
+  std::cout << "> Opening 'lorem_04.txt' as Read!" << std::endl;
+  void *file = fm::Open(file_name, fm::OpenMode::Read);
 
-    auto badlist = fm::read_nums(file);
-    auto badlist2(badlist);
+  auto badlist = fm::ReadNums(file);
+  auto badlist2(badlist);
 
-    std::cout << "> Printing" << std::endl;
+  std::cout << "> Printing" << std::endl;
 
-    auto size = badlist2.size();
-    for (unsigned int i = 0; i < size; i++)
-        std::cout << "    " << badlist2.next() << std::endl;
+  auto Size = badlist2.Size();
+  for (unsigned int i = 0; i < Size; i++)
+    std::cout << "    " << badlist2.Next() << std::endl;
 
-    std::cout << "> Inverting 'invert_noCopy'" << std::endl;
+  std::cout << "> Inverting 'invert_noCopy'" << std::endl;
 
-    tkl::invert_noCopy(badlist2);
+  tkl::InvertNoCopy(badlist2);
 
-    std::cout << "> Printing" << std::endl;
+  std::cout << "> Printing" << std::endl;
 
-    size = badlist2.size();
-    for (unsigned int i = 0; i < size; i++)
-        std::cout << "    " << badlist2[i]->value << std::endl;
+  Size = badlist2.Size();
+  for (unsigned int i = 0; i < Size; i++)
+    std::cout << "    " << badlist2[i]->value << std::endl;
 
-    std::cout << "> Inverting 'invert_copy'" << std::endl;
+  std::cout << "> Inverting 'invert_copy'" << std::endl;
 
-    auto badlist3 = tkl::invert_copy(badlist2);
+  auto badlist3 = tkl::InvertCopy(badlist2);
 
-    std::cout << "> Printing" << std::endl;
+  std::cout << "> Printing" << std::endl;
 
-    size = badlist3.size();
-    for (unsigned int i = 0; i < size; i++)
-        std::cout << "    " << badlist3.next() << std::endl;
+  Size = badlist3.Size();
+  for (unsigned int i = 0; i < Size; i++)
+    std::cout << "    " << badlist3.Next() << std::endl;
 }

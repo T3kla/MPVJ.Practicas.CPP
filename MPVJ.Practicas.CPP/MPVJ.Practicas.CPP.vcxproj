@@ -137,38 +137,38 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="lib\image\image.cpp" />
+    <ClCompile Include="image.cpp" />
     <ClCompile Include="pi.cpp" />
     <ClCompile Include="str.cpp" />
     <ClCompile Include="bit.cpp" />
     <ClCompile Include="console.cpp" />
     <ClCompile Include="entity.cpp" />
-    <ClCompile Include="lib\file_magic\file_magic.cpp" />
-    <ClCompile Include="lib\player\player.cpp" />
-    <ClCompile Include="lib\txt_file\txt_file.cpp" />
+    <ClCompile Include="file_magic.cpp" />
+    <ClCompile Include="player.cpp" />
+    <ClCompile Include="txt_file.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="vec.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="lib\enum_macro\enum_macro_dyn.h" />
-    <ClInclude Include="lib\enum_macro\enum_macro_sta.h" />
-    <ClInclude Include="lib\llist\ilist.h" />
-    <ClInclude Include="lib\image\image.h" />
+    <ClInclude Include="enum_macro_dyn.h" />
+    <ClInclude Include="enum_macro_sta.h" />
+    <ClInclude Include="ilist.h" />
+    <ClInclude Include="image.h" />
     <ClInclude Include="pi.h" />
     <ClInclude Include="practica_13.h" />
     <ClInclude Include="str.h" />
     <ClInclude Include="bit.h" />
     <ClInclude Include="console.h" />
     <ClInclude Include="entity.h" />
-    <ClInclude Include="lib\file_magic\file_magic.h" />
-    <ClInclude Include="lib\player\player.h" />
-    <ClInclude Include="lib\txt_file\txt_file.h" />
+    <ClInclude Include="file_magic.h" />
+    <ClInclude Include="player.h" />
+    <ClInclude Include="txt_file.h" />
     <ClInclude Include="practica_08.h" />
     <ClInclude Include="practica_05.h" />
     <ClInclude Include="practica_04.h" />
     <ClInclude Include="practica_03.h" />
     <ClInclude Include="practica_02.h" />
-    <ClInclude Include="lib\str_inverter\string_inverter.h" />
+    <ClInclude Include="string_inverter.h" />
     <ClInclude Include="practica_01.h" />
     <ClInclude Include="practica_06.h" />
     <ClInclude Include="practica_09.h" />
@@ -179,7 +179,7 @@
     <ClInclude Include="practica_17.h" />
     <ClInclude Include="vec.h" />
     <Content Include="practica_09.h" />
-    <ClInclude Include="lib\llist\llist.h" />
+    <ClInclude Include="tlist.h" />
     <ClInclude Include="practica_10.h" />
     <ClInclude Include="practica_11.h" />
   </ItemGroup>

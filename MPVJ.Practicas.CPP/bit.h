@@ -11,13 +11,13 @@ struct BitSpan {
 };
 
 template <typename T> std::vector<unsigned char> ToByte(const T &value) {
-  int size = sizeof(value);
-  std::vector<unsigned char> vec(size, 0);
+  int Size = sizeof(value);
+  std::vector<unsigned char> vec(Size, 0);
 
   void *p_val = const_cast<T *>(&value);
   unsigned char *p_char = static_cast<unsigned char *>(p_val);
 
-  for (size_t i = 0; i < size; i++)
+  for (size_t i = 0; i < Size; i++)
     vec[i] = *p_char++;
 
   return vec;

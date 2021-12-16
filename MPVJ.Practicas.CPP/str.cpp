@@ -3,7 +3,7 @@
 #include <fstream>
 #include <iostream>
 
-namespace tkl {
+namespace tkl::str {
 
 // Resize allocated memory base on size taking care of '\\0' termination
 void Str::Resize(const size_t &_size) {
@@ -516,7 +516,7 @@ Str Str::RealPath() const {
 
 Str Str::Read(const Str &_filename) {
   std::fstream stream;
-  auto fn = std::Str(_filename.c_str());
+  auto fn = std::string(_filename.c_str());
   stream.open(fn, std::ios::in);
 
   stream.seekg(0, std::ios::end);
@@ -531,7 +531,7 @@ Str Str::Read(const Str &_filename) {
 
 void Str::Write(const Str &_filename, bool _append) const {
   std::fstream stream;
-  auto fn = std::Str(_filename.c_str());
+  auto fn = std::string(_filename.c_str());
   stream.open(fn, std::ios::out | (_append ? std::ios::app : std::ios::trunc));
   stream.write(c_str(), Size());
   stream.close();
@@ -541,4 +541,4 @@ const Str operator+(const char *_lhs, const Str &_rhs) {
   return Str(_lhs) + _rhs;
 }
 
-} // namespace tkl
+} // namespace tkl::str

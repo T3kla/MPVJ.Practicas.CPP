@@ -51,13 +51,13 @@ void run_practica_12() {
 
   std::cout << strE.real_path() << std::endl;
 
-  auto temp = tkl::Str::read("lorem_04.txt");
+  auto temp = tkl::Str::Read("lorem_04.txt");
 
-  std::cout << tkl::Str::read("lorem_04.txt") << std::endl;
-  strD.write("lorem_04.txt");
-  std::cout << tkl::Str::read("lorem_04.txt") << std::endl;
-  temp.write("lorem_04.txt", false);
-  std::cout << tkl::Str::read("lorem_04.txt") << std::endl;
+  std::cout << tkl::Str::Read("lorem_04.txt") << std::endl;
+  strD.Write("lorem_04.txt");
+  std::cout << tkl::Str::Read("lorem_04.txt") << std::endl;
+  temp.Write("lorem_04.txt", false);
+  std::cout << tkl::Str::Read("lorem_04.txt") << std::endl;
 
   std::cout << "Hola " + strD + " caracola" << std::endl;
 }

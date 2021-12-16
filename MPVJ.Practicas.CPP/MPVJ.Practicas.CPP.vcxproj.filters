@@ -5,13 +5,47 @@
       <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
       <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
     </Filter>
-    <Filter Include="Header Files">
-      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
-      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    <Filter Include="Source Files\tkl">
+      <UniqueIdentifier>{26c63737-89e7-411d-8dba-60faff391ac0}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Resource Files">
-      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
-      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    <Filter Include="Source Files\tkl\bit">
+      <UniqueIdentifier>{213cc1e4-4ca6-47fd-b3da-5b3a1e97bb59}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\fer">
+      <UniqueIdentifier>{41af3b7c-d6c8-442d-a94e-92ff1e100004}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\fer\cls">
+      <UniqueIdentifier>{cdb0c970-b0d3-4000-a11c-0c431dd55fac}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\entity">
+      <UniqueIdentifier>{6d58fc56-e90f-418d-8cf0-ad54418c19e1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\macro madness">
+      <UniqueIdentifier>{a9842cd5-4725-4935-934b-c43f9df7c17d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\tkl\fmg">
+      <UniqueIdentifier>{a61633db-4a4a-4036-a0a6-2a6397fc5208}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\tkl\img">
+      <UniqueIdentifier>{2d531852-dd20-48c3-b647-763da42abe37}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\math">
+      <UniqueIdentifier>{ad2b1827-8fa6-4975-945a-d3064ddee56d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\tkl\player">
+      <UniqueIdentifier>{ed1ceb4b-b553-4f69-91c3-0f9e8106f03a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\practicas">
+      <UniqueIdentifier>{a474c2fe-30d7-4343-a5cd-790b88da7d5d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\tkl\si">
+      <UniqueIdentifier>{daed1c33-3785-4b16-b39a-ecc7b7a2dac4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\tkl\str">
+      <UniqueIdentifier>{a47950cb-d626-495b-802e-0bdbb54b7445}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\tkl\tf">
+      <UniqueIdentifier>{b48004fe-01da-4387-a130-c7647e2fb505}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -19,129 +53,129 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="bit.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="lib\player\player.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\tkl\bit</Filter>
     </ClCompile>
     <ClCompile Include="console.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\fer\cls</Filter>
     </ClCompile>
     <ClCompile Include="entity.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\entity</Filter>
     </ClCompile>
-    <ClCompile Include="lib\file_magic\file_magic.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="file_magic.cpp">
+      <Filter>Source Files\tkl\fmg</Filter>
     </ClCompile>
-    <ClCompile Include="lib\txt_file\txt_file.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="str.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="lib\image\image.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="image.cpp">
+      <Filter>Source Files\tkl\img</Filter>
     </ClCompile>
     <ClCompile Include="pi.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\math</Filter>
     </ClCompile>
     <ClCompile Include="vec.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\math</Filter>
+    </ClCompile>
+    <ClCompile Include="player.cpp">
+      <Filter>Source Files\tkl\bit</Filter>
+    </ClCompile>
+    <ClCompile Include="str.cpp">
+      <Filter>Source Files\tkl\str</Filter>
+    </ClCompile>
+    <ClCompile Include="txt_file.cpp">
+      <Filter>Source Files\tkl\tf</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="bit.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="practica_01.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="lib\player\player.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="lib\str_inverter\string_inverter.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="practica_02.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="practica_03.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="practica_04.h">
-      <Filter>Header Files</Filter>
+      <Filter>Source Files\tkl\bit</Filter>
     </ClInclude>
     <ClInclude Include="console.h">
-      <Filter>Header Files</Filter>
+      <Filter>Source Files\fer\cls</Filter>
     </ClInclude>
     <ClInclude Include="entity.h">
-      <Filter>Header Files</Filter>
+      <Filter>Source Files\entity</Filter>
     </ClInclude>
-    <ClInclude Include="practica_05.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="enum_macro_sta.h">
+      <Filter>Source Files\macro madness</Filter>
     </ClInclude>
-    <ClInclude Include="lib\file_magic\file_magic.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="enum_macro_dyn.h">
+      <Filter>Source Files\macro madness</Filter>
     </ClInclude>
-    <ClInclude Include="practica_06.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="file_magic.h">
+      <Filter>Source Files\tkl\fmg</Filter>
     </ClInclude>
-    <ClInclude Include="practica_08.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="ilist.h">
+      <Filter>Source Files\tkl</Filter>
     </ClInclude>
-    <ClInclude Include="lib\txt_file\txt_file.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="tlist.h">
+      <Filter>Source Files\tkl</Filter>
     </ClInclude>
-    <ClInclude Include="practica_09.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="practica_10.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="practica_11.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="practica_12.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="str.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="practica_13.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="lib\image\image.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="practica_14.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="practica_15.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="lib\llist\llist.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="practica_16.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="lib\llist\ilist.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="practica_17.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="lib\enum_macro\enum_macro_dyn.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="lib\enum_macro\enum_macro_sta.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="image.h">
+      <Filter>Source Files\tkl\img</Filter>
     </ClInclude>
     <ClInclude Include="pi.h">
-      <Filter>Header Files</Filter>
+      <Filter>Source Files\math</Filter>
     </ClInclude>
     <ClInclude Include="vec.h">
-      <Filter>Header Files</Filter>
+      <Filter>Source Files\math</Filter>
+    </ClInclude>
+    <ClInclude Include="player.h">
+      <Filter>Source Files\tkl\bit</Filter>
+    </ClInclude>
+    <ClInclude Include="practica_01.h">
+      <Filter>Source Files\practicas</Filter>
+    </ClInclude>
+    <ClInclude Include="practica_02.h">
+      <Filter>Source Files\practicas</Filter>
+    </ClInclude>
+    <ClInclude Include="practica_03.h">
+      <Filter>Source Files\practicas</Filter>
+    </ClInclude>
+    <ClInclude Include="practica_04.h">
+      <Filter>Source Files\practicas</Filter>
+    </ClInclude>
+    <ClInclude Include="practica_05.h">
+      <Filter>Source Files\practicas</Filter>
+    </ClInclude>
+    <ClInclude Include="practica_06.h">
+      <Filter>Source Files\practicas</Filter>
+    </ClInclude>
+    <ClInclude Include="practica_08.h">
+      <Filter>Source Files\practicas</Filter>
+    </ClInclude>
+    <ClInclude Include="practica_09.h">
+      <Filter>Source Files\practicas</Filter>
+    </ClInclude>
+    <ClInclude Include="practica_10.h">
+      <Filter>Source Files\practicas</Filter>
+    </ClInclude>
+    <ClInclude Include="practica_11.h">
+      <Filter>Source Files\practicas</Filter>
+    </ClInclude>
+    <ClInclude Include="practica_12.h">
+      <Filter>Source Files\practicas</Filter>
+    </ClInclude>
+    <ClInclude Include="practica_13.h">
+      <Filter>Source Files\practicas</Filter>
+    </ClInclude>
+    <ClInclude Include="practica_14.h">
+      <Filter>Source Files\practicas</Filter>
+    </ClInclude>
+    <ClInclude Include="practica_15.h">
+      <Filter>Source Files\practicas</Filter>
+    </ClInclude>
+    <ClInclude Include="practica_16.h">
+      <Filter>Source Files\practicas</Filter>
+    </ClInclude>
+    <ClInclude Include="practica_17.h">
+      <Filter>Source Files\practicas</Filter>
+    </ClInclude>
+    <ClInclude Include="string_inverter.h">
+      <Filter>Source Files\tkl\si</Filter>
+    </ClInclude>
+    <ClInclude Include="str.h">
+      <Filter>Source Files\tkl\str</Filter>
+    </ClInclude>
+    <ClInclude Include="txt_file.h">
+      <Filter>Source Files\tkl\tf</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

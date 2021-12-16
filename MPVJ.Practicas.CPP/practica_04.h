@@ -1,20 +1,24 @@
 #pragma once
 
-#include "lib/console/console.h"
-#include "lib/entity/entity.h"
-#include "lib/point/point.h"
+#include "console.h"
+#include "entity.h"
+#include "vec.h"
 #include <Windows.h>
 #include <iostream>
+#include <memory>
+
+using namespace tkl::ent;
+using namespace fer::cls;
 
 namespace p04 {
 
-int size_x = 120;
-int size_y = 25;
-int margin_x = 10;
-int margin_y = 4;
+static int size_x = 120;
+static int size_y = 25;
+static int margin_x = 10;
+static int margin_y = 4;
 
 void draw_01(Entity &value) {
-  clsw::gotoxy(value.position.x, value.position.y);
+  GotoXY(value.position.x, value.position.y);
   std::cout << '*';
 }
 
@@ -24,7 +28,7 @@ void move_01(Entity &value) {
 }
 
 void draw_02(Entity &value) {
-  clsw::gotoxy(value.position.x, value.position.y);
+  GotoXY(value.position.x, value.position.y);
   std::cout << '&';
 }
 
@@ -34,7 +38,7 @@ void move_02(Entity &value) {
 }
 
 void draw_03(Entity &value) {
-  clsw::gotoxy(value.position.x, value.position.y);
+  GotoXY(value.position.x, value.position.y);
   std::cout << '~';
 }
 
@@ -44,7 +48,7 @@ void move_03(Entity &value) {
 }
 
 void draw_04(Entity &value) {
-  clsw::gotoxy(value.position.x, value.position.y);
+  GotoXY(value.position.x, value.position.y);
   std::cout << '#';
 }
 
@@ -53,7 +57,7 @@ void move_04(Entity &value) {
   value.position.y--;
 }
 
-void validate_pos(point_i &value) {
+void validate_pos(Vec2i &value) {
   if (value.x >= p04::size_x - p04::margin_x)
     value.x = p04::margin_x;
   if (value.x < p04::margin_x)
@@ -75,10 +79,10 @@ void run_practica_04() {
   delegate del_04[2] = {&p04::draw_04, &p04::move_04};
 
   std::unique_ptr<Entity> entities[4] = {
-      std::make_unique<Entity>(point_i(18, 20), del_01),
-      std::make_unique<Entity>(point_i(36, 8), del_02),
-      std::make_unique<Entity>(point_i(57, 15), del_03),
-      std::make_unique<Entity>(point_i(75, 25), del_04)};
+      std::make_unique<Entity>({18, 20}, del_01),
+      std::make_unique<Entity>({36, 8}, del_02),
+      std::make_unique<Entity>({57, 15}, del_03),
+      std::make_unique<Entity>({75, 25}, del_04)};
 
   while (true) {
     const char *lri = "La rica interfaz";
@@ -95,19 +99,19 @@ void run_practica_04() {
       for (x = 0; x < p04::size_x; x++) {
         if (x == p04::margin_x - 1 && y >= p04::margin_y - 1 &&
             y <= p04::size_y - p04::margin_y) {
-          clsw::gotoxy(x, y);
+          GotoXY(x, y);
           std::cout << (unsigned char)124;
         } else if (x == p04::size_x - p04::margin_x && y >= p04::margin_y - 1 &&
                    y <= p04::size_y - p04::margin_y) {
-          clsw::gotoxy(x, y);
+          GotoXY(x, y);
           std::cout << (unsigned char)124;
         } else if (y == p04::margin_y - 1 && x > p04::margin_x - 1 &&
                    x < p04::size_x - p04::margin_x) {
-          clsw::gotoxy(x, y);
+          GotoXY(x, y);
           std::cout << (unsigned char)45;
         } else if (y == p04::size_y - p04::margin_y && x > p04::margin_x - 1 &&
                    x < p04::size_x - p04::margin_x) {
-          clsw::gotoxy(x, y);
+          GotoXY(x, y);
           std::cout << (unsigned char)45;
         }
       }
@@ -118,8 +122,8 @@ void run_practica_04() {
       entities[i]->behaviour[0](*entities[i]);
     }
 
-    clsw::hidecursor(); // no funca
+    HideCursor();
     Sleep(60);
-    clsw::clear();
+    Clear();
   }
 }

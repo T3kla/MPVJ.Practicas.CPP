@@ -1,14 +1,16 @@
 #pragma once
 
-#include "lib/bit_magic/bit_magic.h"
-#include "lib/str_inverter/string_inverter.h"
+#include "bit.h"
+#include "string_inverter.h"
 #include <iostream>
 #include <string>
 #include <vector>
 
+using namespace tkl::si;
+
 namespace p02 {
 
-void biggest_from_table() {
+void BiggestFromTable() {
 #pragma warning(disable : 4838)
   int table[] = {1, 3, 2, 5, 3, 0xFFFFFFFF, 2};
 
@@ -27,11 +29,11 @@ void biggest_from_table() {
   std::cout << "    Biggest int from table is:  " << *p_biggest << std::endl;
 }
 
-void biggest_byte_from_table() {
+void BiggestByteFromTable() {
 #pragma warning(disable : 4838)
   int table[] = {1, 3, 2, 5, 3, 0xFFFFFFFF, 2};
 
-  auto vec = tkl::ToByte(table);
+  auto vec = ToByte(table);
   unsigned char *p_current = &vec[0];
   unsigned char *p_biggest = &vec[0];
 
@@ -49,25 +51,25 @@ void biggest_byte_from_table() {
 } // namespace p02
 
 void run_practica_02() {
-  auto v = tkl::ToByte(-559038737);
+  auto v = ToByte(-559038737);
 
   std::cout << "> Int to bytes" << std::endl << std::endl;
 
-  tkl::print_asChar(v);
+  PrintAsChar(v);
   std::cout << std::endl;
-  tkl::print_asBin(v);
+  PrintAsBin(v);
   std::cout << std::endl;
-  tkl::print_asHex(v);
+  PrintAsHex(v);
   std::cout << std::endl;
 
   std::cout << "> Biggest int from table" << std::endl << std::endl;
 
-  p02::biggest_from_table();
+  p02::BiggestFromTable();
   std::cout << std::endl;
 
   std::cout << "> Biggest byte from table" << std::endl << std::endl;
 
-  p02::biggest_byte_from_table();
+  p02::BiggestByteFromTable();
   std::cout << std::endl;
 
   std::cout << "> Flip string" << std::endl << std::endl;
@@ -77,9 +79,9 @@ void run_practica_02() {
   std::string even = "long even string";
   std::string odd = "long odd string";
 
-  si::flip_string_lazy_noCopy(even);
+  FlipStringLazyNoCopy(even);
   std::cout << "        even: " << even << std::endl;
-  si::flip_string_lazy_noCopy(odd);
+  FlipStringLazyNoCopy(odd);
   std::cout << "        odd:  " << odd << std::endl;
 
   std::cout << std::endl << "    flip_string_noLazy_copy:" << std::endl;
@@ -87,18 +89,16 @@ void run_practica_02() {
   even = "long even string";
   odd = "long odd string";
 
-  std::cout << "        even: " << si::flip_string_noLazy_copy(even)
-            << std::endl;
-  std::cout << "        odd:  " << si::flip_string_noLazy_copy(odd)
-            << std::endl;
+  std::cout << "        even: " << FlipStringNoLazyCopy(even) << std::endl;
+  std::cout << "        odd:  " << FlipStringNoLazyCopy(odd) << std::endl;
 
   std::cout << std::endl << "    flip_string_noLazy_noCopy:" << std::endl;
 
   even = "long even string";
   odd = "long odd string";
 
-  si::flip_string_noLazy_noCopy(even);
+  FlipStringNoLazyNoCopy(even);
   std::cout << "        even: " << even << std::endl;
-  si::flip_string_noLazy_noCopy(odd);
+  FlipStringNoLazyNoCopy(odd);
   std::cout << "        odd:  " << odd << std::endl;
 }
