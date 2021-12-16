@@ -148,7 +148,7 @@ const Vec2 &Vec2::One() { return f2One; }
 
 // ----------------------------------------------------------------------- Vec2i
 
-Vec2i::Vec2i(const int &x = 0, const int &y = 0) : x(x), y(y) {}
+Vec2i::Vec2i(const int &x, const int &y) : x(x), y(y) {}
 
 Vec2i::Vec2i(Vec2i &_rhs) {
   x = _rhs.x;
@@ -205,7 +205,7 @@ Vec2i &Vec2i::operator-=(const Vec2i &_rhs) {
   return *this;
 }
 
-Vec2i &Vec2i::operator*=(const float &_rhs) {
+Vec2i &Vec2i::operator*=(const int&_rhs) {
   this->x *= _rhs;
   this->y *= _rhs;
   return *this;

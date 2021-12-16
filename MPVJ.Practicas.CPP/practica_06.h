@@ -1,8 +1,10 @@
 #pragma once
 
-#include "lib/file_magic/file_magic.h"
+#include "file_magic.h"
 #include <iostream>
 #include <string>
+
+using namespace tkl::fmg;
 
 namespace p06 {
 
@@ -65,7 +67,7 @@ void run_practica_06() {
   char buffer[512];
 
   std::cout << "> Opening 'lorem_01.txt' as Read!" << std::endl;
-  void *file = fm::Open(file_name_01, fm::OpenMode::Read);
+  void *file = Open(file_name_01, OpenMode::Read);
   void **f_wrap = &file;
 
   unsigned int count = 0;
@@ -73,7 +75,7 @@ void run_practica_06() {
   std::cout << std::endl;
 
   std::cout << "Reading 512 chars: " << std::endl;
-  count = fm::Read(file, buffer, 512);
+  count = Read(file, buffer, 512);
   std::cout << "    Actual read: " << count << std::endl;
 
   std::cout << std::endl;
@@ -85,17 +87,17 @@ void run_practica_06() {
   std::cout << std::endl;
 
   std::cout << "> Closing file!" << std::endl;
-  fm::Close(f_wrap);
+  Close(f_wrap);
 
   std::cout << std::endl;
 
   std::cout << "> Opening 'lorem_02.txt' as Read!" << std::endl;
-  file = fm::Open(file_name_02, fm::OpenMode::Read);
+  file = Open(file_name_02, OpenMode::Read);
 
   std::cout << std::endl;
 
   std::cout << "Reading 512 chars: " << std::endl;
-  count = fm::Read(file, buffer, 512);
+  count = Read(file, buffer, 512);
   std::cout << "    Actual read: " << count << std::endl;
 
   std::cout << std::endl;
@@ -107,17 +109,17 @@ void run_practica_06() {
   std::cout << std::endl;
 
   std::cout << "> Closing file!" << std::endl;
-  fm::Close(f_wrap);
+  Close(f_wrap);
 
   std::cout << std::endl;
 
   std::cout << "> Opening 'lorem_04.txt' as Read!" << std::endl;
-  file = fm::Open(file_name_04, fm::OpenMode::Read);
+  file = Open(file_name_04, OpenMode::Read);
 
   std::cout << std::endl;
 
   std::cout << "Reading 512 chars: " << std::endl;
-  count = fm::Read(file, buffer, 512);
+  count = Read(file, buffer, 512);
   std::cout << "    Actual read: " << count << std::endl;
 
   std::cout << std::endl;
@@ -129,5 +131,5 @@ void run_practica_06() {
   std::cout << std::endl;
 
   std::cout << "> Closing file!" << std::endl;
-  fm::Close(f_wrap);
+  Close(f_wrap);
 }

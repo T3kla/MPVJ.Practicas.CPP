@@ -21,7 +21,7 @@ private:
   node *last = nullptr;
   node *it = nullptr;
 
-  size_t Size = 0;
+  size_t size = 0;
 
   void ResetNodes() {
     auto ptr = first;
@@ -37,7 +37,7 @@ private:
     first = nullptr;
     last = nullptr;
     it = nullptr;
-    Size = 0;
+    size = 0;
   }
 
 public:
@@ -48,14 +48,14 @@ public:
   IList(const IList &value) {
     auto ptr = value.first;
 
-    for (auto i = 0; i < value.Size; i++) {
+    for (auto i = 0; i < value.size; i++) {
       this->Push(ptr->value);
       ptr = ptr->next;
     }
   }
 
   IList(IList &&value) noexcept {
-    Size = value.Size;
+    size = value.size;
     first = value.first;
     last = value.last;
     it = value.it;
@@ -65,7 +65,7 @@ public:
   node *operator[](size_t index) const {
     auto ptr = first;
 
-    for (auto i = 0; i < Size; i++) {
+    for (auto i = 0; i < size; i++) {
       if (i == index)
         return ptr;
 
@@ -75,12 +75,12 @@ public:
     return nullptr;
   }
 
-  size_t Size() const { return Size; }
+  size_t Size() const { return size; }
 
   size_t Push(const IListable *psz) {
     auto ptr = new node(psz);
 
-    if (Size == 0) {
+    if (size == 0) {
       first = ptr;
       last = ptr;
     } else {
@@ -89,7 +89,7 @@ public:
       last = ptr;
     }
 
-    return ++Size;
+    return ++size;
   }
 
   const IListable *First() const { return first->value; }
@@ -114,7 +114,7 @@ public:
     delete (oldFirst);
     oldFirst = nullptr;
 
-    Size--;
+    size--;
 
     return oldFirstVal;
   }
@@ -129,10 +129,10 @@ public:
 };
 
 void InvertNoCopy(IList &value) {
-  auto Size = value.Size();
+  auto size = value.Size();
   auto ptr = value.last;
 
-  for (auto i = Size - 1; i < Size; i--) {
+  for (auto i = size - 1; i < size; i--) {
     auto v = ptr;
     ptr = ptr->prev;
 
@@ -149,10 +149,10 @@ void InvertNoCopy(IList &value) {
 IList InvertCopy(IList &value) {
   IList bl;
 
-  auto Size = value.Size();
+  auto size = value.Size();
   auto ptr = value.last;
 
-  for (auto i = Size - 1; i < Size; i--) {
+  for (auto i = size - 1; i < size; i--) {
     auto v = ptr;
     ptr = ptr->prev;
     bl.Push(v->value);

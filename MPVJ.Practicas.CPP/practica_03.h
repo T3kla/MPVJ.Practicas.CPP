@@ -10,7 +10,7 @@ using namespace tkl::si;
 namespace p03 {
 
 template <typename T> T at(const std::vector<T> arr, const int &index) {
-  auto length = arr.Size();
+  auto length = arr.size();
   if (index >= length || index < 0)
     return "Error";
   return arr[index];

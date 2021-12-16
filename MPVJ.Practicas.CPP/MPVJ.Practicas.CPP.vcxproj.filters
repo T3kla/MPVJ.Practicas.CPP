@@ -5,47 +5,50 @@
       <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
       <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
     </Filter>
-    <Filter Include="Source Files\tkl">
-      <UniqueIdentifier>{26c63737-89e7-411d-8dba-60faff391ac0}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\tkl\bit">
-      <UniqueIdentifier>{213cc1e4-4ca6-47fd-b3da-5b3a1e97bb59}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\fer">
-      <UniqueIdentifier>{41af3b7c-d6c8-442d-a94e-92ff1e100004}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\fer\cls">
-      <UniqueIdentifier>{cdb0c970-b0d3-4000-a11c-0c431dd55fac}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\entity">
-      <UniqueIdentifier>{6d58fc56-e90f-418d-8cf0-ad54418c19e1}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\macro madness">
-      <UniqueIdentifier>{a9842cd5-4725-4935-934b-c43f9df7c17d}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\tkl\fmg">
-      <UniqueIdentifier>{a61633db-4a4a-4036-a0a6-2a6397fc5208}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\tkl\img">
-      <UniqueIdentifier>{2d531852-dd20-48c3-b647-763da42abe37}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\math">
-      <UniqueIdentifier>{ad2b1827-8fa6-4975-945a-d3064ddee56d}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\tkl\player">
-      <UniqueIdentifier>{ed1ceb4b-b553-4f69-91c3-0f9e8106f03a}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Source Files\practicas">
       <UniqueIdentifier>{a474c2fe-30d7-4343-a5cd-790b88da7d5d}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\tkl\si">
+    <Filter Include="Source Files\lib">
+      <UniqueIdentifier>{e01789a0-80c8-4bef-9cbc-9765e64e5769}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\lib\tkl">
+      <UniqueIdentifier>{26c63737-89e7-411d-8dba-60faff391ac0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\lib\tkl\bit">
+      <UniqueIdentifier>{213cc1e4-4ca6-47fd-b3da-5b3a1e97bb59}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\lib\tkl\fmg">
+      <UniqueIdentifier>{a61633db-4a4a-4036-a0a6-2a6397fc5208}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\lib\tkl\img">
+      <UniqueIdentifier>{2d531852-dd20-48c3-b647-763da42abe37}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\lib\tkl\player">
+      <UniqueIdentifier>{ed1ceb4b-b553-4f69-91c3-0f9e8106f03a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\lib\tkl\si">
       <UniqueIdentifier>{daed1c33-3785-4b16-b39a-ecc7b7a2dac4}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\tkl\str">
+    <Filter Include="Source Files\lib\tkl\str">
       <UniqueIdentifier>{a47950cb-d626-495b-802e-0bdbb54b7445}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\tkl\tf">
+    <Filter Include="Source Files\lib\tkl\tf">
       <UniqueIdentifier>{b48004fe-01da-4387-a130-c7647e2fb505}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\lib\fer">
+      <UniqueIdentifier>{41af3b7c-d6c8-442d-a94e-92ff1e100004}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\lib\fer\cls">
+      <UniqueIdentifier>{cdb0c970-b0d3-4000-a11c-0c431dd55fac}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\lib\macro madness">
+      <UniqueIdentifier>{a9842cd5-4725-4935-934b-c43f9df7c17d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\lib\math">
+      <UniqueIdentifier>{ad2b1827-8fa6-4975-945a-d3064ddee56d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\lib\entity">
+      <UniqueIdentifier>{6d58fc56-e90f-418d-8cf0-ad54418c19e1}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -53,72 +56,72 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="bit.cpp">
-      <Filter>Source Files\tkl\bit</Filter>
+      <Filter>Source Files\lib\tkl\bit</Filter>
     </ClCompile>
     <ClCompile Include="console.cpp">
-      <Filter>Source Files\fer\cls</Filter>
+      <Filter>Source Files\lib\fer\cls</Filter>
     </ClCompile>
     <ClCompile Include="entity.cpp">
-      <Filter>Source Files\entity</Filter>
+      <Filter>Source Files\lib\entity</Filter>
     </ClCompile>
     <ClCompile Include="file_magic.cpp">
-      <Filter>Source Files\tkl\fmg</Filter>
+      <Filter>Source Files\lib\tkl\fmg</Filter>
     </ClCompile>
     <ClCompile Include="image.cpp">
-      <Filter>Source Files\tkl\img</Filter>
+      <Filter>Source Files\lib\tkl\img</Filter>
     </ClCompile>
     <ClCompile Include="pi.cpp">
-      <Filter>Source Files\math</Filter>
+      <Filter>Source Files\lib\math</Filter>
     </ClCompile>
     <ClCompile Include="vec.cpp">
-      <Filter>Source Files\math</Filter>
+      <Filter>Source Files\lib\math</Filter>
     </ClCompile>
     <ClCompile Include="player.cpp">
-      <Filter>Source Files\tkl\bit</Filter>
+      <Filter>Source Files\lib\tkl\bit</Filter>
     </ClCompile>
     <ClCompile Include="str.cpp">
-      <Filter>Source Files\tkl\str</Filter>
+      <Filter>Source Files\lib\tkl\str</Filter>
     </ClCompile>
     <ClCompile Include="txt_file.cpp">
-      <Filter>Source Files\tkl\tf</Filter>
+      <Filter>Source Files\lib\tkl\tf</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="bit.h">
-      <Filter>Source Files\tkl\bit</Filter>
+      <Filter>Source Files\lib\tkl\bit</Filter>
     </ClInclude>
     <ClInclude Include="console.h">
-      <Filter>Source Files\fer\cls</Filter>
+      <Filter>Source Files\lib\fer\cls</Filter>
     </ClInclude>
     <ClInclude Include="entity.h">
-      <Filter>Source Files\entity</Filter>
+      <Filter>Source Files\lib\entity</Filter>
     </ClInclude>
     <ClInclude Include="enum_macro_sta.h">
-      <Filter>Source Files\macro madness</Filter>
+      <Filter>Source Files\lib\macro madness</Filter>
     </ClInclude>
     <ClInclude Include="enum_macro_dyn.h">
-      <Filter>Source Files\macro madness</Filter>
+      <Filter>Source Files\lib\macro madness</Filter>
     </ClInclude>
     <ClInclude Include="file_magic.h">
-      <Filter>Source Files\tkl\fmg</Filter>
+      <Filter>Source Files\lib\tkl\fmg</Filter>
     </ClInclude>
     <ClInclude Include="ilist.h">
-      <Filter>Source Files\tkl</Filter>
+      <Filter>Source Files\lib\tkl</Filter>
     </ClInclude>
     <ClInclude Include="tlist.h">
-      <Filter>Source Files\tkl</Filter>
+      <Filter>Source Files\lib\tkl</Filter>
     </ClInclude>
     <ClInclude Include="image.h">
-      <Filter>Source Files\tkl\img</Filter>
+      <Filter>Source Files\lib\tkl\img</Filter>
     </ClInclude>
     <ClInclude Include="pi.h">
-      <Filter>Source Files\math</Filter>
+      <Filter>Source Files\lib\math</Filter>
     </ClInclude>
     <ClInclude Include="vec.h">
-      <Filter>Source Files\math</Filter>
+      <Filter>Source Files\lib\math</Filter>
     </ClInclude>
     <ClInclude Include="player.h">
-      <Filter>Source Files\tkl\bit</Filter>
+      <Filter>Source Files\lib\tkl\bit</Filter>
     </ClInclude>
     <ClInclude Include="practica_01.h">
       <Filter>Source Files\practicas</Filter>
@@ -169,13 +172,13 @@
       <Filter>Source Files\practicas</Filter>
     </ClInclude>
     <ClInclude Include="string_inverter.h">
-      <Filter>Source Files\tkl\si</Filter>
+      <Filter>Source Files\lib\tkl\si</Filter>
     </ClInclude>
     <ClInclude Include="str.h">
-      <Filter>Source Files\tkl\str</Filter>
+      <Filter>Source Files\lib\tkl\str</Filter>
     </ClInclude>
     <ClInclude Include="txt_file.h">
-      <Filter>Source Files\tkl\tf</Filter>
+      <Filter>Source Files\lib\tkl\tf</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

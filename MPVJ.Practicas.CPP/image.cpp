@@ -3,17 +3,17 @@
 
 namespace tkl::img {
 
-unsigned int Image::draw(unsigned char *_buffer) {
+unsigned int Image::Draw(unsigned char *_buffer) {
   std::cout << "    IMAGE Draw" << std::endl;
   return 0;
 }
 
-unsigned int ImagePNG::draw(unsigned char *_buffer) {
+unsigned int ImagePNG::Draw(unsigned char *_buffer) {
   std::cout << "    PNG Draw" << std::endl;
   return 0;
 }
 
-unsigned int ImageJPG::draw(unsigned char *_buffer) {
+unsigned int ImageJPG::Draw(unsigned char *_buffer) {
   std::cout << "    JPG Draw" << std::endl;
   return 0;
 }

@@ -1,14 +1,16 @@
 #pragma once
 
-#include "lib/file_magic/file_magic.h"
+#include "file_magic.h"
+
+using namespace tkl::fmg;
 
 void run_practica_10() {
   auto file_name = "lorem_04.txt";
 
   std::cout << "> Opening 'lorem_04.txt' as Read!" << std::endl;
-  void *file = fm::Open(file_name, fm::OpenMode::Read);
+  void *file = Open(file_name, OpenMode::Read);
 
-  auto badlist = fm::ReadNums(file);
+  auto badlist = ReadNums(file);
 
   std::cout << "Retrieved by first:" << std::endl;
 

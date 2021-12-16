@@ -74,7 +74,7 @@ struct Vec2i {
   Vec2i &operator=(const Vec2i &_rhs);
   Vec2i &operator+=(const Vec2i &_rhs);
   Vec2i &operator-=(const Vec2i &_rhs);
-  Vec2i &operator*=(const float &_rhs);
+  Vec2i &operator*=(const int &_rhs);
   bool operator==(const Vec2i &_rhs) const;
   bool operator!=(const Vec2i &_rhs) const;
 

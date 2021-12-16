@@ -1,9 +1,11 @@
 #pragma once
 
-#include "lib/llist/llist.h"
+#include "tlist.h"
+
+using namespace tkl;
 
 void run_practica_09() {
-  tkl::TList<const char *> list_char;
+  TList<const char *> list_char;
 
   auto char_1 = "asd";
   auto char_2 = "lol";
@@ -30,7 +32,7 @@ void run_practica_09() {
 
   list_char.Reset();
 
-  tkl::TList<int> list_int;
+  TList<int> list_int;
   auto int_1 = 1;
   auto int_2 = 2;
   auto int_3 = 3;

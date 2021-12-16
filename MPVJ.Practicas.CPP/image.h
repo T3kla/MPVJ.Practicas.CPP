@@ -21,14 +21,14 @@ protected:
 
 public:
   ImgFormat format = ImgFormat::none;
-  unsigned int virtual draw(unsigned char *_buffer);
+  unsigned int virtual Draw(unsigned char *_buffer);
 };
 
 class ImageJPG : public Image {
 public:
   ImageJPG();
   ~ImageJPG();
-  unsigned int virtual draw(unsigned char *_buffer) override;
+  unsigned int virtual Draw(unsigned char *_buffer) override;
 };
 
 class ImagePNG : public Image {
@@ -36,7 +36,7 @@ public:
   ImagePNG();
   ~ImagePNG();
   void remove_alphaChannel();
-  unsigned int virtual draw(unsigned char *_buffer) override;
+  unsigned int virtual Draw(unsigned char *_buffer) override;
 };
 
 } // namespace tkl::img

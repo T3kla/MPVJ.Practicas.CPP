@@ -3,24 +3,24 @@
 #include <string>
 #include <vector>
 
-static inline void ltrim(std::string &s) {
+static inline void LeftTrim(std::string &s) {
   s.erase(s.begin(), std::find_if(s.begin(), s.end(), [](unsigned char ch) {
             return !std::isspace(ch);
           }));
 }
 
-static inline std::string ltrim_copy(std::string s) {
-  ltrim(s);
+static inline std::string TrimLeftCopy(std::string s) {
+  LeftTrim(s);
   return s;
 }
 
-static inline std::vector<std::string> split(const std::string &text,
+static inline std::vector<std::string> Split(const std::string &text,
                                              char sep) {
   std::vector<std::string> tokens;
   size_t start = 0, end = 0;
 
   while ((end = text.find(sep, start)) != std::string::npos) {
-    tokens.emplace_back(ltrim_copy(text.substr(start, end - start)));
+    tokens.emplace_back(TrimLeftCopy(text.substr(start, end - start)));
     start = end + 1;
   }
   tokens.emplace_back(text.substr(start));
@@ -37,7 +37,7 @@ static inline std::vector<std::string> split(const std::string &text,
   struct name {                                                                \
     ENUM(e, __VA_ARGS__);                                                      \
                                                                                \
-    std::vector<std::string> vec = split(#__VA_ARGS__, ',');                   \
+    std::vector<std::string> vec = Split(#__VA_ARGS__, ',');                   \
                                                                                \
     const char *as_cstr(e _enum) const {                                       \
       if (_enum >= -1 && _enum < count)                                        \
@@ -47,7 +47,7 @@ static inline std::vector<std::string> split(const std::string &text,
                                                                                \
     e as_enum(const char *_cstr) const {                                       \
       auto it = std::find(vec.begin(), vec.end(), _cstr);                      \
-      auto result = -1;                                                        \
+      long long result = -1;                                                   \
       if (it != vec.end())                                                     \
         result = it - vec.begin();                                             \
       return (e)result;                                                        \

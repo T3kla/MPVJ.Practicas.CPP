@@ -1,16 +1,18 @@
 #pragma once
 
-#include "lib/file_magic/file_magic.h"
+#include "file_magic.h"
 #include <iostream>
 #include <stdexcept>
+
+using namespace fmg;
 
 void run_practica_11() {
   auto file_name = "lorem_04.txt";
 
   std::cout << "> Opening 'lorem_04.txt' as Read!" << std::endl;
-  void *file = fm::Open(file_name, fm::OpenMode::Read);
+  void *file = Open(file_name, OpenMode::Read);
 
-  auto badlist = fm::ReadNums(file);
+  auto badlist = ReadNums(file);
   auto badlist2(badlist);
 
   std::cout << "> Printing" << std::endl;
@@ -21,7 +23,7 @@ void run_practica_11() {
 
   std::cout << "> Inverting 'invert_noCopy'" << std::endl;
 
-  tkl::InvertNoCopy(badlist2);
+  InvertNoCopy(badlist2);
 
   std::cout << "> Printing" << std::endl;
 
@@ -31,7 +33,7 @@ void run_practica_11() {
 
   std::cout << "> Inverting 'invert_copy'" << std::endl;
 
-  auto badlist3 = tkl::InvertCopy(badlist2);
+  auto badlist3 = InvertCopy(badlist2);
 
   std::cout << "> Printing" << std::endl;
 

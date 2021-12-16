@@ -18,7 +18,7 @@
 
 int main() {
   // Bit magic
-  run_practica_01();
+  // run_practica_01();
 
   // Pointer operations
   // run_practica_02();
@@ -36,7 +36,7 @@ int main() {
   // run_practica_06();
 
   // Namespaces: Ya estaba usando namespaces así que la he obviado
-  // run_practica_07();
+  // xRIPx run_practica_07();
 
   // Classes
   // run_practica_08();
@@ -66,15 +66,14 @@ int main() {
   // run_practica_16();
 
   // Macros
-  // Status: WIP
   // run_practica_17();
 
   // Macros Memory Leaks
-  // run_practica_18();
+  // xRIPx run_practica_18();
 
   // Templates: Ya la hice templatizada en practica_09
-  // run_practica_19();
+  // xRIPx run_practica_19();
 
   // Templates
-  // run_practica_20();
+  // xRIPx run_practica_20();
 }

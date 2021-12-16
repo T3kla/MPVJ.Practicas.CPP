@@ -8,7 +8,6 @@
 #include <memory>
 
 using namespace tkl::ent;
-using namespace fer::cls;
 
 namespace p04 {
 
@@ -18,7 +17,7 @@ static int margin_x = 10;
 static int margin_y = 4;
 
 void draw_01(Entity &value) {
-  GotoXY(value.position.x, value.position.y);
+  fer::cls::GotoXY(value.position.x, value.position.y);
   std::cout << '*';
 }
 
@@ -28,7 +27,7 @@ void move_01(Entity &value) {
 }
 
 void draw_02(Entity &value) {
-  GotoXY(value.position.x, value.position.y);
+  fer::cls::GotoXY(value.position.x, value.position.y);
   std::cout << '&';
 }
 
@@ -38,7 +37,7 @@ void move_02(Entity &value) {
 }
 
 void draw_03(Entity &value) {
-  GotoXY(value.position.x, value.position.y);
+  fer::cls::GotoXY(value.position.x, value.position.y);
   std::cout << '~';
 }
 
@@ -48,7 +47,7 @@ void move_03(Entity &value) {
 }
 
 void draw_04(Entity &value) {
-  GotoXY(value.position.x, value.position.y);
+  fer::cls::GotoXY(value.position.x, value.position.y);
   std::cout << '#';
 }
 
@@ -79,10 +78,10 @@ void run_practica_04() {
   delegate del_04[2] = {&p04::draw_04, &p04::move_04};
 
   std::unique_ptr<Entity> entities[4] = {
-      std::make_unique<Entity>({18, 20}, del_01),
-      std::make_unique<Entity>({36, 8}, del_02),
-      std::make_unique<Entity>({57, 15}, del_03),
-      std::make_unique<Entity>({75, 25}, del_04)};
+      std::make_unique<Entity>(Vec2i(18, 20), del_01),
+      std::make_unique<Entity>(Vec2i(36, 8), del_02),
+      std::make_unique<Entity>(Vec2i(57, 15), del_03),
+      std::make_unique<Entity>(Vec2i(75, 25), del_04)};
 
   while (true) {
     const char *lri = "La rica interfaz";
@@ -99,19 +98,19 @@ void run_practica_04() {
       for (x = 0; x < p04::size_x; x++) {
         if (x == p04::margin_x - 1 && y >= p04::margin_y - 1 &&
             y <= p04::size_y - p04::margin_y) {
-          GotoXY(x, y);
+          fer::cls::GotoXY(x, y);
           std::cout << (unsigned char)124;
         } else if (x == p04::size_x - p04::margin_x && y >= p04::margin_y - 1 &&
                    y <= p04::size_y - p04::margin_y) {
-          GotoXY(x, y);
+          fer::cls::GotoXY(x, y);
           std::cout << (unsigned char)124;
         } else if (y == p04::margin_y - 1 && x > p04::margin_x - 1 &&
                    x < p04::size_x - p04::margin_x) {
-          GotoXY(x, y);
+          fer::cls::GotoXY(x, y);
           std::cout << (unsigned char)45;
         } else if (y == p04::size_y - p04::margin_y && x > p04::margin_x - 1 &&
                    x < p04::size_x - p04::margin_x) {
-          GotoXY(x, y);
+          fer::cls::GotoXY(x, y);
           std::cout << (unsigned char)45;
         }
       }
@@ -122,8 +121,8 @@ void run_practica_04() {
       entities[i]->behaviour[0](*entities[i]);
     }
 
-    HideCursor();
+    fer::cls::HideCursor();
     Sleep(60);
-    Clear();
+    fer::cls::Clear();
   }
 }

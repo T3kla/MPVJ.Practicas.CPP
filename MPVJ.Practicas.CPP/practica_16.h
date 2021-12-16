@@ -1,12 +1,14 @@
 #pragma once
 
-#include "lib/llist/ilist.h"
+#include "ilist.h"
+
+using namespace tkl;
 
 namespace p16 {
-struct stuff : public tkl::IListable {
+struct Help : public IListable {
   const char *name;
 
-  stuff(const char *_name) { name = _name; }
+  Help(const char *_name) { name = _name; }
 
   virtual void Print() const override { std::cout << name << std::endl; }
 };
@@ -14,10 +16,10 @@ struct stuff : public tkl::IListable {
 } // namespace p16
 
 void run_practica_16() {
-  auto list = tkl::IList();
-  auto a = p16::stuff("a");
-  auto b = p16::stuff("b");
-  auto c = p16::stuff("c");
+  auto list = IList();
+  auto a = p16::Help("a");
+  auto b = p16::Help("b");
+  auto c = p16::Help("c");
 
   list.Push(&a);
   list.Push(&b);

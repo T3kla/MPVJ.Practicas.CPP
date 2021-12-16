@@ -1,63 +1,65 @@
 #pragma once
 
-#include "lib/bad_string/string.h"
+#include "str.h"
 #include <iostream>
 
+using namespace tkl::str;
+
 void run_practica_12() {
-  auto strA = tkl::Str("a1a23.5a.6");
-  auto strB = tkl::Str("-a1.a23.5a.6");
-  auto strC = tkl::Str("   aaa   ");
-  auto strD = tkl::Str("desktop/mates/tumadre.png");
-  auto strE = tkl::Str("lorem_04.txt");
+  auto strA = Str("a1a23.5a.6");
+  auto strB = Str("-a1.a23.5a.6");
+  auto strC = Str("   aaa   ");
+  auto strD = Str("desktop/mates/tumadre.png");
+  auto strE = Str("lorem_04.txt");
 
-  std::cout << strA << " to_int() " << '"' << strA.to_int() << '"' << std::endl;
-  std::cout << strB << " to_int() " << '"' << strB.to_int() << '"' << std::endl;
-  std::cout << strA << " to_float() " << '"' << strA.to_float() << '"'
+  std::cout << strA << " ToInt() " << '"' << strA.ToInt() << '"' << std::endl;
+  std::cout << strB << " ToInt() " << '"' << strB.ToInt() << '"' << std::endl;
+  std::cout << strA << " ToFloat() " << '"' << strA.ToFloat() << '"'
             << std::endl;
-  std::cout << strB << " to_float() " << '"' << strB.to_float() << '"'
+  std::cout << strB << " ToFloat() " << '"' << strB.ToFloat() << '"'
             << std::endl;
 
-  strA.replace(tkl::Str("a"), tkl::Str("lmao"));
+  strA.Replace(Str("a"), Str("lmao"));
 
   std::cout << strA << std::endl;
 
-  std::cout << strA.to_upper() << std::endl;
-  strA = strA.to_upper();
-  std::cout << strA.to_lower() << std::endl;
+  std::cout << strA.ToUpper() << std::endl;
+  strA = strA.ToUpper();
+  std::cout << strA.ToLower() << std::endl;
 
-  std::cout << '"' << strC.substr(3, 3) << '"' << std::endl;
+  std::cout << '"' << strC.Substr(3, 3) << '"' << std::endl;
 
-  std::cout << '"' << strC.trim_left() << '"' << std::endl;
-  std::cout << '"' << strC.trim_right() << '"' << std::endl;
-  std::cout << '"' << strC.trim() << '"' << std::endl;
+  std::cout << '"' << strC.TrimLeft() << '"' << std::endl;
+  std::cout << '"' << strC.TrimRight() << '"' << std::endl;
+  std::cout << '"' << strC.Trim() << '"' << std::endl;
 
-  std::cout << '"' << strC.trim().pad_left(10, '-') << '"' << std::endl;
-  std::cout << '"' << strC.trim().pad_right(10, '-') << '"' << std::endl;
+  std::cout << '"' << strC.Trim().PadLeft(10, '-') << '"' << std::endl;
+  std::cout << '"' << strC.Trim().PadRight(10, '-') << '"' << std::endl;
 
   strC = "1,2,3,4,5,6,7,8,9,0";
 
-  std::cout << '"' << strC.trim().pad_left(10, '-') << '"' << std::endl;
-  std::cout << '"' << strC.trim().pad_right(10, '-') << '"' << std::endl;
+  std::cout << '"' << strC.Trim().PadLeft(10, '-') << '"' << std::endl;
+  std::cout << '"' << strC.Trim().PadRight(10, '-') << '"' << std::endl;
 
-  std::cout << strD.strip_ext() << std::endl;
-  std::cout << strD.strip_dir() << std::endl;
+  std::cout << strD.StripExtension() << std::endl;
+  std::cout << strD.StripDirectory() << std::endl;
 
-  std::cout << strD.extract_ext() << std::endl;
-  std::cout << strD.extract_dir() << std::endl;
+  std::cout << strD.ExtractExtension() << std::endl;
+  std::cout << strD.ExtractDirectory() << std::endl;
 
-  std::cout << tkl::Str::to_string(-559038737) << std::endl;
-  std::cout << tkl::Str::to_string(-559038737.0f) << std::endl;
-  std::cout << tkl::Str::to_string_as_hex(-559038737) << std::endl;
+  std::cout << Str::ToString(-559038737) << std::endl;
+  std::cout << Str::ToString(-559038737.0f) << std::endl;
+  std::cout << Str::ToStringAsHex(-559038737) << std::endl;
 
-  std::cout << strE.real_path() << std::endl;
+  std::cout << strE.RealPath() << std::endl;
 
-  auto temp = tkl::Str::Read("lorem_04.txt");
+  auto temp = Str::Read("lorem_04.txt");
 
-  std::cout << tkl::Str::Read("lorem_04.txt") << std::endl;
+  std::cout << Str::Read("lorem_04.txt") << std::endl;
   strD.Write("lorem_04.txt");
-  std::cout << tkl::Str::Read("lorem_04.txt") << std::endl;
+  std::cout << Str::Read("lorem_04.txt") << std::endl;
   temp.Write("lorem_04.txt", false);
-  std::cout << tkl::Str::Read("lorem_04.txt") << std::endl;
+  std::cout << Str::Read("lorem_04.txt") << std::endl;
 
   std::cout << "Hola " + strD + " caracola" << std::endl;
 }
