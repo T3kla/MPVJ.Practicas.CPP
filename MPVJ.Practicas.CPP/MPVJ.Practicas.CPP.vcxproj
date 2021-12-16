@@ -152,6 +152,8 @@
   <ItemGroup>
     <ClInclude Include="enum_macro_dyn.h" />
     <ClInclude Include="enum_macro_sta.h" />
+    <ClInclude Include="memory_leaks.h" />
+    <ClInclude Include="practica_18.h" />
     <ClInclude Include="ilist.h" />
     <ClInclude Include="image.h" />
     <ClInclude Include="pi.h" />

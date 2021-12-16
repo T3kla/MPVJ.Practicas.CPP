@@ -14,6 +14,7 @@
 #include "practica_15.h"
 #include "practica_16.h"
 #include "practica_17.h"
+#include "practica_18.h"
 #include <iostream>
 
 int main() {
@@ -69,7 +70,7 @@ int main() {
   // run_practica_17();
 
   // Macros Memory Leaks
-  // xRIPx run_practica_18();
+  run_practica_18();
 
   // Templates: Ya la hice templatizada en practica_09
   // xRIPx run_practica_19();

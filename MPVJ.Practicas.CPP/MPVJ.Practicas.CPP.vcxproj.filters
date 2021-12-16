@@ -50,6 +50,9 @@
     <Filter Include="Source Files\lib\entity">
       <UniqueIdentifier>{6d58fc56-e90f-418d-8cf0-ad54418c19e1}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\lib\tkl\ml">
+      <UniqueIdentifier>{52362fd1-6a99-47ac-b9f1-c73eb37e783c}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -179,6 +182,12 @@
     </ClInclude>
     <ClInclude Include="txt_file.h">
       <Filter>Source Files\lib\tkl\tf</Filter>
+    </ClInclude>
+    <ClInclude Include="practica_18.h">
+      <Filter>Source Files\practicas</Filter>
+    </ClInclude>
+    <ClInclude Include="memory_leaks.h">
+      <Filter>Source Files\lib\tkl\ml</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
