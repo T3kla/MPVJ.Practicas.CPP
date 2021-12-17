@@ -6,6 +6,9 @@
 #include <iostream>
 
 void run_practica_18() {
+  //
+  // >> NO HACE FALTA LEER NADA DE ESTO <<
+  //
   // Se que se puede hacer en plan
   //
   //	#DEFINE NEW(_TYPE, _NAME, ...) \
@@ -26,21 +29,34 @@ void run_practica_18() {
   // solo hay que poner new y del en mayusculas, pero
   // pierdo la capacidad de de anunciar el nombre de la
   // variable y el tipo. ¯\_(ツ)_/¯
+  //
+  // Maldades:
+  //	Como se basa en overridear el operador new, se
+  //	puede adaptar para incluir news ocultos en plan
+  //	"registrame el siguiente new que ocurra, lo haga
+  //	quien lo haga, use o no use la macro" lo cual puede
+  //	ser util para testear librerias externas o algo.
+  //
+  //	También se pueden quitar los allows de OnMemAlloc
+  //	y OnMemFreed para que se registren todos los news
+  //	y deletes, pero tendria que pasar todo el sistema
+  //	a usar malloc porque si usase new para registrar
+  //	las cosas, generaría recursion infinita.
 
   MemLeakMonitor::PrintUsage();
 
-  char *a = NEW char;                      // 1 byte
-  char *b = NEW_ARR char[10]{"123456789"}; // 10 byte
+  char *a = NEW char;                  //  1 byte
+  char *b = NEW char[10]{"123456789"}; // 10 byte
 
   MemLeakMonitor::PrintUsage();
 
   DEL a;
-  DEL_ARR b;
+  DEL b;
 
   MemLeakMonitor::PrintUsage();
 
-  size_t *c = NEW size_t(420);    // 8 bytes
-  size_t *d = NEW_ARR size_t[10]; // 80 bytes
+  size_t *c = NEW size_t(420); //  8 bytes
+  size_t *d = NEW size_t[10];  // 80 bytes
 
   MemLeakMonitor::PrintUsage();
 

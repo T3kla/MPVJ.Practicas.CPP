@@ -37,17 +37,15 @@ public:
   static void Flush(); // Print leaks, clear entries
 };
 
-#ifdef _DEBUG
-#ifdef MEMORY_LEAKS_MONITOR
+#if defined MEMORY_LEAKS_MONITOR && defined _DEBUG
 
 #define NEW MemLeakMonitor::Set(true, __LINE__, __FILE__) && 0 ? NULL : new
-#define NEW_ARR MemLeakMonitor::Set(true, __LINE__, __FILE__) && 0 ? NULL : new
 #define DEL                                                                    \
   MemLeakMonitor::Set(false, __LINE__, __FILE__);                              \
   delete
-#define DEL_ARR                                                                \
-  MemLeakMonitor::Set(false, __LINE__, __FILE__);                              \
-  delete
+
+// #define NEW_ARR MLM::Set(true, __LINE__, __FILE__) && 0 ? NULL : new;
+// #define DEL_ARR MLM::Set(false, __LINE__, __FILE__); delete
 
 #else
 
@@ -56,5 +54,4 @@ public:
 #define DEL delete
 #define DEL_ARR delete
 
-#endif // MEMORY_LEAKS_MONITOR
-#endif // _DEBUG
+#endif
