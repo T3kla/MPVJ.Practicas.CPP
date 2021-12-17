@@ -38,6 +38,7 @@ void MemLeakMonitor::OnMemAlloc(void *ptr, size_t size) {
   size_t bffsize = strlen(instance.buffer);
   char *entry = new char[bffsize + 1];
   memcpy(entry, instance.buffer, bffsize + 1);
+
   instance.entries.insert({ptr, {size, entry}});
 }
 

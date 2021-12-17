@@ -160,6 +160,7 @@
     <ClInclude Include="image.h" />
     <ClInclude Include="pi.h" />
     <ClInclude Include="practica_13.h" />
+    <ClInclude Include="practica_20.h" />
     <ClInclude Include="str.h" />
     <ClInclude Include="bit.h" />
     <ClInclude Include="console.h" />

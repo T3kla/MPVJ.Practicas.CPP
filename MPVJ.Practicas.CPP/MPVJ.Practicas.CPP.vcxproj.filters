@@ -192,5 +192,8 @@
     <ClInclude Include="memory_leaks.h">
       <Filter>Source Files\lib\tkl\ml</Filter>
     </ClInclude>
+    <ClInclude Include="practica_20.h">
+      <Filter>Source Files\practicas</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
