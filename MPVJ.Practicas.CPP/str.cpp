@@ -326,7 +326,7 @@ bool Str::Find(const Str &_find, size_t &_idx_, const size_t &_ofs) const {
         _idx_ = it_l - data;
         return true;
       }
-      for (auto i = 1; i < find_len - 1; i++) {
+      for (size_t i = 1; i < find_len - 1; i++) {
         auto in_find = find_l + i;
         auto in_data = it_l + i;
         if (*in_find != *in_data)
@@ -362,7 +362,7 @@ bool Str::FindLast(const Str &_find, size_t &_idx_, const size_t &_ofs) const {
         _idx_ = it_l - data;
         return true;
       }
-      for (auto i = 1; i < find_len - 1; i++) {
+      for (size_t i = 1; i < find_len - 1; i++) {
         auto in_find = find_l + i;
         auto in_data = it_l + i;
         if (*in_find != *in_data)
@@ -381,11 +381,11 @@ bool Str::FindLast(const Str &_find, size_t &_idx_, const size_t &_ofs) const {
 }
 
 void Str::Replace(const Str &_find, const Str &_rep) {
-  auto idx = 0ull;
-  auto ofs = 0ull;
-  auto len_find = _find.Size();
-  auto len_rep = _rep.Size();
-  auto len_dif = len_rep - len_find;
+  size_t idx = 0ull;
+  size_t ofs = 0ull;
+  size_t len_find = _find.Size();
+  size_t len_rep = _rep.Size();
+  size_t len_dif = len_rep - len_find;
 
   while (Find(_find, idx, ofs)) {
     auto old_size = size;
@@ -478,28 +478,28 @@ Str Str::PadRight(const size_t &_len, const char &_c) const {
 }
 
 Str Str::StripExtension() const {
-  auto idx = 0ull;
+  size_t idx = 0ull;
   if (FindLast(".", idx))
     return Substr(0, idx);
   return *this;
 }
 
 Str Str::StripDirectory() const {
-  auto idx = 0ull;
+  size_t idx = 0ull;
   if (FindLast("/", idx))
     return Substr(0, Size() - idx - 1, true);
   return *this;
 }
 
 Str Str::ExtractExtension() const {
-  auto idx = 0ull;
+  size_t idx = 0ull;
   if (FindLast(".", idx))
     return Substr(0, Size() - idx - 1, true);
   return *this;
 }
 
 Str Str::ExtractDirectory() const {
-  auto idx = 0ull;
+  size_t idx = 0ull;
   if (FindLast("/", idx))
     return Substr(0, idx);
   return *this;

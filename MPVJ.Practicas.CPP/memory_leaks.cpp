@@ -1,4 +1,5 @@
 #include "memory_leaks.h"
+#include <windows.h>
 
 MemLeakMonitor MemLeakMonitor::instance;
 MemLeakMonitor::MemLeakMonitor() {}
@@ -13,10 +14,8 @@ void MemLeakMonitor::PrintUsage() {
   std::cout << "Usage: " << total << std::endl;
 }
 
-int MemLeakMonitor::Set(bool isNew, const size_t &line, const char *type,
-                        const char *filename) {
+int MemLeakMonitor::Set(bool isNew, const size_t &line, const char *filename) {
   instance.line = line;
-  instance.type = type;
   instance.filename = filename;
 
   if (isNew)
@@ -32,8 +31,8 @@ void MemLeakMonitor::OnMemAlloc(void *ptr, size_t size) {
     return;
   allowNew = false;
 
-  snprintf(instance.buffer, BUFFER_LEN, "%s at ln: %llu > %s", instance.type,
-           instance.line, instance.filename);
+  snprintf(instance.buffer, BUFFER_LEN, "%s(%llu): Memory leak detected!\n",
+           instance.filename, instance.line);
 
   size_t bffsize = strlen(instance.buffer);
   char *entry = new char[bffsize + 1];
@@ -47,4 +46,18 @@ void MemLeakMonitor::OnMemFreed(void *ptr, size_t size) {
   allowDel = false;
 
   instance.entries.erase(ptr);
+}
+
+void MemLeakMonitor::Dump() {
+  for (auto &entry : instance.entries) {
+    OutputDebugStringA(entry.second.msg);
+  }
+}
+
+void MemLeakMonitor::Flush() {
+  for (auto &entry : instance.entries) {
+    OutputDebugStringA(entry.second.msg);
+    delete entry.second.msg;
+  }
+  instance.entries.clear();
 }
