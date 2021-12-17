@@ -61,3 +61,14 @@ void MemLeakMonitor::Flush() {
   }
   instance.entries.clear();
 }
+
+void *operator new(size_t size) {
+  void *ptr = malloc(size);
+  MemLeakMonitor::OnMemAlloc(ptr, size);
+  return ptr;
+}
+
+void operator delete(void *ptr, size_t size) {
+  MemLeakMonitor::OnMemFreed(ptr, size);
+  free(ptr);
+}

@@ -37,7 +37,7 @@ int main() {
   // run_practica_06();
 
   // Namespaces: Ya estaba usando namespaces así que la he obviado
-  // xRIPx run_practica_07();
+  //-run_practica_07()-;
 
   // Classes
   // run_practica_08();
@@ -69,12 +69,12 @@ int main() {
   // Macros
   // run_practica_17();
 
-  // Macros Memory Leaks
+  // Macros Memory Leaks: guapisima
   run_practica_18();
 
   // Templates: Ya la hice templatizada en practica_09
-  // xRIPx run_practica_19();
+  //-run_practica_19()-;
 
   // Templates
-  // xRIPx run_practica_20();
+  //-run_practica_20()-;
 }

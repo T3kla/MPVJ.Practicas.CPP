@@ -1,6 +1,6 @@
 #pragma once
 
-#define MEMORY_LEAKS_MONITOR ;
+#define MEMORY_LEAKS_MONITOR
 
 #include "memory_leaks.h"
 #include <iostream>
@@ -27,7 +27,7 @@ void run_practica_18() {
   // DEL_ARR d;
 
   // Esto es increible
-  //	Con este sistema no hace falta NEW_ARR
-  //	pero lo pongo porque lo pides
   MemLeakMonitor::Flush();
 }
+
+#undef MEMORY_LEAKS_MONITOR

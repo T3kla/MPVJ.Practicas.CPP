@@ -48,14 +48,11 @@ public:
   MemLeakMonitor::Set(false, __LINE__, __FILE__);                              \
   delete
 
-void *operator new(size_t size) {
-  void *ptr = malloc(size);
-  MemLeakMonitor::OnMemAlloc(ptr, size);
-  return ptr;
-}
-void operator delete(void *ptr, size_t size) {
-  MemLeakMonitor::OnMemFreed(ptr, size);
-  free(ptr);
-}
+#else
+
+#define NEW new
+#define NEW_ARR new
+#define DEL delete
+#define DEL_ARR delete
 
 #endif // MEMORY_LEAKS_MONITOR
