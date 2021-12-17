@@ -33,10 +33,11 @@ public:
   static void OnMemAlloc(void *ptr, size_t size);
   static void OnMemFreed(void *ptr, size_t size);
 
-  static void Dump();
-  static void Flush();
+  static void Dump();  // Print leaks
+  static void Flush(); // Print leaks, clear entries
 };
 
+#ifdef _DEBUG
 #ifdef MEMORY_LEAKS_MONITOR
 
 #define NEW MemLeakMonitor::Set(true, __LINE__, __FILE__) && 0 ? NULL : new
@@ -56,3 +57,4 @@ public:
 #define DEL_ARR delete
 
 #endif // MEMORY_LEAKS_MONITOR
+#endif // _DEBUG

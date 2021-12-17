@@ -31,8 +31,9 @@ void MemLeakMonitor::OnMemAlloc(void *ptr, size_t size) {
     return;
   allowNew = false;
 
-  snprintf(instance.buffer, BUFFER_LEN, "%s(%llu): Memory leak detected!\n",
-           instance.filename, instance.line);
+  snprintf(instance.buffer, BUFFER_LEN,
+           "%s(%llu): Memory leak detected! %llu bytes\n", instance.filename,
+           instance.line, size);
 
   size_t bffsize = strlen(instance.buffer);
   char *entry = new char[bffsize + 1];
