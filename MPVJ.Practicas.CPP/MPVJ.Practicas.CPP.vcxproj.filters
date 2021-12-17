@@ -88,6 +88,9 @@
     <ClCompile Include="txt_file.cpp">
       <Filter>Source Files\lib\tkl\tf</Filter>
     </ClCompile>
+    <ClCompile Include="memory_leaks.cpp">
+      <Filter>Source Files\lib\tkl\ml</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="bit.h">

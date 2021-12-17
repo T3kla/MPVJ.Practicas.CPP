@@ -138,6 +138,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="image.cpp" />
+    <ClCompile Include="memory_leaks.cpp" />
     <ClCompile Include="pi.cpp" />
     <ClCompile Include="str.cpp" />
     <ClCompile Include="bit.cpp" />

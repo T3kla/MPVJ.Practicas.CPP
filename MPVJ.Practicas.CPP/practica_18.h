@@ -3,13 +3,18 @@
 #include "memory_leaks.h"
 #include <iostream>
 
-#define MEMORY_LEAKS_MONITOR
+SOCORRO;
 
 void run_practica_18() {
-  PrintUsage();
-  char *a = NEW char();
-  char *b = NEW char[10];
-  std::cout << a << std::endl;
-  std::cout << b << std::endl;
-  PrintUsage();
+  MemLeakMonitor::PrintUsage();
+
+  char *a = NEW char;
+  char *b = NEW_ARR char[10]{"123456789"};
+
+  MemLeakMonitor::PrintUsage();
+
+  DEL a;
+  DEL_ARR b;
+
+  MemLeakMonitor::PrintUsage();
 }
