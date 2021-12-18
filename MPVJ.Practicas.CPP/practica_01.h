@@ -5,7 +5,7 @@
 
 using namespace tkl::bit;
 
-void run_practica_01() {
+void RunP01() {
 
   Player p;
 

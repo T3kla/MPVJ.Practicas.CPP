@@ -7,7 +7,7 @@ using namespace tkl;
 // La hice templatizada desde el principio, asi
 // que he obviado la practica 19
 
-void run_practica_09() {
+void RunP09() {
   TList<const char *> list_char;
 
   auto char_1 = "asd";

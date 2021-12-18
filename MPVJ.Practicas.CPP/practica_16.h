@@ -4,7 +4,7 @@
 
 using namespace tkl;
 
-namespace p16 {
+namespace P16 {
 struct Help : public IListable {
   const char *name;
 
@@ -13,13 +13,13 @@ struct Help : public IListable {
   virtual void Print() const override { std::cout << name << std::endl; }
 };
 
-} // namespace p16
+} // namespace P16
 
-void run_practica_16() {
+void RunP16() {
   auto list = IList();
-  auto a = p16::Help("a");
-  auto b = p16::Help("b");
-  auto c = p16::Help("c");
+  auto a = P16::Help("a");
+  auto b = P16::Help("b");
+  auto c = P16::Help("c");
 
   list.Push(&a);
   list.Push(&b);

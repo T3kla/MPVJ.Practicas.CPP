@@ -6,7 +6,7 @@
 
 using namespace fmg;
 
-void run_practica_11() {
+void RunP11() {
   auto file_name = "lorem_04.txt";
 
   std::cout << "> Opening 'lorem_04.txt' as Read!" << std::endl;

@@ -5,7 +5,7 @@
 #include "memory_leaks.h"
 #include <iostream>
 
-void run_practica_18() {
+void RunP18() {
   //
   // >> NO HACE FALTA LEER NADA DE ESTO <<
   //

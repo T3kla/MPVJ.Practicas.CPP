@@ -4,7 +4,7 @@
 
 using namespace tkl::tf;
 
-void run_practica_08() {
+void RunP08() {
   TextFile file_01("lorem_01.txt");
   TextFile file_02("lorem_02.txt");
   TextFile file_03("lorem_03.txt");

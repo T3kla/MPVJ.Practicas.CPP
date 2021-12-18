@@ -4,7 +4,7 @@
 
 using namespace tkl::fmg;
 
-void run_practica_05() {
+void RunP05() {
   auto file_name = "lorem_01.txt";
   char buffer[512];
 

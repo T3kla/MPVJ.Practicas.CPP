@@ -2,7 +2,7 @@
 
 #include <iostream>
 
-namespace p15 {
+namespace P15 {
 
 class stream {
 protected:
@@ -56,12 +56,12 @@ public:
   }
 };
 
-} // namespace p15
+} // namespace P15
 
-void run_practica_15() {
+void RunP15() {
   unsigned char buffer[64];
 
-  p15::stream_tcp stream_tcp;
+  P15::stream_tcp stream_tcp;
 
   stream_tcp.Open();
   stream_tcp.Close();

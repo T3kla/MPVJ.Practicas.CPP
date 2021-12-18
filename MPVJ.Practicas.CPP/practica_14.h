@@ -1,7 +1,7 @@
 #pragma once
 #include <iostream>
 
-namespace p14 {
+namespace P14 {
 
 class ext {
 public:
@@ -61,18 +61,18 @@ public:
   void Size() { std::cout << "dev3 size: " << sizeof(*this) << std::endl; };
 };
 
-} // namespace p14
+} // namespace P14
 
-void run_practica_14() {
-  auto ext = p14::ext();
+void RunP14() {
+  auto ext = P14::ext();
   std::cout << std::endl;
-  auto base = p14::base();
+  auto base = P14::base();
   std::cout << std::endl;
-  auto dev1 = p14::dev1();
+  auto dev1 = P14::dev1();
   std::cout << std::endl;
-  auto dev2 = p14::dev2();
+  auto dev2 = P14::dev2();
   std::cout << std::endl;
-  auto dev3 = p14::dev3();
+  auto dev3 = P14::dev3();
 
   // ¿Cuanto espacio ocupa la tabla de funciones virtuales?
   //

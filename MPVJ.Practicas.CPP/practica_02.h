@@ -8,7 +8,7 @@
 
 using namespace tkl::si;
 
-namespace p02 {
+namespace P02 {
 
 void BiggestFromTable() {
 #pragma warning(disable : 4838)
@@ -48,9 +48,9 @@ void BiggestByteFromTable() {
             << static_cast<int>(*p_biggest) << std::endl;
 }
 
-} // namespace p02
+} // namespace P02
 
-void run_practica_02() {
+void RunP02() {
   auto v = ToByte(-559038737);
 
   std::cout << "> Int to bytes" << std::endl << std::endl;
@@ -64,12 +64,12 @@ void run_practica_02() {
 
   std::cout << "> Biggest int from table" << std::endl << std::endl;
 
-  p02::BiggestFromTable();
+  P02::BiggestFromTable();
   std::cout << std::endl;
 
   std::cout << "> Biggest byte from table" << std::endl << std::endl;
 
-  p02::BiggestByteFromTable();
+  P02::BiggestByteFromTable();
   std::cout << std::endl;
 
   std::cout << "> Flip string" << std::endl << std::endl;

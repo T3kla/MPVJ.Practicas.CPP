@@ -4,7 +4,7 @@
 
 using namespace tkl::img;
 
-namespace p13 {
+namespace P13 {
 
 void RemoveAlphaChannel(img::Image **images, size_t length) {
   for (auto i = 0; i < length; i++)
@@ -12,9 +12,9 @@ void RemoveAlphaChannel(img::Image **images, size_t length) {
       (static_cast<img::ImagePNG *>(images[i]))->remove_alphaChannel();
 }
 
-} // namespace p13
+} // namespace P13
 
-void run_practica_13() {
+void RunP13() {
   const size_t length = 3;
 
   img::Image *images[length]{nullptr};
@@ -30,5 +30,5 @@ void run_practica_13() {
 
   std::cout << "Remove alpha channel" << std::endl;
 
-  p13::RemoveAlphaChannel(images, length);
+  P13::RemoveAlphaChannel(images, length);
 }

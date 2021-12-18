@@ -70,7 +70,7 @@ int main() {
   // run_practica_17();
 
   // Macros Memory Leaks: guapisima
-  run_practica_18();
+  RunP18();
 
   // Templates: Ya la hice templatizada en practica_09
   //-run_practica_19()-;

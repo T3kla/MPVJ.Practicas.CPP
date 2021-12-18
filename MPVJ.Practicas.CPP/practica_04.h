@@ -9,7 +9,7 @@
 
 using namespace tkl::ent;
 
-namespace p04 {
+namespace P04 {
 
 static int size_x = 120;
 static int size_y = 25;
@@ -57,25 +57,25 @@ void move_04(Entity &value) {
 }
 
 void validate_pos(Vec2i &value) {
-  if (value.x >= p04::size_x - p04::margin_x)
-    value.x = p04::margin_x;
-  if (value.x < p04::margin_x)
-    value.x = p04::size_x - p04::margin_x - 1;
+  if (value.x >= P04::size_x - P04::margin_x)
+    value.x = P04::margin_x;
+  if (value.x < P04::margin_x)
+    value.x = P04::size_x - P04::margin_x - 1;
 
-  if (value.y >= p04::size_y - p04::margin_y)
-    value.y = p04::margin_y;
-  if (value.y < p04::margin_y)
-    value.y = p04::size_y - p04::margin_y - 1;
+  if (value.y >= P04::size_y - P04::margin_y)
+    value.y = P04::margin_y;
+  if (value.y < P04::margin_y)
+    value.y = P04::size_y - P04::margin_y - 1;
 }
 
-} // namespace p04
+} // namespace P04
 
-void run_practica_04() {
+void RunP04() {
 
-  delegate del_01[2] = {&p04::draw_01, &p04::move_01};
-  delegate del_02[2] = {&p04::draw_02, &p04::move_02};
-  delegate del_03[2] = {&p04::draw_03, &p04::move_03};
-  delegate del_04[2] = {&p04::draw_04, &p04::move_04};
+  delegate del_01[2] = {&P04::draw_01, &P04::move_01};
+  delegate del_02[2] = {&P04::draw_02, &P04::move_02};
+  delegate del_03[2] = {&P04::draw_03, &P04::move_03};
+  delegate del_04[2] = {&P04::draw_04, &P04::move_04};
 
   std::unique_ptr<Entity> entities[4] = {
       std::make_unique<Entity>(Vec2i(18, 20), del_01),
@@ -85,8 +85,8 @@ void run_practica_04() {
 
   while (true) {
     const char *lri = "La rica interfaz";
-    int y = p04::margin_y - 2;
-    int x = (int)floorf(p04::margin_x + p04::size_x / 2.0f - 16);
+    int y = P04::margin_y - 2;
+    int x = (int)floorf(P04::margin_x + P04::size_x / 2.0f - 16);
 
     for (int i = 0; i < y; i++)
       std::cout << std::endl;
@@ -94,22 +94,22 @@ void run_practica_04() {
       std::cout << ' ';
     std::cout << lri << std::endl;
 
-    for (y = 0; y < p04::size_y; y++)
-      for (x = 0; x < p04::size_x; x++) {
-        if (x == p04::margin_x - 1 && y >= p04::margin_y - 1 &&
-            y <= p04::size_y - p04::margin_y) {
+    for (y = 0; y < P04::size_y; y++)
+      for (x = 0; x < P04::size_x; x++) {
+        if (x == P04::margin_x - 1 && y >= P04::margin_y - 1 &&
+            y <= P04::size_y - P04::margin_y) {
           fer::cls::GotoXY(x, y);
           std::cout << (unsigned char)124;
-        } else if (x == p04::size_x - p04::margin_x && y >= p04::margin_y - 1 &&
-                   y <= p04::size_y - p04::margin_y) {
+        } else if (x == P04::size_x - P04::margin_x && y >= P04::margin_y - 1 &&
+                   y <= P04::size_y - P04::margin_y) {
           fer::cls::GotoXY(x, y);
           std::cout << (unsigned char)124;
-        } else if (y == p04::margin_y - 1 && x > p04::margin_x - 1 &&
-                   x < p04::size_x - p04::margin_x) {
+        } else if (y == P04::margin_y - 1 && x > P04::margin_x - 1 &&
+                   x < P04::size_x - P04::margin_x) {
           fer::cls::GotoXY(x, y);
           std::cout << (unsigned char)45;
-        } else if (y == p04::size_y - p04::margin_y && x > p04::margin_x - 1 &&
-                   x < p04::size_x - p04::margin_x) {
+        } else if (y == P04::size_y - P04::margin_y && x > P04::margin_x - 1 &&
+                   x < P04::size_x - P04::margin_x) {
           fer::cls::GotoXY(x, y);
           std::cout << (unsigned char)45;
         }
@@ -117,7 +117,7 @@ void run_practica_04() {
 
     for (size_t i = 0; i < 4; i++) {
       entities[i]->behaviour[1](*entities[i]);
-      p04::validate_pos(entities[i]->position);
+      P04::validate_pos(entities[i]->position);
       entities[i]->behaviour[0](*entities[i]);
     }
 

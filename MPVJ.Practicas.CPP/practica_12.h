@@ -5,7 +5,7 @@
 
 using namespace tkl::str;
 
-void run_practica_12() {
+void RunP12() {
   auto strA = Str("a1a23.5a.6");
   auto strB = Str("-a1.a23.5a.6");
   auto strC = Str("   aaa   ");

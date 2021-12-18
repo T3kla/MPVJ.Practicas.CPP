@@ -7,7 +7,7 @@
 
 using namespace tkl::si;
 
-namespace p03 {
+namespace P03 {
 
 template <typename T> T at(const std::vector<T> arr, const int &index) {
   auto length = arr.size();
@@ -16,9 +16,9 @@ template <typename T> T at(const std::vector<T> arr, const int &index) {
   return arr[index];
 }
 
-} // namespace p03
+} // namespace P03
 
-void run_practica_03() {
+void RunP03() {
 
   std::vector<std::string> arr;
   arr.push_back("Orange");
@@ -30,48 +30,48 @@ void run_practica_03() {
 
   std::cout << "> Return string at index" << std::endl << std::endl;
 
-  a = p03::at(arr, -1);
+  a = P03::at(arr, -1);
   std::cout << "    index[-1]: " << a << std::endl;
 
-  a = p03::at(arr, 1);
+  a = P03::at(arr, 1);
   std::cout << "    index[ 1]: " << a << std::endl;
 
-  a = p03::at(arr, 0);
+  a = P03::at(arr, 0);
   std::cout << "    index[ 0]: " << a << std::endl;
 
-  a = p03::at(arr, 2);
+  a = P03::at(arr, 2);
   std::cout << "    index[ 2]: " << a << std::endl;
 
-  a = p03::at(arr, 3);
+  a = P03::at(arr, 3);
   std::cout << "    index[ 3]: " << a << std::endl;
 
-  a = p03::at(arr, 4);
+  a = P03::at(arr, 4);
   std::cout << "    index[ 4]: " << a << std::endl;
 
   std::cout << std::endl;
   std::cout << "> Return string inverted at index" << std::endl << std::endl;
 
-  a = p03::at(arr, -1);
+  a = P03::at(arr, -1);
   FlipStringNoLazyNoCopy(a);
   std::cout << "    index[-1]: " << a << std::endl;
 
-  a = p03::at(arr, 0);
+  a = P03::at(arr, 0);
   FlipStringNoLazyNoCopy(a);
   std::cout << "    index[ 0]: " << a << std::endl;
 
-  a = p03::at(arr, 1);
+  a = P03::at(arr, 1);
   FlipStringNoLazyNoCopy(a);
   std::cout << "    index[ 1]: " << a << std::endl;
 
-  a = p03::at(arr, 2);
+  a = P03::at(arr, 2);
   FlipStringNoLazyNoCopy(a);
   std::cout << "    index[ 2]: " << a << std::endl;
 
-  a = p03::at(arr, 3);
+  a = P03::at(arr, 3);
   FlipStringNoLazyNoCopy(a);
   std::cout << "    index[ 3]: " << a << std::endl;
 
-  a = p03::at(arr, 4);
+  a = P03::at(arr, 4);
   FlipStringNoLazyNoCopy(a);
   std::cout << "    index[ 4]: " << a << std::endl;
 }

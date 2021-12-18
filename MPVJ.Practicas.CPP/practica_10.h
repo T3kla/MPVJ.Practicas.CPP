@@ -4,7 +4,7 @@
 
 using namespace tkl::fmg;
 
-void run_practica_10() {
+void RunP10() {
   auto file_name = "lorem_04.txt";
 
   std::cout << "> Opening 'lorem_04.txt' as Read!" << std::endl;

@@ -6,7 +6,7 @@
 
 using namespace tkl::fmg;
 
-namespace p06 {
+namespace P06 {
 
 unsigned int word_count_appearaces(const char *buffer, const char *word) {
   unsigned int word_size = strlen(word);
@@ -58,9 +58,9 @@ unsigned int word_sum_nums(const char *_buffer) {
   return sum;
 }
 
-} // namespace p06
+} // namespace P06
 
-void run_practica_06() {
+void RunP06() {
   auto file_name_01 = "lorem_01.txt";
   auto file_name_02 = "lorem_02.txt";
   auto file_name_04 = "lorem_04.txt";
@@ -81,7 +81,7 @@ void run_practica_06() {
   std::cout << std::endl;
 
   std::cout << "Searching appearances of word 'Lorem': " << std::endl;
-  count = p06::word_count_appearaces(buffer, "Lorem");
+  count = P06::word_count_appearaces(buffer, "Lorem");
   std::cout << "    Found: " << count << std::endl;
 
   std::cout << std::endl;
@@ -103,7 +103,7 @@ void run_practica_06() {
   std::cout << std::endl;
 
   std::cout << "Searching appearances of word 'Lorem': " << std::endl;
-  count = p06::word_count_appearaces(buffer, "Lorem");
+  count = P06::word_count_appearaces(buffer, "Lorem");
   std::cout << "    Found: " << count << std::endl;
 
   std::cout << std::endl;
@@ -125,7 +125,7 @@ void run_practica_06() {
   std::cout << std::endl;
 
   std::cout << "Adding up numbers separated with comas: " << std::endl;
-  count = p06::word_sum_nums(buffer);
+  count = P06::word_sum_nums(buffer);
   std::cout << "    Sum: " << count << std::endl;
 
   std::cout << std::endl;
