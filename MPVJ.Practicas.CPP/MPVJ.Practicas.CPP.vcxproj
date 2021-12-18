@@ -138,6 +138,9 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="component_manager.cpp" />
+    <ClCompile Include="ecs_manager.cpp" />
+    <ClCompile Include="entity_manager.cpp" />
     <ClCompile Include="image.cpp" />
     <ClCompile Include="memory_leaks.cpp" />
     <ClCompile Include="pi.cpp" />
@@ -147,26 +150,45 @@
     <ClCompile Include="entity.cpp" />
     <ClCompile Include="file_magic.cpp" />
     <ClCompile Include="player.cpp" />
+    <ClCompile Include="system_manager.cpp" />
+    <ClCompile Include="sys_collisions.cpp" />
+    <ClCompile Include="sys_renderer.cpp" />
+    <ClCompile Include="sys_translation.cpp" />
     <ClCompile Include="txt_file.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="vec.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="health.h" />
+    <ClInclude Include="component_manager.h" />
+    <ClInclude Include="ecs_manager.h" />
+    <ClInclude Include="ent.h" />
+    <ClInclude Include="entity_manager.h" />
     <ClInclude Include="enum_macro_dyn.h" />
     <ClInclude Include="enum_macro_sta.h" />
+    <ClInclude Include="juggler.h" />
     <ClInclude Include="memory_leaks.h" />
+    <ClInclude Include="movement.h" />
+    <ClInclude Include="p20data.h" />
     <ClInclude Include="practica_18.h" />
     <ClInclude Include="ilist.h" />
     <ClInclude Include="image.h" />
     <ClInclude Include="pi.h" />
     <ClInclude Include="practica_13.h" />
     <ClInclude Include="practica_20.h" />
+    <ClInclude Include="sys_collisions.h" />
+    <ClInclude Include="sys_renderer.h" />
+    <ClInclude Include="renderer.h" />
     <ClInclude Include="str.h" />
     <ClInclude Include="bit.h" />
     <ClInclude Include="console.h" />
     <ClInclude Include="entity.h" />
     <ClInclude Include="file_magic.h" />
     <ClInclude Include="player.h" />
+    <ClInclude Include="system.h" />
+    <ClInclude Include="system_manager.h" />
+    <ClInclude Include="sys_translation.h" />
+    <ClInclude Include="transform.h" />
     <ClInclude Include="txt_file.h" />
     <ClInclude Include="practica_08.h" />
     <ClInclude Include="practica_05.h" />

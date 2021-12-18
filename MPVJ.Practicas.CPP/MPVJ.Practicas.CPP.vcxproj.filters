@@ -17,23 +17,11 @@
     <Filter Include="Source Files\lib\tkl\bit">
       <UniqueIdentifier>{213cc1e4-4ca6-47fd-b3da-5b3a1e97bb59}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\lib\tkl\fmg">
-      <UniqueIdentifier>{a61633db-4a4a-4036-a0a6-2a6397fc5208}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Source Files\lib\tkl\img">
       <UniqueIdentifier>{2d531852-dd20-48c3-b647-763da42abe37}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\lib\tkl\player">
-      <UniqueIdentifier>{ed1ceb4b-b553-4f69-91c3-0f9e8106f03a}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\lib\tkl\si">
-      <UniqueIdentifier>{daed1c33-3785-4b16-b39a-ecc7b7a2dac4}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Source Files\lib\tkl\str">
       <UniqueIdentifier>{a47950cb-d626-495b-802e-0bdbb54b7445}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\lib\tkl\tf">
-      <UniqueIdentifier>{b48004fe-01da-4387-a130-c7647e2fb505}</UniqueIdentifier>
     </Filter>
     <Filter Include="Source Files\lib\fer">
       <UniqueIdentifier>{41af3b7c-d6c8-442d-a94e-92ff1e100004}</UniqueIdentifier>
@@ -41,17 +29,41 @@
     <Filter Include="Source Files\lib\fer\cls">
       <UniqueIdentifier>{cdb0c970-b0d3-4000-a11c-0c431dd55fac}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\lib\macro madness">
-      <UniqueIdentifier>{a9842cd5-4725-4935-934b-c43f9df7c17d}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Source Files\lib\math">
       <UniqueIdentifier>{ad2b1827-8fa6-4975-945a-d3064ddee56d}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\lib\entity">
+    <Filter Include="Source Files\lib\tkl\macro madness">
+      <UniqueIdentifier>{a9842cd5-4725-4935-934b-c43f9df7c17d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\lib\tkl\string inverter">
+      <UniqueIdentifier>{daed1c33-3785-4b16-b39a-ecc7b7a2dac4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\lib\tkl\memory leaks">
+      <UniqueIdentifier>{52362fd1-6a99-47ac-b9f1-c73eb37e783c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\lib\tkl\file magic">
+      <UniqueIdentifier>{a61633db-4a4a-4036-a0a6-2a6397fc5208}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\lib\tkl\text file">
+      <UniqueIdentifier>{b48004fe-01da-4387-a130-c7647e2fb505}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\lib\tkl\entity">
       <UniqueIdentifier>{6d58fc56-e90f-418d-8cf0-ad54418c19e1}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\lib\tkl\ml">
-      <UniqueIdentifier>{52362fd1-6a99-47ac-b9f1-c73eb37e783c}</UniqueIdentifier>
+    <Filter Include="Source Files\lib\tkl\ecs">
+      <UniqueIdentifier>{d95db01f-2950-4854-bc27-65be8357521f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\lib\tkl\ecs\components">
+      <UniqueIdentifier>{061de987-ccc2-401b-8566-d9a6c8225a5a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\lib\tkl\ecs\managers">
+      <UniqueIdentifier>{f8747ac0-9446-46b7-867e-682e102f3ba9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\lib\tkl\lists">
+      <UniqueIdentifier>{5c15258f-41c3-4aaa-9d42-add16b938663}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\lib\tkl\ecs\systems">
+      <UniqueIdentifier>{567753e9-d620-40be-be77-633227ed13af}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -65,10 +77,10 @@
       <Filter>Source Files\lib\fer\cls</Filter>
     </ClCompile>
     <ClCompile Include="entity.cpp">
-      <Filter>Source Files\lib\entity</Filter>
+      <Filter>Source Files\lib\tkl\entity</Filter>
     </ClCompile>
     <ClCompile Include="file_magic.cpp">
-      <Filter>Source Files\lib\tkl\fmg</Filter>
+      <Filter>Source Files\lib\tkl\file magic</Filter>
     </ClCompile>
     <ClCompile Include="image.cpp">
       <Filter>Source Files\lib\tkl\img</Filter>
@@ -86,10 +98,31 @@
       <Filter>Source Files\lib\tkl\str</Filter>
     </ClCompile>
     <ClCompile Include="txt_file.cpp">
-      <Filter>Source Files\lib\tkl\tf</Filter>
+      <Filter>Source Files\lib\tkl\text file</Filter>
     </ClCompile>
     <ClCompile Include="memory_leaks.cpp">
-      <Filter>Source Files\lib\tkl\ml</Filter>
+      <Filter>Source Files\lib\tkl\memory leaks</Filter>
+    </ClCompile>
+    <ClCompile Include="component_manager.cpp">
+      <Filter>Source Files\lib\tkl\ecs\managers</Filter>
+    </ClCompile>
+    <ClCompile Include="entity_manager.cpp">
+      <Filter>Source Files\lib\tkl\ecs\managers</Filter>
+    </ClCompile>
+    <ClCompile Include="ecs_manager.cpp">
+      <Filter>Source Files\lib\tkl\ecs\managers</Filter>
+    </ClCompile>
+    <ClCompile Include="system_manager.cpp">
+      <Filter>Source Files\lib\tkl\ecs\managers</Filter>
+    </ClCompile>
+    <ClCompile Include="sys_translation.cpp">
+      <Filter>Source Files\lib\tkl\ecs\systems</Filter>
+    </ClCompile>
+    <ClCompile Include="sys_renderer.cpp">
+      <Filter>Source Files\lib\tkl\ecs\systems</Filter>
+    </ClCompile>
+    <ClCompile Include="sys_collisions.cpp">
+      <Filter>Source Files\lib\tkl\ecs\systems</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -100,22 +133,16 @@
       <Filter>Source Files\lib\fer\cls</Filter>
     </ClInclude>
     <ClInclude Include="entity.h">
-      <Filter>Source Files\lib\entity</Filter>
+      <Filter>Source Files\lib\tkl\entity</Filter>
     </ClInclude>
     <ClInclude Include="enum_macro_sta.h">
-      <Filter>Source Files\lib\macro madness</Filter>
+      <Filter>Source Files\lib\tkl\macro madness</Filter>
     </ClInclude>
     <ClInclude Include="enum_macro_dyn.h">
-      <Filter>Source Files\lib\macro madness</Filter>
+      <Filter>Source Files\lib\tkl\macro madness</Filter>
     </ClInclude>
     <ClInclude Include="file_magic.h">
-      <Filter>Source Files\lib\tkl\fmg</Filter>
-    </ClInclude>
-    <ClInclude Include="ilist.h">
-      <Filter>Source Files\lib\tkl</Filter>
-    </ClInclude>
-    <ClInclude Include="tlist.h">
-      <Filter>Source Files\lib\tkl</Filter>
+      <Filter>Source Files\lib\tkl\file magic</Filter>
     </ClInclude>
     <ClInclude Include="image.h">
       <Filter>Source Files\lib\tkl\img</Filter>
@@ -178,22 +205,73 @@
       <Filter>Source Files\practicas</Filter>
     </ClInclude>
     <ClInclude Include="string_inverter.h">
-      <Filter>Source Files\lib\tkl\si</Filter>
+      <Filter>Source Files\lib\tkl\string inverter</Filter>
     </ClInclude>
     <ClInclude Include="str.h">
       <Filter>Source Files\lib\tkl\str</Filter>
     </ClInclude>
     <ClInclude Include="txt_file.h">
-      <Filter>Source Files\lib\tkl\tf</Filter>
+      <Filter>Source Files\lib\tkl\text file</Filter>
     </ClInclude>
     <ClInclude Include="practica_18.h">
       <Filter>Source Files\practicas</Filter>
     </ClInclude>
     <ClInclude Include="memory_leaks.h">
-      <Filter>Source Files\lib\tkl\ml</Filter>
+      <Filter>Source Files\lib\tkl\memory leaks</Filter>
     </ClInclude>
     <ClInclude Include="practica_20.h">
       <Filter>Source Files\practicas</Filter>
+    </ClInclude>
+    <ClInclude Include="juggler.h">
+      <Filter>Source Files\lib\tkl\ecs</Filter>
+    </ClInclude>
+    <ClInclude Include="component_manager.h">
+      <Filter>Source Files\lib\tkl\ecs\managers</Filter>
+    </ClInclude>
+    <ClInclude Include="entity_manager.h">
+      <Filter>Source Files\lib\tkl\ecs\managers</Filter>
+    </ClInclude>
+    <ClInclude Include="ecs_manager.h">
+      <Filter>Source Files\lib\tkl\ecs\managers</Filter>
+    </ClInclude>
+    <ClInclude Include="system_manager.h">
+      <Filter>Source Files\lib\tkl\ecs\managers</Filter>
+    </ClInclude>
+    <ClInclude Include="health.h">
+      <Filter>Source Files\lib\tkl\ecs\components</Filter>
+    </ClInclude>
+    <ClInclude Include="renderer.h">
+      <Filter>Source Files\lib\tkl\ecs\components</Filter>
+    </ClInclude>
+    <ClInclude Include="transform.h">
+      <Filter>Source Files\lib\tkl\ecs\components</Filter>
+    </ClInclude>
+    <ClInclude Include="ent.h">
+      <Filter>Source Files\lib\tkl\ecs</Filter>
+    </ClInclude>
+    <ClInclude Include="movement.h">
+      <Filter>Source Files\lib\tkl\ecs\components</Filter>
+    </ClInclude>
+    <ClInclude Include="system.h">
+      <Filter>Source Files\lib\tkl\ecs</Filter>
+    </ClInclude>
+    <ClInclude Include="tlist.h">
+      <Filter>Source Files\lib\tkl\lists</Filter>
+    </ClInclude>
+    <ClInclude Include="ilist.h">
+      <Filter>Source Files\lib\tkl\lists</Filter>
+    </ClInclude>
+    <ClInclude Include="sys_renderer.h">
+      <Filter>Source Files\lib\tkl\ecs\systems</Filter>
+    </ClInclude>
+    <ClInclude Include="sys_translation.h">
+      <Filter>Source Files\lib\tkl\ecs\systems</Filter>
+    </ClInclude>
+    <ClInclude Include="sys_collisions.h">
+      <Filter>Source Files\lib\tkl\ecs\systems</Filter>
+    </ClInclude>
+    <ClInclude Include="p20data.h">
+      <Filter>Source Files\lib\tkl\ecs</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

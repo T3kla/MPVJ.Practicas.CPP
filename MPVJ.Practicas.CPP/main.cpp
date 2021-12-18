@@ -15,66 +15,67 @@
 #include "practica_16.h"
 #include "practica_17.h"
 #include "practica_18.h"
+#include "practica_20.h"
 #include <iostream>
 
 int main() {
   // Bit magic
-  // run_practica_01();
+  // RunP01();
 
   // Pointer operations
-  // run_practica_02();
+  // RunP02();
 
   // Functions with strings
-  // run_practica_03();
+  // RunP03();
 
   // Entities moving through screen
-  // run_practica_04();
+  // RunP04();
 
   // Text files in *void
-  // run_practica_05();
+  // RunP05();
 
   // Functions with strings in places
-  // run_practica_06();
+  // RunP06();
 
   // Namespaces: Ya estaba usando namespaces así que la he obviado
-  //-run_practica_07()-;
+  //-RunP07()-;
 
   // Classes
-  // run_practica_08();
+  // RunP08();
 
   // Linked list
-  // run_practica_09();
+  // RunP09();
 
-  // Add stuff to practica_07
-  // run_practica_10();
+  // Add stuff to practica 7
+  // RunP10();
 
   // Constructors
-  // run_practica_11();
+  // RunP11();
 
   // Operators
-  // run_practica_12();
+  // RunP12();
 
   // Inheritance
-  // run_practica_13();
+  // RunP13();
 
   // Virtual functions
-  // run_practica_14();
+  // RunP14();
 
   // Polymorphic design
-  // run_practica_15();
+  // RunP15();
 
   // Interfaces
-  // run_practica_16();
+  // RunP16();
 
   // Macros
-  // run_practica_17();
+  // RunP17();
 
-  // Macros Memory Leaks: guapisima
-  RunP18();
+  // Macros Memory Leaks
+  // RunP18();
 
   // Templates: Ya la hice templatizada en practica_09
-  //-run_practica_19()-;
+  //-RunP19()-;
 
-  // Templates
-  //-run_practica_20()-;
+  // ECS
+  RunP20();
 }
