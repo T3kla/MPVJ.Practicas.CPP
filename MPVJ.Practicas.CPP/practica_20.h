@@ -71,6 +71,7 @@ void RunP20() {
   RangeInt randPosX(MARGIN_X, SIZE_X - MARGIN_X);
   RangeInt randPosY(MARGIN_Y, SIZE_Y - MARGIN_Y);
   RangeInt randChar(0, 255);
+  RangeInt randColr(1, 14);
   RangeInt randSpeedX(MIN_SPEED_X, MAX_SPEED_X);
   RangeInt randSpeedY(MIN_SPEED_Y, MAX_SPEED_Y);
   RangeInt randHP(1, MAX_HP);
@@ -97,6 +98,7 @@ void RunP20() {
 
     Renderer rd;
     rd.texture = (char)randChar(rand);
+    rd.color = randColr(rand);
     ecs.AddComponent(id, rd);
   }
 

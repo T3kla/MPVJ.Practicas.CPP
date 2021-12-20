@@ -1,5 +1,0 @@
-﻿Build started...
-1>------ Build started: Project: MPVJ.Practicas.CPP, Configuration: Debug x64 ------
-1>main.cpp
-1>MPVJ.Practicas.CPP.vcxproj -> C:\Repos\MPVJ.Practicas.CPP\x64\Debug\MPVJ.Practicas.CPP.exe
-========== Build: 1 succeeded, 0 failed, 0 up-to-date, 0 skipped ==========

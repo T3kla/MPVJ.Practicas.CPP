@@ -7,10 +7,13 @@
 #include "renderer.h"
 #include "transform.h"
 #include <iostream>
+#include <windows.h>
 
 void SysRenderer::Run() {
+  HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
 
   // Print box
+  SetConsoleTextAttribute(hConsole, 15);
   for (int y = 0; y < SIZE_Y; y++)
     for (int x = 0; x < SIZE_X; x++) {
       if (x == MARGIN_X - 1 && y >= MARGIN_Y - 1 && y <= SIZE_Y - MARGIN_Y) {
@@ -40,6 +43,7 @@ void SysRenderer::Run() {
     if (hp.health == 0)
       continue;
 
+    SetConsoleTextAttribute(hConsole, rd.color);
     fer::cls::GotoXY(tf.position.x, tf.position.y);
     std::cout << rd.texture;
   }
